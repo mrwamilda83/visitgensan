@@ -105,6 +105,7 @@ const categoryNotes = {
 
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
+const listingRequestForm = document.querySelector(".development-listing-form");
 const developmentPreviewHosts = ["localhost", "127.0.0.1"];
 const productionDevelopmentHosts = ["visitgensan.com", "www.visitgensan.com", "visitgensan.pages.dev"];
 const isLocalDevelopmentPreview = developmentPreviewHosts.includes(window.location.hostname);
@@ -143,8 +144,30 @@ if (isDevelopmentLocked) {
   }, true);
 
   document.addEventListener("submit", (event) => {
+    if (event.target.closest(".development-listing-form")) return;
+
     event.preventDefault();
   }, true);
+}
+
+if (listingRequestForm) {
+  // This mailto form is used because VisitGensan.com is currently a static site with no backend.
+  listingRequestForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(listingRequestForm);
+    const pageLink = String(formData.get("pageLink") || "").trim();
+    const businessName = String(formData.get("businessName") || "").trim();
+    const subject = encodeURIComponent("VisitGensan Free Listing Request");
+    const body = encodeURIComponent([
+      `Facebook/Page Link: ${pageLink}`,
+      `Business Name: ${businessName}`,
+      "Message:",
+      "I confirm that I own or am authorized to share the submitted page, photos, and business details, and I allow VisitGensan.com to use them for a free listing."
+    ].join("\n"));
+
+    window.location.href = `mailto:revarkz@gmail.com?subject=${subject}&body=${body}`;
+  });
 }
 
 if (navToggle && siteNav) {

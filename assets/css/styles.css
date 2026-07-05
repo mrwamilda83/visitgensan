@@ -124,15 +124,48 @@ body {
   color: var(--coral);
 }
 
+.development-listing-form {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 12px;
+}
+
+.development-listing-form label {
+  color: var(--teal-dark);
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.development-listing-form input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+  padding: 10px 12px;
+}
+
+.development-listing-form input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(4, 123, 131, 0.12);
+  outline: none;
+}
+
 .development-listing-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 44px;
   margin: 2px 0 14px;
+  border: 0;
   border-radius: 8px;
   background: var(--teal);
   color: #ffffff;
+  cursor: pointer;
+  font: inherit;
   font-weight: 900;
   padding: 10px 16px;
   text-decoration: none;
@@ -144,6 +177,19 @@ body {
   background: var(--coral);
   color: #ffffff;
   transform: translateY(-1px);
+}
+
+.development-email-action {
+  display: inline-flex;
+  color: var(--teal-dark);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.development-email-action:hover,
+.development-email-action:focus-visible {
+  color: var(--coral);
 }
 
 @media (max-width: 640px) {
@@ -159,6 +205,11 @@ body {
 
   .development-listing-button {
     width: 100%;
+  }
+
+  .development-email-action {
+    width: 100%;
+    justify-content: center;
   }
 }
 

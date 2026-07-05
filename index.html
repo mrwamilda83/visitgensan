@@ -94,17 +94,24 @@
       <section class="development-listing-invite" aria-labelledby="development-listing-title">
         <h2 id="development-listing-title">Want to be part of VisitGensan?</h2>
         <p>Hotels, restaurants, caf&eacute;s, tourist spots, and local businesses in General Santos City may request a free listing on VisitGensan.com.</p>
-        <p>To be featured, please send us:</p>
+        <p>To make listing easier, you may send us your official Facebook page link. We can use the public photos and business details from your page to prepare your listing.</p>
+        <p>You may also send:</p>
         <ul>
           <li>Business name</li>
           <li>Short description</li>
           <li>Location/address</li>
-          <li>Up to 5 photos that you own or are authorized to share</li>
-          <li>Official Facebook page, website, email, or business contact number</li>
+          <li>Up to 5 photos</li>
+          <li>Website, email, or business contact number</li>
         </ul>
-        <p>You may send your photos and details to:<br><a class="development-email" href="mailto:revarkz@gmail.com">revarkz@gmail.com</a></p>
-        <a class="development-listing-button" href="mailto:revarkz@gmail.com">Email us for a free listing</a>
-        <p class="development-guide-note">Free listing only. VisitGensan.com is an independent local guide and is not affiliated with listed businesses unless clearly stated.</p>
+        <form class="development-listing-form">
+          <label for="listing-page-link">Business / Facebook Page Link</label>
+          <input id="listing-page-link" name="pageLink" type="url" placeholder="https://www.facebook.com/yourpage" required>
+          <label for="listing-business-name">Optional Business Name</label>
+          <input id="listing-business-name" name="businessName" type="text" placeholder="Business name">
+          <button class="development-listing-button" type="submit">Send listing request</button>
+        </form>
+        <a class="development-email-action" href="mailto:revarkz@gmail.com?subject=VisitGensan%20Free%20Listing%20Request">Email us for a free listing</a>
+        <p class="development-guide-note"><strong>Important:</strong><br>By sending your Facebook page link, photos, or business details, you confirm that you own them or are authorized to share them, and you allow VisitGensan.com to use them for your free listing. VisitGensan.com is an independent local guide and is not affiliated with listed businesses unless clearly stated.</p>
       </section>
     </aside>
 
