@@ -29,6 +29,130 @@ body {
   line-height: 1.6;
 }
 
+/* Localhost/127.0.0.1 are development preview only; production hosts keep the under-development lock. */
+.under-development-home.is-development-locked {
+  overflow-x: hidden;
+}
+
+.development-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 40;
+  width: min(760px, calc(100% - 34px));
+  border: 1px solid rgba(246, 185, 66, 0.72);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 24px 70px rgba(3, 22, 26, 0.24);
+  color: var(--ink);
+  padding: clamp(24px, 4vw, 44px);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.development-kicker {
+  margin: 0 0 8px;
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.development-overlay h1 {
+  margin: 0 0 14px;
+  color: var(--teal-dark);
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  line-height: 0.98;
+}
+
+.development-overlay p {
+  margin: 0 auto 16px;
+  max-width: 620px;
+  color: #2f5960;
+  font-size: clamp(1rem, 2vw, 1.18rem);
+}
+
+.development-guide-note {
+  border-left: 4px solid var(--yellow);
+  background: #fffaf0;
+  color: #254b52 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.45;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.under-development-home.is-development-preview .development-overlay {
+  display: none;
+}
+
+.under-development-home.is-development-locked main,
+.under-development-home.is-development-locked footer {
+  filter: saturate(0.9);
+}
+
+.is-development-locked .development-disabled-link,
+.is-development-locked .development-disabled-card,
+.is-development-locked .development-disabled-control,
+.under-development-home.is-development-locked .listing-card-link-wrap {
+  cursor: not-allowed;
+}
+
+.is-development-locked .development-disabled-link::after,
+.is-development-locked .development-disabled-card::after,
+.is-development-locked .development-disabled-control::after,
+.under-development-home.is-development-locked .listing-card-link-wrap::after {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid rgba(231, 111, 81, 0.34);
+  border-radius: 8px;
+  background: #fff4ef;
+  color: var(--coral);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 6px 8px;
+  text-transform: uppercase;
+}
+
+.is-development-locked .development-disabled-link::after {
+  content: attr(data-disabled-label);
+  margin-left: 8px;
+}
+
+.is-development-locked .development-disabled-card,
+.is-development-locked .development-disabled-control,
+.under-development-home.is-development-locked .listing-card-link-wrap {
+  position: relative;
+}
+
+.is-development-locked .development-disabled-card::after,
+.is-development-locked .development-disabled-control::after,
+.under-development-home.is-development-locked .listing-card-link-wrap::after {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  content: attr(data-disabled-label);
+  box-shadow: 0 8px 20px rgba(3, 22, 26, 0.1);
+}
+
+.under-development-home.is-development-locked .listing-card-link-wrap::after {
+  content: "Temporarily unavailable";
+}
+
+.is-development-locked .development-disabled-control {
+  pointer-events: none;
+}
+
+.is-development-locked .development-disabled-control input,
+.is-development-locked .development-disabled-control button {
+  opacity: 0.72;
+}
+
 img {
   display: block;
   max-width: 100%;

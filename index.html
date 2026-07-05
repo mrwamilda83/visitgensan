@@ -69,7 +69,7 @@
       }
     </script>
   </head>
-  <body>
+  <body class="under-development-home">
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="VisitGensan.com home">
         <img class="brand-icon" src="assets/images/logo-mark.svg" alt="">
@@ -80,12 +80,19 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="index.html" aria-current="page">Home</a>
-        <a href="hotels.html">Hotels</a>
-        <a href="things-to-do.html">Things To Do</a>
-        <a href="food-restaurants.html">Food & Restaurants</a>
-        <a href="travel-guides.html">Travel Guides</a>
+        <a class="development-disabled-link" href="hotels.html" aria-disabled="true" data-disabled-label="Coming soon">Hotels</a>
+        <a class="development-disabled-link" href="things-to-do.html" aria-disabled="true" data-disabled-label="Coming soon">Things To Do</a>
+        <a class="development-disabled-link" href="food-restaurants.html" aria-disabled="true" data-disabled-label="Coming soon">Food & Restaurants</a>
+        <a class="development-disabled-link" href="travel-guides.html" aria-disabled="true" data-disabled-label="Coming soon">Travel Guides</a>
       </nav>
     </header>
+
+    <aside class="development-overlay" aria-labelledby="development-title">
+      <p class="development-kicker">Temporary notice</p>
+      <h1 id="development-title">UNDER DEVELOPMENT</h1>
+      <p>VisitGensan.com is currently being updated.<br>We’re preparing local travel, hotel, food, and destination guides for General Santos City.</p>
+      <p class="development-guide-note">VisitGensan.com is an independent local guide and is not affiliated with listed businesses unless clearly stated.</p>
+    </aside>
 
     <main>
       <section class="hero hero-home">
@@ -93,11 +100,11 @@
           <p class="eyebrow">General Santos City visitor guide</p>
           <h1>Explore General Santos City with a practical local guide.</h1>
           <p class="hero-text">Find places to stay, food worth trying, easy activities, and starter guides for planning a GenSan trip.</p>
-          <form class="search-panel" role="search">
+          <form class="search-panel development-disabled-control" role="search" aria-disabled="true" data-disabled-label="Temporarily unavailable">
             <label for="site-search">Search VisitGensan</label>
             <div class="search-row">
-              <input id="site-search" name="q" type="search" placeholder="Search hotels, food, activities...">
-              <button type="submit">Search</button>
+              <input id="site-search" name="q" type="search" placeholder="Search hotels, food, activities..." disabled>
+              <button type="submit" disabled>Search</button>
             </div>
           </form>
         </div>
@@ -140,22 +147,22 @@
           <h2 id="start-title">Plan by what you need first.</h2>
         </div>
         <div class="feature-grid">
-          <a class="feature-card" href="hotels.html">
+          <a class="feature-card development-disabled-card" href="hotels.html" aria-disabled="true" data-disabled-label="Coming soon">
             <img src="assets/images/hotel-pool-room.png" alt="Modern hotel room with a swimming pool view">
             <span>Hotels</span>
             <strong>Where to stay in GenSan</strong>
           </a>
-          <a class="feature-card" href="things-to-do.html">
+          <a class="feature-card development-disabled-card" href="things-to-do.html" aria-disabled="true" data-disabled-label="Coming soon">
             <img src="assets/images/things-to-do-coast.png" alt="Tropical coastline with a small boat, palms, and mountain view">
             <span>Things To Do</span>
             <strong>City stops and nearby trips</strong>
           </a>
-          <a class="feature-card" href="food-restaurants.html">
+          <a class="feature-card development-disabled-card" href="food-restaurants.html" aria-disabled="true" data-disabled-label="Coming soon">
             <img src="assets/images/food-tuna-meal.png" alt="Grilled tuna meal with rice, calamansi, and dipping sauce">
             <span>Food & Restaurants</span>
             <strong>Tuna, cafes, and local eats</strong>
           </a>
-          <a class="feature-card" href="travel-guides.html">
+          <a class="feature-card development-disabled-card" href="travel-guides.html" aria-disabled="true" data-disabled-label="Coming soon">
             <img src="assets/images/travel-guide-planning.png" alt="Travel planning table with map, phone, notebook, and coastal view">
             <span>Travel Guides</span>
             <strong>Trip planning basics</strong>
@@ -187,8 +194,8 @@
         <p>A starter local guide for General Santos City visitors.</p>
       </div>
       <div class="footer-links">
-        <a href="travel-guides.html#listing-policy">Listing Policy</a>
-        <a href="travel-guides.html#claim">Claim a Listing</a>
+        <a class="development-disabled-link" href="travel-guides.html#listing-policy" aria-disabled="true" data-disabled-label="Temporarily unavailable">Listing Policy</a>
+        <a class="development-disabled-link" href="travel-guides.html#claim" aria-disabled="true" data-disabled-label="Temporarily unavailable">Claim a Listing</a>
         <a href="mailto:hello@visitgensan.com">Contact</a>
       </div>
     </footer>

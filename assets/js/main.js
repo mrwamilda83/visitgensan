@@ -105,6 +105,47 @@ const categoryNotes = {
 
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
+const developmentPreviewHosts = ["localhost", "127.0.0.1"];
+const productionDevelopmentHosts = ["visitgensan.com", "www.visitgensan.com", "visitgensan.pages.dev"];
+const isLocalDevelopmentPreview = developmentPreviewHosts.includes(window.location.hostname);
+const isProductionDevelopmentHost = productionDevelopmentHosts.includes(window.location.hostname);
+const isUnderDevelopmentPage = document.body.classList.contains("under-development-home");
+// Localhost is for development preview only. Production hosts stay in under-development mode until launch.
+const isDevelopmentLocked = isUnderDevelopmentPage && !isLocalDevelopmentPreview;
+
+if (isUnderDevelopmentPage) {
+  document.body.classList.toggle("is-development-preview", isLocalDevelopmentPreview);
+  document.body.classList.toggle("is-development-locked", isDevelopmentLocked || isProductionDevelopmentHost);
+
+  if (isLocalDevelopmentPreview) {
+    document.querySelectorAll("[aria-disabled='true']").forEach((element) => {
+      element.removeAttribute("aria-disabled");
+    });
+    document.querySelectorAll(".development-disabled-control input, .development-disabled-control button").forEach((control) => {
+      control.disabled = false;
+    });
+  }
+}
+
+if (isDevelopmentLocked) {
+  document.addEventListener("click", (event) => {
+    const disabledLink = event.target.closest("a[href]");
+    if (!disabledLink) return;
+
+    const href = disabledLink.getAttribute("href") || "";
+    const isHome = href === "index.html" || href === "/" || href === "#";
+    const isContact = href.startsWith("mailto:");
+
+    if (isHome || isContact) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+  }, true);
+
+  document.addEventListener("submit", (event) => {
+    event.preventDefault();
+  }, true);
+}
 
 if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
@@ -331,9 +372,12 @@ function renderCard(item, index = 0, type = "hotels") {
   const canOpenGuide = Array.isArray(item.gallery) && item.gallery.length;
   const linkHref = canOpenGuide ? "#hotel-guide" : (item.url || "#");
   const guideAttributes = canOpenGuide ? ` data-guide-type="${escapeAttribute(type)}" data-guide-index="${index}"` : "";
+  const developmentAttributes = isDevelopmentLocked
+    ? ` aria-disabled="true" data-disabled-label="Temporarily unavailable"`
+    : "";
 
   return `
-    <a class="listing-card listing-card-link-wrap" href="${escapeAttribute(linkHref)}"${guideAttributes}>
+    <a class="listing-card listing-card-link-wrap" href="${escapeAttribute(linkHref)}"${guideAttributes}${developmentAttributes}>
       <div class="listing-body">
         <span class="meta">${escapeHtml(item.category || "Listing")}</span>
         <h3>${escapeHtml(item.title)}</h3>
