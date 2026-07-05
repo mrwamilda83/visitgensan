@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">GenSan-inspired coastal travel placeholder</title>
+  <desc id="desc">Illustrated seafood, city, mountain, and coastline scene for the VisitGensan starter website.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d5f3f7"/>
+      <stop offset="0.55" stop-color="#ffe4a8"/>
+      <stop offset="1" stop-color="#f3a589"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" x2="1">
+      <stop offset="0" stop-color="#087b87"/>
+      <stop offset="1" stop-color="#6cc4c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1240" cy="190" r="84" fill="#f7bf4d"/>
+  <path d="M0 468 C190 360 328 405 488 330 C650 255 812 366 950 292 C1110 205 1280 322 1600 198 L1600 900 L0 900 Z" fill="#2f7c55"/>
+  <path d="M0 535 C206 432 368 493 520 425 C694 346 826 474 1030 382 C1198 306 1375 424 1600 330 L1600 900 L0 900 Z" fill="#7fb06d"/>
+  <path d="M0 610 C220 565 405 612 560 552 C780 467 920 610 1120 525 C1300 450 1448 536 1600 492 L1600 900 L0 900 Z" fill="url(#water)"/>
+  <path d="M0 684 C240 640 390 720 622 670 C790 635 950 692 1130 654 C1310 618 1460 660 1600 636 L1600 900 L0 900 Z" fill="#f6d68f"/>
+  <g transform="translate(882 493)">
+    <rect x="0" y="70" width="370" height="130" rx="8" fill="#f7fbfb"/>
+    <rect x="26" y="40" width="72" height="160" rx="8" fill="#0c6972"/>
+    <rect x="120" y="5" width="84" height="195" rx="8" fill="#ffffff"/>
+    <rect x="226" y="56" width="98" height="144" rx="8" fill="#e76f51"/>
+    <g fill="#cbeef3">
+      <rect x="45" y="65" width="16" height="16"/>
+      <rect x="72" y="65" width="16" height="16"/>
+      <rect x="45" y="98" width="16" height="16"/>
+      <rect x="72" y="98" width="16" height="16"/>
+      <rect x="145" y="35" width="18" height="18"/>
+      <rect x="178" y="35" width="18" height="18"/>
+      <rect x="145" y="72" width="18" height="18"/>
+      <rect x="178" y="72" width="18" height="18"/>
+    </g>
+  </g>
+  <g transform="translate(250 588)">
+    <ellipse cx="170" cy="116" rx="190" ry="74" fill="#f9faf4"/>
+    <ellipse cx="170" cy="116" rx="150" ry="50" fill="#e9f7f4"/>
+    <path d="M72 108 C136 28 258 28 326 108 C255 158 141 160 72 108 Z" fill="#0b818d"/>
+    <path d="M118 106 C166 68 230 66 282 104 C232 124 169 125 118 106 Z" fill="#bde4e2"/>
+    <path d="M326 108 L390 76 L366 132 Z" fill="#0b818d"/>
+    <circle cx="111" cy="96" r="9" fill="#15343b"/>
+    <path d="M150 136 C190 156 246 152 292 132" fill="none" stroke="#065c64" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(92 732)" fill="#ffffff" opacity="0.82">
+    <rect x="0" y="0" width="1480" height="2"/>
+    <rect x="80" y="34" width="230" height="2"/>
+    <rect x="1040" y="48" width="340" height="2"/>
+  </g>
+</svg>

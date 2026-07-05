@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Tuna and Seafood Place",
+    "category": "Food sample",
+    "description": "Use this card for a verified seafood restaurant with original photos, menu notes, and map link.",
+    "label": "Add verified restaurant",
+    "url": "#"
+  },
+  {
+    "title": "Cafe for Work or Study",
+    "category": "Food sample",
+    "description": "A useful category for visitors looking for coffee, Wi-Fi, quiet tables, and light meals.",
+    "label": "Add cafe details",
+    "url": "#"
+  },
+  {
+    "title": "Local Budget Meal Spot",
+    "category": "Food sample",
+    "description": "A starter card for affordable local meals once prices, hours, and location are checked.",
+    "label": "Verify food spot",
+    "url": "#"
+  }
+]

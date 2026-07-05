@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Map and travel guide illustration">
+  <rect width="640" height="400" fill="#edf7f5"/>
+  <rect x="90" y="70" width="460" height="260" rx="8" fill="#ffffff"/>
+  <path d="M120 104 L242 78 L396 128 L520 94 L520 296 L398 326 L244 276 L120 306 Z" fill="#cbeef3"/>
+  <path d="M242 78 L244 276 M396 128 L398 326" stroke="#ffffff" stroke-width="10"/>
+  <path d="M158 252 C218 190 254 216 304 162 C362 100 430 158 486 118" fill="none" stroke="#047b83" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="304" cy="162" r="24" fill="#e76f51"/>
+  <circle cx="486" cy="118" r="24" fill="#f6b942"/>
+  <rect x="126" y="312" width="180" height="16" rx="8" fill="#357a4f"/>
+</svg>

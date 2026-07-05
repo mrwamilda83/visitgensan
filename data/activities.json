@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Fish Port Complex",
+    "category": "Tuna Culture",
+    "description": "See the famous tuna trade up close and learn why GenSan is known as the Tuna Capital.",
+    "label": "Plan morning visit",
+    "image": "assets/images/photocardFishport.png",
+    "url": "fish-port-complex.html"
+  },
+  {
+    "title": "Plaza Heneral Santos",
+    "category": "City Landmark",
+    "description": "Walk around the historic center and start a simple downtown photo route.",
+    "label": "View city stop",
+    "image": "assets/images/hero-gensan-banner.png",
+    "url": "#"
+  },
+  {
+    "title": "Sarangani Highlands Garden",
+    "category": "View Deck",
+    "description": "Enjoy hilltop views of Sarangani Bay with a relaxed food-and-photo stop.",
+    "label": "Add to route",
+    "image": "assets/images/things-to-do-coast.png",
+    "url": "#"
+  },
+  {
+    "title": "Queen Tuna Park",
+    "category": "Bay Walk",
+    "description": "Relax by the sea, take photos with the GenSan landmark, and catch the sunset.",
+    "label": "See sunset idea",
+    "image": "assets/images/hero-gensan-banner.png",
+    "url": "#"
+  },
+  {
+    "title": "Nopol Hills and Kalaja Karst",
+    "category": "Adventure",
+    "description": "Hike, camp, and explore limestone scenery for a more active nature day.",
+    "label": "Check trail notes",
+    "image": "assets/images/things-to-do-coast.png",
+    "url": "#"
+  },
+  {
+    "title": "Pacquiao Landmarks",
+    "category": "Sports Heritage",
+    "description": "Visit Home of Champions photo stops connected to GenSan boxing pride.",
+    "label": "Explore landmarks",
+    "image": "assets/images/champion-boxing-accent.png",
+    "url": "#"
+  },
+  {
+    "title": "T'boli Cultural Stop",
+    "category": "Culture",
+    "description": "Learn local culture, crafts, and traditions on a nearby heritage side trip.",
+    "label": "Add culture stop",
+    "image": "assets/images/about-gensan-culture.png",
+    "url": "#"
+  },
+  {
+    "title": "Gumasa Beach Day Trip",
+    "category": "Beach Escape",
+    "description": "Plan a white-sand beach escape from GenSan along the Sarangani coast.",
+    "label": "Plan day trip",
+    "image": "assets/images/things-to-do-coast.png",
+    "url": "#"
+  }
+]

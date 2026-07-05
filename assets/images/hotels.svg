@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Hotel room and city view illustration">
+  <rect width="640" height="400" fill="#edf7f5"/>
+  <rect x="40" y="52" width="260" height="260" rx="8" fill="#ffffff"/>
+  <rect x="76" y="92" width="188" height="118" rx="8" fill="#cbeef3"/>
+  <path d="M84 190 C146 126 202 147 260 98 L260 210 L84 210 Z" fill="#72b68a"/>
+  <rect x="94" y="244" width="150" height="40" rx="8" fill="#f6b942"/>
+  <rect x="340" y="80" width="210" height="250" rx="8" fill="#047b83"/>
+  <g fill="#ffffff" opacity="0.8">
+    <rect x="372" y="116" width="28" height="28"/>
+    <rect x="426" y="116" width="28" height="28"/>
+    <rect x="480" y="116" width="28" height="28"/>
+    <rect x="372" y="174" width="28" height="28"/>
+    <rect x="426" y="174" width="28" height="28"/>
+    <rect x="480" y="174" width="28" height="28"/>
+    <rect x="426" y="250" width="62" height="80"/>
+  </g>
+  <circle cx="514" cy="58" r="42" fill="#e76f51"/>
+</svg>

@@ -1,0 +1,759 @@
+[
+    {
+        "title": "Greenleaf Hotel Gensan",
+        "category": "Business",
+        "location": "San Miguel St. corner J. Catolico St., General Santos City",
+        "description": "Greenleaf feels like the kind of GenSan stay you recommend when someone wants comfort without being far from the city rhythm. It sits in a practical central area, close to malls, banks, restaurants, and everyday stops, so guests can land, settle in, and move around without over-planning every ride.",
+        "label": "Check hotel details",
+        "url": "https://greenleafhotelgensan.com/",
+        "facebookUrl": "https://www.facebook.com/greenleafhotelgensan/",
+        "logo": "assets/images/greenleaf-logo.png",
+        "image": "assets/images/greenleaf-lobby.png",
+        "gallery": [
+            {
+                "src": "assets/images/greenleaf-lobby.png",
+                "alt": "Greenleaf Hotel Gensan lobby"
+            },
+            {
+                "src": "assets/images/greenleaf-pool-night.png",
+                "alt": "Greenleaf Hotel Gensan pool"
+            },
+            {
+                "src": "assets/images/greenleaf-exterior-front.png",
+                "alt": "Greenleaf Hotel Gensan exterior"
+            },
+            {
+                "src": "assets/images/greenleaf-lounge.png",
+                "alt": "Greenleaf Hotel Gensan lounge"
+            },
+            {
+                "src": "assets/images/greenleaf-bed-room.png",
+                "alt": "Greenleaf Hotel Gensan guest room"
+            }
+        ],
+        "score": "Business",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Amenities",
+                "value": "Pool, spa, fitness, dining"
+            },
+            {
+                "label": "Nearby",
+                "value": "SM, Gaisano, KCC, Veranza"
+            },
+            {
+                "label": "Airport",
+                "value": "About 30 minutes by car"
+            }
+        ],
+        "amenities": [
+            "Swimming pool",
+            "Lavandin Spa",
+            "Fitness and wellness facilities",
+            "Restaurants and in-room dining"
+        ],
+        "highlights": [
+            {
+                "title": "City comfort",
+                "text": "A polished stay close to GenSan's malls and business stops."
+            },
+            {
+                "title": "Dining choices",
+                "text": "Mint Cafe, Tea Leaf Restaurant, Lobby Lounge, Zanzibar, and in-room dining are listed by the hotel."
+            },
+            {
+                "title": "Wellness",
+                "text": "Pool, Lavandin Spa, and fitness/wellness facilities are part of the hotel offer."
+            },
+            {
+                "title": "Events ready",
+                "text": "Ballrooms and multi-function rooms make it useful for meetings and celebrations."
+            }
+        ],
+        "facilities": [
+            "Swimming pool",
+            "Lavandin Spa",
+            "Fitness and wellness facilities",
+            "Restaurants",
+            "In-room dining",
+            "Lobby lounge",
+            "Business center",
+            "Ballrooms and meeting rooms"
+        ],
+        "details": [
+            "This guide includes Greenleaf as a central GenSan hotel option for visitors who want a comfortable base near malls, restaurants, banks, and transport access.",
+            "For a first-time guest, the advantage is simple. You can stay somewhere comfortable, then plan meals, meetings, errands, or short city stops without making the hotel feel isolated from the rest of the trip.",
+            "It is a practical fit for business travelers, couples, families who want convenience, and visitors who prefer an established hotel base while exploring General Santos City."
+        ],
+        "gettingThere": {
+            "title": "How to get there",
+            "routes": [
+                {
+                    "title": "From Bulaong Bus Terminal",
+                    "image": {
+                        "src": "assets/images/gensantricycle.png",
+                        "alt": "Blue General Santos City tricycle"
+                    },
+                    "paragraphs": [
+                        "If you are coming from Bulaong Bus Terminal in General Santos City, you can ride a local tricycle with a yellow plate. Tell the driver to take you to Greenleaf Hotel.",
+                        "For a direct pakyaw trip, the fare is usually around PHP 50 to PHP 100 depending on your agreement with the driver. For a regular or shared ride, the fare is usually around PHP 20. Please confirm the fare before starting the trip."
+                    ]
+                },
+                {
+                    "title": "From General Santos Airport",
+                    "paragraphs": [
+                        "If you are coming from General Santos Airport, the most convenient option is to take a taxi or book a ride in advance.",
+                        "You may contact Gensan City Taxi through its Facebook page, or call or text the numbers below before traveling."
+                    ],
+                    "link": {
+                        "label": "Gensan City Taxi Facebook page",
+                        "url": "https://www.facebook.com/profile.php?id=100063770273399"
+                    },
+                    "contacts": [
+                        {
+                            "label": "Smart",
+                            "value": "0950 260 6057"
+                        },
+                        {
+                            "label": "TM",
+                            "value": "0935 025 5176"
+                        },
+                        {
+                            "label": "Landline",
+                            "value": "(083) 552 1164"
+                        }
+                    ],
+                    "suggestedMessage": "Hello, I need a taxi going to Greenleaf Hotel. May I know if a unit is available and the estimated fare?",
+                    "map": {
+                        "label": "Open in Google Maps",
+                        "url": "https://www.google.com/maps/place/Greenleaf+Hotel+Gensan/@6.1150409,125.1798094,17z/data=!3m1!4b1!4m9!3m8!1s0x32f79fbb2f398e99:0x15f719c503931fe1!5m2!4m1!1i2!8m2!3d6.1150356!4d125.1823843!16s%2Fg%2F12q4w00pn?authuser=0&entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D",
+                        "embedUrl": "https://www.google.com/maps?q=6.1150356,125.1823843&z=16&output=embed"
+                    }
+                }
+            ],
+            "note": "Fares, availability, and contact details may change, so please confirm directly with the driver or taxi operator before traveling."
+        },
+        "guideLabel": "Hotel guide"
+    },
+    {
+        "title": "Grand Summit Hotel General Santos",
+        "category": "Business",
+        "description": "Grand Summit Hotel General Santos is a polished city hotel option with rooms and suites, dining spaces, leisure and wellness areas, and venues for meetings or celebrations.",
+        "label": "Check hotel details",
+        "url": "https://grandsummithotels.ph/",
+        "image": "assets/images/grand-summit/lobby-lounge.png",
+        "guideLabel": "Hotel guide",
+        "location": "Honorio Arriola St. corner Arrazada St., Lagao, General Santos, South Cotabato 9500",
+        "gallery": [
+            {
+                "src": "assets/images/grand-summit/lobby-lounge.png",
+                "alt": "Grand Summit Hotel General Santos lobby lounge"
+            },
+            {
+                "src": "assets/images/grand-summit/pool-night.png",
+                "alt": "Grand Summit Hotel General Santos pool at night"
+            },
+            {
+                "src": "assets/images/grand-summit/exterior-night.png",
+                "alt": "Grand Summit Hotel General Santos exterior at night"
+            },
+            {
+                "src": "assets/images/grand-summit/twin-room.png",
+                "alt": "Grand Summit Hotel General Santos guest room"
+            },
+            {
+                "src": "assets/images/grand-summit/dining.png",
+                "alt": "Grand Summit Hotel General Santos dining area"
+            }
+        ],
+        "score": "Business",
+        "scoreText": "",
+        "facts": [
+            {
+                "value": "Honorio Arriola corner Arrazada, Lagao",
+                "label": "Address"
+            },
+            {
+                "value": "Cafe Summit, Grazie Bistro",
+                "label": "Dining"
+            },
+            {
+                "value": "Meetings and celebrations",
+                "label": "Events"
+            }
+        ],
+        "amenities": [
+            "Rooms and suites",
+            "Cafe Summit",
+            "Grazie Bistro",
+            "Leisure and wellness areas"
+        ],
+        "highlights": [
+            {
+                "text": "A city hotel option for work trips, meetings, and short GenSan stays.",
+                "title": "Business base"
+            },
+            {
+                "text": "Official hotel information lists Cafe Summit and Grazie Bistro among its dining offers.",
+                "title": "Dining choices"
+            },
+            {
+                "text": "The hotel presents leisure and wellness areas as part of the guest experience.",
+                "title": "Leisure and wellness"
+            },
+            {
+                "text": "Meeting and celebration spaces make it useful for business and social gatherings.",
+                "title": "Events ready"
+            }
+        ],
+        "facilities": [
+            "Rooms and suites",
+            "Cafe Summit",
+            "Grazie Bistro",
+            "Leisure and wellness areas",
+            "Meeting spaces",
+            "Celebration venues"
+        ],
+        "details": [
+            "This guide includes Grand Summit Hotel General Santos as a business-category hotel option for visitors who want a polished city stay with dining and event facilities in one place.",
+            "Its official hotel information highlights rooms and suites, Cafe Summit, Grazie Bistro, leisure and wellness areas, and spaces for meetings or celebrations.",
+            "It is a practical fit for business travelers, event guests, couples, and visitors who prefer a modern hotel base while staying in General Santos City."
+        ],
+        "facebookUrl": "https://www.facebook.com/GrandSummitHotelsPH/",
+        "logo": "assets/images/grand-summit/logo.png"
+    },
+    {
+        "title": "East Asia Royale Hotel",
+        "category": "Business",
+        "description": "A business-friendly GenSan hotel along the National Highway in Lagao, with 102 guest rooms, business facilities, Royale Lounge dining, function spaces, and airport shuttle service for in-house guests.",
+        "label": "Check hotel details",
+        "url": "https://eastasiaroyalehotel.com/",
+        "facebookUrl": "https://www.facebook.com/eastasiaroyalehotelgensan/",
+        "image": "assets/images/east-asia-royale/exterior.png",
+        "guideLabel": "Hotel guide",
+        "location": "National Highway, Lagao, General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/east-asia-royale/exterior.png",
+                "alt": "East Asia Royale Hotel exterior"
+            },
+            {
+                "src": "assets/images/east-asia-royale/guest-room.png",
+                "alt": "East Asia Royale Hotel guest room"
+            },
+            {
+                "src": "assets/images/east-asia-royale/pond-lounge.png",
+                "alt": "East Asia Royale Hotel pond lounge area"
+            },
+            {
+                "src": "assets/images/east-asia-royale/banquet.png",
+                "alt": "East Asia Royale Hotel banquet dining setup"
+            },
+            {
+                "src": "assets/images/east-asia-royale/front-desk.png",
+                "alt": "East Asia Royale Hotel front desk"
+            }
+        ],
+        "score": "Business",
+        "scoreText": "",
+        "facts": [
+            {
+                "value": "102 guest rooms",
+                "label": "Business"
+            },
+            {
+                "value": "Royale Lounge",
+                "label": "Dining"
+            },
+            {
+                "value": "National Highway, Lagao",
+                "label": "Address"
+            }
+        ],
+        "amenities": [
+            "102 guest rooms",
+            "Standard, Superior, DeLuxe and Suite rooms",
+            "Fiber-optic Wi-Fi",
+            "Business center",
+            "Royale Lounge",
+            "Airport shuttle for in-house guests"
+        ],
+        "highlights": [
+            {
+                "text": "A practical business-hotel option with guest rooms, meeting support, dining, and transport help listed on the official site.",
+                "title": "Business category"
+            },
+            {
+                "text": "Official hotel information lists a business center and fiber-optic Wi-Fi.",
+                "title": "Business support"
+            },
+            {
+                "text": "Royale Lounge is listed as the hotel dining venue.",
+                "title": "Dining on site"
+            },
+            {
+                "text": "Airport shuttle service is listed for in-house guests.",
+                "title": "Arrival help"
+            }
+        ],
+        "facilities": [
+            "102 guest rooms",
+            "Fiber-optic Wi-Fi",
+            "Business center",
+            "Royale Lounge",
+            "Airport shuttle",
+            "Function and banquet spaces"
+        ],
+        "details": [
+            "This guide includes East Asia Royale Hotel as a business-category GenSan stay because its official information highlights guest rooms, business facilities, dining, function spaces, and transport support.",
+            "Its official website lists 102 guest rooms, several room categories, fiber-optic Wi-Fi, a business center, Royale Lounge, and airport shuttle service for in-house guests.",
+            "It is a practical fit for travelers who want published room rates, city access, dining, meeting support, and direct official contact channels."
+        ],
+        "logo": "assets/images/east-asia-royale/logo.png"
+    },
+    {
+        "title": "Q Citipark Hotel GenSan",
+        "category": "Family",
+        "description": "A family-friendly city hotel on Roxas Avenue corner Jose P. Laurel Street, with room options, a polished lobby, dining and lounge areas, and event spaces.",
+        "label": "Check hotel details",
+        "url": "https://qcitiparkhotelgensan.com/",
+        "facebookUrl": "https://www.facebook.com/QCitiparkHotelGenSan/",
+        "image": "assets/images/q-citipark/family-room.png",
+        "logo": "assets/images/q-citipark/logo.png",
+        "guideLabel": "Hotel guide",
+        "location": "Roxas Ave. corner Jose P. Laurel St., General Santos City 9500",
+        "gallery": [
+            {
+                "src": "assets/images/q-citipark/family-room.png",
+                "alt": "Q Citipark Hotel GenSan family room"
+            },
+            {
+                "src": "assets/images/q-citipark/lobby.png",
+                "alt": "Q Citipark Hotel GenSan lobby"
+            },
+            {
+                "src": "assets/images/q-citipark/exterior-night.png",
+                "alt": "Q Citipark Hotel GenSan exterior at night"
+            },
+            {
+                "src": "assets/images/q-citipark/lounge.png",
+                "alt": "Q Citipark Hotel GenSan lounge area"
+            },
+            {
+                "src": "assets/images/q-citipark/events.png",
+                "alt": "Q Citipark Hotel GenSan event setup"
+            }
+        ],
+        "score": "Family",
+        "scoreText": "",
+        "facts": [
+            {
+                "value": "Roxas corner J.P. Laurel",
+                "label": "Address"
+            },
+            {
+                "value": "Family hotel guide",
+                "label": "Category"
+            },
+            {
+                "value": "Family stays and city access",
+                "label": "Best for"
+            }
+        ],
+        "amenities": [
+            "Family room options",
+            "Lobby lounge",
+            "Dining and event areas",
+            "City-center access"
+        ],
+        "highlights": [
+            {
+                "text": "A practical guide option for families and small groups who want a city hotel base without a resort-style setup.",
+                "title": "Family category"
+            },
+            {
+                "text": "Official contact details place the hotel at Roxas Avenue corner Jose P. Laurel Street.",
+                "title": "Central address"
+            },
+            {
+                "text": "The hotel presents polished common areas suitable for waiting, meeting, or relaxing.",
+                "title": "Lobby and lounge"
+            },
+            {
+                "text": "Dining and event spaces make it practical for group stays and celebrations.",
+                "title": "Events ready"
+            }
+        ],
+        "facilities": [
+            "Family room options",
+            "Lobby lounge",
+            "Dining area",
+            "Event setup",
+            "City access"
+        ],
+        "details": [
+            "This guide includes Q Citipark Hotel GenSan as a family-category hotel option for visitors who want practical city access and room choices suited for group stays.",
+            "Its official site describes it as a clean and comfortable business boutique hotel with guest rooms, function rooms, Citi Bistro, and event spaces.",
+            "It is a practical fit for families, small groups, and visitors who want a city hotel base while moving around General Santos City."
+        ]
+    },
+    {
+        "title": "Microtel by Wyndham General Santos",
+        "category": "Family",
+        "description": "Microtel by Wyndham General Santos is a practical family-friendly GenSan hotel along Valley High National Highway, with modern rooms, free breakfast and WiFi, friendly service, event spaces, and easy access to city stops and nearby attractions.",
+        "label": "Check hotel details",
+        "url": "https://www.wyndhamhotels.com/microtel/general-santos-city-philippines/microtel-by-wyndham-general-santos/overview",
+        "image": "assets/images/microtel/exterior.png",
+        "guideLabel": "Hotel guide",
+        "location": "Valley High National Highway, General Santos City 9500",
+        "gallery": [
+            {
+                "src": "assets/images/microtel/exterior.png",
+                "alt": "Microtel by Wyndham General Santos exterior"
+            },
+            {
+                "src": "assets/images/microtel/lobby.png",
+                "alt": "Microtel by Wyndham General Santos lobby lounge"
+            },
+            {
+                "src": "assets/images/microtel/guest-room.png",
+                "alt": "Microtel by Wyndham General Santos guest room"
+            },
+            {
+                "src": "assets/images/microtel/front-desk.png",
+                "alt": "Microtel by Wyndham General Santos front desk"
+            },
+            {
+                "src": "assets/images/microtel/banquet.png",
+                "alt": "Microtel by Wyndham General Santos banquet setup"
+            }
+        ],
+        "score": "Family",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Address",
+                "value": "Valley High National Highway"
+            },
+            {
+                "label": "Best for",
+                "value": "Family stays and city access"
+            },
+            {
+                "label": "Nearby",
+                "value": "Glan, Sarangani Bay, Kalaja Eco Park"
+            }
+        ],
+        "amenities": [
+            "Free breakfast",
+            "Free WiFi",
+            "Modern guest rooms",
+            "Meeting and banquet spaces",
+            "Friendly service",
+            "City and nearby attraction access"
+        ],
+        "highlights": [
+            {
+                "title": "Family category",
+                "text": "A practical guide option for families and small groups who want a clean, simple hotel base with breakfast, WiFi, and city access."
+            },
+            {
+                "title": "Official Wyndham listing",
+                "text": "The official page describes modern rooms, free breakfast and WiFi, and friendly service for a brilliantly simple stay."
+            },
+            {
+                "title": "Nearby trips",
+                "text": "Wyndham highlights access to Glan White Beach, Sarangani Bay, and Kalaja Eco Park."
+            },
+            {
+                "title": "Events ready",
+                "text": "The official page lists meetings, events, and groups with smartly appointed meeting space."
+            }
+        ],
+        "facilities": [
+            "Free breakfast",
+            "Free WiFi",
+            "Modern rooms",
+            "Meeting space",
+            "Banquet setup",
+            "Front desk",
+            "Lobby lounge",
+            "Wyndham booking channel"
+        ],
+        "details": [
+            "This guide includes Microtel by Wyndham General Santos as a family-category hotel option because its official Wyndham page emphasizes modern rooms, free breakfast and WiFi, friendly service, and simple guest convenience.",
+            "For visitors, the advantage is a straightforward stay along Valley High National Highway with city access and a recognizable hotel brand booking channel.",
+            "It is a practical fit for families, small groups, event guests, and visitors who want an uncomplicated GenSan base while also keeping nearby trips like Sarangani Bay or Glan in mind."
+        ],
+        "facebookUrl": "https://www.facebook.com/p/Microtel-Inn-Suites-by-Wyndham-100089953681352/",
+        "logo": "assets/images/microtel/logo.png"
+    },
+    {
+        "title": "Avior Hotel",
+        "category": "Business",
+        "description": "Avior Hotel is a business-boutique hotel along Santiago Boulevard in General Santos City, with 95 rooms, dining spaces, airport transfer service, and event venues for business travelers and city visitors.",
+        "label": "Check hotel details",
+        "url": "https://aviorhotel.com/",
+        "facebookUrl": "https://www.facebook.com/AviorHotelOfficial",
+        "logo": "assets/images/avior/logo.png",
+        "image": "assets/images/avior/exterior.png",
+        "guideLabel": "Hotel guide",
+        "location": "Santiago Boulevard, General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/avior/exterior.png",
+                "alt": "Avior Hotel exterior on Santiago Boulevard"
+            },
+            {
+                "src": "assets/images/avior/lobby.png",
+                "alt": "Avior Hotel lobby"
+            },
+            {
+                "src": "assets/images/avior/guest-room.png",
+                "alt": "Avior Hotel guest room"
+            },
+            {
+                "src": "assets/images/avior/dining.png",
+                "alt": "Avior Hotel dining area"
+            },
+            {
+                "src": "assets/images/avior/lounge.png",
+                "alt": "Avior Hotel lounge"
+            }
+        ],
+        "score": "Business",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Business stays and city access"
+            },
+            {
+                "label": "Rooms",
+                "value": "95 rooms"
+            },
+            {
+                "label": "Dining",
+                "value": "The Kitchen Table, Cafe Santi"
+            }
+        ],
+        "amenities": [
+            "95 rooms",
+            "Free airport transfer",
+            "24-hour front desk",
+            "The Kitchen Table",
+            "Cafe Santi",
+            "Ballrooms and function rooms"
+        ],
+        "highlights": [
+            {
+                "title": "Business-boutique category",
+                "text": "Avior presents itself as a business-boutique hotel for travelers who want a central GenSan base."
+            },
+            {
+                "title": "City address",
+                "text": "The hotel is positioned along Santiago Boulevard, a practical city location for business and visitor movement."
+            },
+            {
+                "title": "Dining on site",
+                "text": "The official site highlights The Kitchen Table and Cafe Santi among its dining options."
+            },
+            {
+                "title": "Events ready",
+                "text": "Avior lists ballrooms and function rooms for meetings, events, and celebrations."
+            }
+        ],
+        "facilities": [
+            "95 rooms",
+            "Free airport transfer",
+            "24-hour front desk",
+            "The Kitchen Table",
+            "Cafe Santi",
+            "Ballrooms",
+            "Function rooms",
+            "Business-friendly location"
+        ],
+        "details": [
+            "This guide includes Avior Hotel as a business-category GenSan stay because its official site describes it as a business-boutique hotel with 95 rooms and a Santiago Boulevard location.",
+            "Its official information highlights free airport transfer, a 24-hour front desk, The Kitchen Table, Cafe Santi, ballrooms, and function rooms.",
+            "It is a practical fit for business travelers, event guests, couples, and city visitors who want a modern hotel base in General Santos City."
+        ]
+    },
+    {
+        "title": "SunCity Suites",
+        "category": "Business",
+        "description": "SunCity Suites is a business-meets-leisure hotel in the Sun City Complex, with suites and rooms, Caffe Firenzo, event spaces, and a central GenSan base for travelers who want comfort and convenience.",
+        "label": "Check hotel details",
+        "url": "https://suncitysuites.com/",
+        "facebookUrl": "https://www.facebook.com/suncity.suites/",
+        "logo": "assets/images/suncity-suites/logo.png",
+        "image": "assets/images/suncity-suites/exterior.png",
+        "guideLabel": "Hotel guide",
+        "location": "Sun City Complex, National Highway, General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/suncity-suites/exterior.png",
+                "alt": "SunCity Suites exterior"
+            },
+            {
+                "src": "assets/images/suncity-suites/suite-room.png",
+                "alt": "SunCity Suites suite room"
+            },
+            {
+                "src": "assets/images/suncity-suites/cafe.png",
+                "alt": "SunCity Suites Caffe Firenzo dining area"
+            },
+            {
+                "src": "assets/images/suncity-suites/events.png",
+                "alt": "SunCity Suites event space"
+            },
+            {
+                "src": "assets/images/suncity-suites/guest-room.png",
+                "alt": "SunCity Suites guest room"
+            }
+        ],
+        "score": "Business",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Business and leisure stays"
+            },
+            {
+                "label": "Rooms",
+                "value": "43 rooms and suites"
+            },
+            {
+                "label": "Dining",
+                "value": "Caffe Firenzo"
+            }
+        ],
+        "amenities": [
+            "43 rooms and suites",
+            "Caffe Firenzo",
+            "Function rooms",
+            "Events setup",
+            "Suite room options",
+            "Sun City Complex access"
+        ],
+        "highlights": [
+            {
+                "title": "Business meets leisure",
+                "text": "The official site positions SunCity Suites as a business-meets-leisure hotel for work trips and comfortable city stays."
+            },
+            {
+                "title": "Suite choices",
+                "text": "Official hotel information highlights 43 rooms and suites for different visitor needs."
+            },
+            {
+                "title": "Dining on site",
+                "text": "Caffe Firenzo is part of the hotel experience for meals and casual dining."
+            },
+            {
+                "title": "Events ready",
+                "text": "Function rooms and event spaces make it useful for gatherings, meetings, and celebrations."
+            }
+        ],
+        "facilities": [
+            "43 rooms and suites",
+            "Caffe Firenzo",
+            "Function rooms",
+            "Event spaces",
+            "Suite rooms",
+            "Guest rooms",
+            "Central complex location"
+        ],
+        "details": [
+            "This guide includes SunCity Suites as a business-category GenSan hotel because its official site describes it around business-meets-leisure stays, suites, dining, and event facilities.",
+            "Its location in the Sun City Complex makes it a practical base for guests who want a hotel connected to city movement, dining, and event access.",
+            "It is a practical fit for business travelers, event guests, couples, and small groups who want room choices and an accessible General Santos City stay."
+        ]
+    },
+    {
+        "title": "Alma Residences GenSan",
+        "category": "Budget",
+        "description": "Alma Residences GenSan is a practical budget stay for travelers who want affordable rooms, simple essentials, air-conditioned comfort, private bathroom access, and short-stay flexibility in General Santos City.",
+        "label": "Check hotel details",
+        "url": "https://www.facebook.com/almaresidencesgensan/",
+        "facebookUrl": "https://www.facebook.com/almaresidencesgensan/",
+        "image": "assets/images/alma-residences/exterior-day.png",
+        "guideLabel": "Hotel guide",
+        "location": "General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/alma-residences/exterior-day.png",
+                "alt": "Alma Residences GenSan exterior"
+            },
+            {
+                "src": "assets/images/alma-residences/front-desk.png",
+                "alt": "Alma Residences GenSan front desk"
+            },
+            {
+                "src": "assets/images/alma-residences/single-room.png",
+                "alt": "Alma Residences GenSan single room"
+            },
+            {
+                "src": "assets/images/alma-residences/common-area.png",
+                "alt": "Alma Residences GenSan common area"
+            },
+            {
+                "src": "assets/images/alma-residences/exterior-night.png",
+                "alt": "Alma Residences GenSan exterior at night"
+            }
+        ],
+        "score": "Budget",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Affordable short stays"
+            },
+            {
+                "label": "Room basics",
+                "value": "Aircon, shower, private C.R."
+            }
+        ],
+        "amenities": [
+            "Affordable short-stay rooms",
+            "Air-conditioned rooms",
+            "Hot and cold shower",
+            "Private C.R.",
+            "Netflix and YouTube noted in signage",
+            "Front desk area"
+        ],
+        "highlights": [
+            {
+                "title": "Budget category",
+                "text": "A practical option for travelers who want simple essentials and lower-cost short-stay convenience."
+            },
+            {
+                "title": "Room basics",
+                "text": "Provided photos and signage show air-conditioned rooms, hot and cold shower, and rooms with own C.R."
+            },
+            {
+                "title": "Short-stay flexibility",
+                "text": "Exterior signage shows short-stay rates, useful for travelers who need flexible city lodging."
+            },
+            {
+                "title": "Direct contact",
+                "text": "Visitors can verify availability, rates, and room details through the official Facebook page or contact number."
+            }
+        ],
+        "facilities": [
+            "Air-conditioned rooms",
+            "Hot and cold shower",
+            "Private C.R.",
+            "Netflix and YouTube noted in signage",
+            "Front desk area",
+            "Common area",
+            "Short-stay options"
+        ],
+        "details": [
+            "This guide includes Alma Residences GenSan as a budget-category stay because it is positioned around affordable rooms, simple essentials, and practical short-stay convenience.",
+            "The supplied photos show a front desk area, common seating/work space, compact guest room, and exterior signage noting air-conditioned rooms, hot and cold shower, rooms with own C.R., and entertainment options.",
+            "It is a practical fit for solo travelers, short city visits, budget-conscious guests, and visitors who prefer to contact the property directly before booking."
+        ],
+        "phone": "0919 366 2824"
+    }
+]

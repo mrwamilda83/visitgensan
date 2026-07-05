@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Seafood and local meal illustration">
+  <rect width="640" height="400" fill="#fff5df"/>
+  <circle cx="128" cy="102" r="56" fill="#f6b942"/>
+  <rect x="72" y="210" width="496" height="92" rx="8" fill="#ffffff"/>
+  <ellipse cx="320" cy="210" rx="220" ry="78" fill="#e9f7f4"/>
+  <path d="M158 204 C240 104 398 106 482 204 C390 268 252 270 158 204 Z" fill="#047b83"/>
+  <path d="M482 204 L558 164 L528 238 Z" fill="#047b83"/>
+  <circle cx="210" cy="188" r="12" fill="#16343c"/>
+  <path d="M264 224 C318 254 384 248 442 218" fill="none" stroke="#f6b942" stroke-width="14" stroke-linecap="round"/>
+  <g fill="#e76f51">
+    <circle cx="184" cy="286" r="18"/>
+    <circle cx="232" cy="296" r="16"/>
+    <circle cx="458" cy="286" r="18"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Travel activities and beach day illustration">
+  <rect width="640" height="400" fill="#d8f0f2"/>
+  <circle cx="500" cy="92" r="58" fill="#f6b942"/>
+  <path d="M0 236 C128 185 224 246 330 200 C450 148 520 220 640 176 L640 400 L0 400 Z" fill="#047b83"/>
+  <path d="M0 300 C130 265 260 318 392 276 C500 240 560 285 640 252 L640 400 L0 400 Z" fill="#f5d48e"/>
+  <path d="M118 280 L202 152 L292 280 Z" fill="#357a4f"/>
+  <path d="M162 280 L254 120 L366 280 Z" fill="#4c9364"/>
+  <rect x="420" y="236" width="92" height="50" rx="8" fill="#ffffff"/>
+  <path d="M512 244 L578 262 L512 280 Z" fill="#e76f51"/>
+  <rect x="430" y="286" width="20" height="48" fill="#795548"/>
+  <rect x="486" y="286" width="20" height="48" fill="#795548"/>
+</svg>

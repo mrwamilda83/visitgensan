@@ -1,0 +1,16 @@
+{
+  "name": "VisitGensan.com",
+  "short_name": "VisitGensan",
+  "description": "A practical visitor guide for General Santos City.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#047b83",
+  "icons": [
+    {
+      "src": "assets/images/logo-mark.svg",
+      "sizes": "96x70",
+      "type": "image/svg+xml"
+    }
+  ]
+}
