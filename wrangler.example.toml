@@ -1,0 +1,9 @@
+﻿# Copy this file to wrangler.toml after you create the D1 database.
+# Keep this on Cloudflare's Free plan: do not enable paid features.
+name = "visitgensan"
+compatibility_date = "2026-07-10"
+
+[[d1_databases]]
+binding = "VISITGENSAN_DB"
+database_name = "visitgensan-reactions"
+database_id = "PASTE_D1_DATABASE_ID_HERE"

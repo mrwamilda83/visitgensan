@@ -214,7 +214,272 @@ document.querySelectorAll(".quick-links").forEach((section) => {
   observer.observe(section);
 });
 
+
+let activeLightboxItems = [];
+let activeLightboxIndex = 0;
+let lastLightboxTrigger = null;
+
+function getImageLightbox() {
+  let lightbox = document.querySelector("[data-image-lightbox]");
+  if (lightbox) return lightbox;
+
+  lightbox = document.createElement("div");
+  lightbox.className = "image-lightbox";
+  lightbox.dataset.imageLightbox = "";
+  lightbox.hidden = true;
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.setAttribute("aria-label", "Photo viewer");
+  lightbox.innerHTML = `
+    <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="Close photo viewer">x</button>
+    <button class="image-lightbox-arrow image-lightbox-prev" type="button" data-lightbox-previous aria-label="Previous photo"><</button>
+    <figure class="image-lightbox-frame">
+      <img src="" alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button class="image-lightbox-arrow image-lightbox-next" type="button" data-lightbox-next aria-label="Next photo">></button>
+  `;
+  document.body.appendChild(lightbox);
+  return lightbox;
+}
+
+function getGalleryLightboxItems(trigger) {
+  const gallery = trigger.closest(".fishport-photo-grid, .plaza-gallery-grid, .sarangani-gallery-grid");
+  const links = gallery
+    ? Array.from(gallery.querySelectorAll('a[href]')).filter((link) => link.querySelector("img"))
+    : [trigger];
+  const items = links.map((link) => {
+    const image = link.querySelector("img");
+    return {
+      src: link.getAttribute("href"),
+      alt: image?.getAttribute("alt") || link.getAttribute("aria-label") || "Photo"
+    };
+  }).filter((item) => item.src);
+
+  return {
+    items,
+    index: Math.max(0, links.indexOf(trigger))
+  };
+}
+
+function renderImageLightbox() {
+  const lightbox = getImageLightbox();
+  const image = lightbox.querySelector("img");
+  const caption = lightbox.querySelector("figcaption");
+  const previous = lightbox.querySelector("[data-lightbox-previous]");
+  const next = lightbox.querySelector("[data-lightbox-next]");
+  const item = activeLightboxItems[activeLightboxIndex];
+
+  if (!item || !image || !caption) return;
+
+  image.src = item.src;
+  image.alt = item.alt;
+  caption.textContent = item.alt;
+  const hasMultiple = activeLightboxItems.length > 1;
+  previous.hidden = !hasMultiple;
+  next.hidden = !hasMultiple;
+}
+
+function openImageLightbox(trigger) {
+  const { items, index } = getGalleryLightboxItems(trigger);
+  if (!items.length) return;
+
+  lastLightboxTrigger = trigger;
+  activeLightboxItems = items;
+  activeLightboxIndex = index;
+
+  const lightbox = getImageLightbox();
+  renderImageLightbox();
+  lightbox.hidden = false;
+  document.body.classList.add("has-image-lightbox");
+  lightbox.querySelector("[data-lightbox-close]")?.focus();
+}
+
+function closeImageLightbox() {
+  const lightbox = document.querySelector("[data-image-lightbox]");
+  if (!lightbox || lightbox.hidden) return;
+
+  lightbox.hidden = true;
+  document.body.classList.remove("has-image-lightbox");
+  lastLightboxTrigger?.focus?.();
+}
+
+function moveImageLightbox(direction) {
+  if (!activeLightboxItems.length) return;
+  activeLightboxIndex = (activeLightboxIndex + direction + activeLightboxItems.length) % activeLightboxItems.length;
+  renderImageLightbox();
+}
+
+const guideReactionPage = location.pathname.split("/").pop() || "index.html";
+const guideReactionTokenKey = "visitgensan-guide-reaction-visitor";
+const guideReactionSelectedKey = `visitgensan-guide-reaction:${guideReactionPage}`;
+const guideReactionApiPath = "/api/reactions";
+const guideReactionLabels = ["happy", "surprised", "sad", "angry"];
+
+function getGuideReactionVisitorToken() {
+  let token = localStorage.getItem(guideReactionTokenKey);
+
+  if (!token) {
+    token = window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}-${Math.random().toString(16).slice(2)}`;
+    localStorage.setItem(guideReactionTokenKey, token);
+  }
+
+  return token;
+}
+
+function setGuideReactionBusy(container, isBusy) {
+  container.querySelectorAll("[data-reaction]").forEach((button) => {
+    button.disabled = isBusy;
+    button.setAttribute("aria-busy", String(isBusy));
+  });
+}
+
+function updateGuideReactionTotals(container) {
+  const counts = Array.from(container.querySelectorAll("[data-reaction-count]")).map((count) => Number(count.textContent || 0));
+  const total = counts.reduce((sum, count) => sum + count, 0);
+  const totalNode = container.querySelector("[data-reaction-total]");
+  if (totalNode) totalNode.textContent = String(total);
+}
+
+function renderGuideReactions(container, data = {}) {
+  const totals = data.totals || {};
+  const hasServerSelection = Object.prototype.hasOwnProperty.call(data, "selected");
+  const selectedReaction = hasServerSelection ? (data.selected || "") : (localStorage.getItem(guideReactionSelectedKey) || "");
+
+  guideReactionLabels.forEach((reaction) => {
+    const button = container.querySelector(`[data-reaction="${reaction}"]`);
+    const count = button?.querySelector("[data-reaction-count]");
+    if (count) count.textContent = String(Number(totals[reaction] || 0));
+    button?.classList.toggle("is-selected", selectedReaction === reaction);
+    button?.setAttribute("aria-pressed", String(selectedReaction === reaction));
+  });
+
+  if (selectedReaction) {
+    localStorage.setItem(guideReactionSelectedKey, selectedReaction);
+  } else if (hasServerSelection) {
+    localStorage.removeItem(guideReactionSelectedKey);
+  }
+
+  updateGuideReactionTotals(container);
+}
+
+async function loadGuideReactions(container) {
+  try {
+    const visitor = getGuideReactionVisitorToken();
+    const params = new URLSearchParams({ page: guideReactionPage, visitor });
+    const response = await fetch(`${guideReactionApiPath}?${params.toString()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error("Unable to load guide reactions");
+    renderGuideReactions(container, await response.json());
+  } catch (error) {
+    const savedReaction = localStorage.getItem(guideReactionSelectedKey);
+    renderGuideReactions(container, savedReaction ? { totals: { [savedReaction]: 1 }, selected: savedReaction } : {});
+  }
+}
+
+async function submitGuideReaction(reactionButton) {
+  const container = reactionButton.closest("[data-guide-reactions]");
+  const nextReaction = reactionButton.dataset.reaction;
+
+  if (!container || !guideReactionLabels.includes(nextReaction)) return;
+
+  const previousReaction = localStorage.getItem(guideReactionSelectedKey);
+  if (previousReaction === nextReaction) return;
+
+  setGuideReactionBusy(container, true);
+
+  try {
+    const response = await fetch(guideReactionApiPath, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        page: guideReactionPage,
+        reaction: nextReaction,
+        visitor: getGuideReactionVisitorToken()
+      })
+    });
+
+    if (!response.ok) throw new Error("Unable to save guide reaction");
+
+    const data = await response.json();
+    localStorage.setItem(guideReactionSelectedKey, data.selected || nextReaction);
+    renderGuideReactions(container, data);
+  } catch (error) {
+    const optimisticTotals = {};
+    guideReactionLabels.forEach((reaction) => {
+      const count = container.querySelector(`[data-reaction="${reaction}"] [data-reaction-count]`);
+      optimisticTotals[reaction] = Number(count?.textContent || 0);
+    });
+
+    if (previousReaction && optimisticTotals[previousReaction]) {
+      optimisticTotals[previousReaction] = Math.max(0, optimisticTotals[previousReaction] - 1);
+    }
+
+    optimisticTotals[nextReaction] = Number(optimisticTotals[nextReaction] || 0) + 1;
+    localStorage.setItem(guideReactionSelectedKey, nextReaction);
+    renderGuideReactions(container, { totals: optimisticTotals, selected: nextReaction });
+  } finally {
+    setGuideReactionBusy(container, false);
+  }
+}
+
+document.querySelectorAll("[data-guide-reactions]").forEach((container) => {
+  loadGuideReactions(container);
+});
 document.addEventListener("click", async (event) => {
+  const reactionButton = event.target.closest("[data-guide-reactions] [data-reaction]");
+  if (reactionButton) {
+    event.preventDefault();
+    await submitGuideReaction(reactionButton);
+    return;
+  }
+  const taxiToggle = event.target.closest("[data-taxi-toggle]");
+  if (taxiToggle) {
+    const target = document.getElementById(taxiToggle.getAttribute("aria-controls"));
+    if (!target) return;
+
+    event.preventDefault();
+    const isOpening = target.hidden;
+    target.hidden = !isOpening;
+    taxiToggle.setAttribute("aria-expanded", String(isOpening));
+
+    if (isOpening) {
+      target.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+    return;
+  }
+
+  const lightboxImageLink = event.target.closest(".fishport-photo-grid a[href], .plaza-gallery-grid a[href], .sarangani-gallery-grid a[href], .sarangani-feature-photo[href], .sarangani-card-photo[href]");
+  if (lightboxImageLink) {
+    event.preventDefault();
+    openImageLightbox(lightboxImageLink);
+    return;
+  }
+
+  const lightboxClose = event.target.closest("[data-lightbox-close]");
+  if (lightboxClose) {
+    event.preventDefault();
+    closeImageLightbox();
+    return;
+  }
+
+  const lightboxPrevious = event.target.closest("[data-lightbox-previous]");
+  if (lightboxPrevious) {
+    event.preventDefault();
+    moveImageLightbox(-1);
+    return;
+  }
+
+  const lightboxNext = event.target.closest("[data-lightbox-next]");
+  if (lightboxNext) {
+    event.preventDefault();
+    moveImageLightbox(1);
+    return;
+  }
+
+  if (event.target.closest("[data-image-lightbox]") && !event.target.closest(".image-lightbox-frame, button")) {
+    closeImageLightbox();
+    return;
+  }
   const galleryButton = event.target.closest(".gallery-thumb");
   if (galleryButton) {
     const gallery = galleryButton.closest(".featured-hotel-gallery");
@@ -278,6 +543,26 @@ document.addEventListener("click", async (event) => {
   }
 });
 
+
+document.addEventListener("keydown", (event) => {
+  const lightbox = document.querySelector("[data-image-lightbox]");
+  if (!lightbox || lightbox.hidden) return;
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeImageLightbox();
+  }
+
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    moveImageLightbox(-1);
+  }
+
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    moveImageLightbox(1);
+  }
+});
 document.querySelectorAll("[data-list]").forEach(async (container) => {
   const type = container.dataset.list;
   const limit = Number(container.dataset.limit || 0);
@@ -299,6 +584,13 @@ document.querySelectorAll("[data-list]").forEach(async (container) => {
 
 document.querySelectorAll("[data-featured-list]").forEach(async (container) => {
   const type = container.dataset.featuredList;
+  const activeCategory = document.querySelector(`[data-category-controls="${type}"] [data-category-filter].is-active`)?.dataset.categoryFilter;
+
+  if (container.hasAttribute("data-category-results") && activeCategory) {
+    await renderCategoryHotels(type, activeCategory, false);
+    return;
+  }
+
   await renderGuideHotel(type, 0, false, container);
 });
 
@@ -464,6 +756,7 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
               </a>
             ` : ""}
             ${item.phone ? `<a class="hotel-icon-link contact-link" href="tel:${escapeAttribute(formatPhoneHref(item.phone))}" aria-label="Call ${escapeAttribute(item.title)} at ${escapeAttribute(item.phone)}"><span class="icon-mobile" aria-hidden="true"></span><strong>${escapeHtml(item.phone)}</strong></a>` : ""}
+            ${item.email ? `<a class="hotel-icon-link email-link" href="mailto:${escapeAttribute(item.email)}" aria-label="Email ${escapeAttribute(item.title)} at ${escapeAttribute(item.email)}"><span class="icon-email" aria-hidden="true"></span><strong>${escapeHtml(item.email)}</strong></a>` : ""}
             ${item.facebookUrl ? `<a class="hotel-icon-link facebook-link" href="${escapeAttribute(item.facebookUrl)}" target="_blank" rel="noopener" aria-label="${escapeAttribute(item.title)} Facebook page"><span aria-hidden="true">f</span><strong>Facebook</strong></a>` : ""}
           </div>
         </div>
@@ -476,6 +769,7 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
         ${item.logo ? `
           <h3 class="hotel-logo-title">
             <img src="${escapeAttribute(item.logo)}" alt="${escapeAttribute(item.title)}">
+            <span>${escapeHtml(item.title)}</span>
           </h3>
         ` : `<h3>${escapeHtml(item.title)}</h3>`}
         ${item.location ? `<p class="hotel-location">${escapeHtml(item.location)}</p>` : ""}
@@ -511,14 +805,6 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
                 </article>
               `).join("")}
             </div>
-          </div>
-        ` : ""}
-        ${facilities.length ? `
-          <div class="popular-facilities">
-            <h4>Most popular facilities</h4>
-            <ul>
-              ${facilities.map((facility) => `<li>${escapeHtml(facility)}</li>`).join("")}
-            </ul>
           </div>
         ` : ""}
         ${gettingThere ? `
@@ -633,7 +919,7 @@ function buildGettingThere(item) {
         title: "From General Santos Airport",
         paragraphs: [
           "If you are coming from General Santos Airport, the most convenient option is to take a taxi or book a ride in advance.",
-          "You may contact Gensan City Taxi through its Facebook page, or call or text the numbers below before traveling."
+          "You may contact Gensan City Taxi through Instagram, mobile, email, Facebook page, or WhatsApp before traveling."
         ],
         link: {
           label: "Gensan City Taxi Facebook page",
@@ -641,16 +927,24 @@ function buildGettingThere(item) {
         },
         contacts: [
           {
-            label: "Smart",
-            value: "0950 260 6057"
+            label: "Instagram",
+            value: "gensancitytaxi2001"
           },
           {
-            label: "TM",
+            label: "Mobile",
             value: "0935 025 5176"
           },
           {
-            label: "Landline",
-            value: "(083) 552 1164"
+            label: "Email",
+            value: "gensancitytaxi@gmail.com"
+          },
+          {
+            label: "FB page",
+            value: "Gensan City Taxi"
+          },
+          {
+            label: "WhatsApp",
+            value: "+63 935 025 5176"
           }
         ],
         suggestedMessage: `Hello, I need a taxi going to ${item.title}. May I know if a unit is available and the estimated fare?`,
@@ -663,6 +957,10 @@ function buildGettingThere(item) {
 
 function routeContactIcon(label = "") {
   const normalizedLabel = String(label).toLowerCase();
+  if (normalizedLabel.includes("instagram")) return "icon-instagram";
+  if (normalizedLabel.includes("email")) return "icon-email";
+  if (normalizedLabel.includes("fb") || normalizedLabel.includes("facebook")) return "icon-facebook";
+  if (normalizedLabel.includes("whatsapp")) return "icon-whatsapp";
   if (normalizedLabel.includes("landline")) return "icon-landline";
   return "icon-mobile";
 }

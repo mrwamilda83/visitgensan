@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -89,14 +89,14 @@
           <h2 id="flow-title">Morning visit route</h2>
         </div>
         <ol class="tour-flow-list">
-          <li><strong>Arrive early</strong><span>Arrive early at the Fish Port Complex.</span></li>
-          <li><strong>Register</strong><span>Register or request permission at the entrance.</span></li>
-          <li><strong>Wear boots</strong><span>Wear required boots or foot covering. Boots may be rented, so prepare a small fee.</span></li>
-          <li><strong>Proceed inside</strong><span>Proceed to the tuna unloading area.</span></li>
-          <li><strong>Observe trade</strong><span>Watch tuna weighing, grading, and sorting.</span></li>
-          <li><strong>Take photos</strong><span>Take photos only where allowed.</span></li>
-          <li><strong>Ask locals</strong><span>Ask local workers or guides about tuna export and local trade.</span></li>
-          <li><strong>Breakfast stop</strong><span>End with breakfast or coffee near the city proper.</span></li>
+          <li><strong>ARRIVE EARLY</strong><span>Arrive early at the Fish Port Complex.</span></li>
+          <li><strong>REGISTER</strong><span>Register or request permission at the entrance.</span></li>
+          <li><strong>WEAR BOOTS</strong><span>Wear boots or proper foot covering. Prepare a small amount in case boots or coverings are needed.</span></li>
+          <li><strong>PROCEED INSIDE</strong><span>Proceed to the tuna unloading area.</span></li>
+          <li><strong>OBSERVE THE TRADE</strong><span>Watch the tuna weighing, grading, and sorting process.</span></li>
+          <li><strong>TAKE PHOTOS</strong><span>Take photos only where allowed.</span></li>
+          <li><strong>ASK LOCALS</strong><span>Ask local workers or guides about tuna export and local trade.</span></li>
+          <li><strong>BREAKFAST STOP</strong><span>End the visit with breakfast or coffee near the city proper.</span></li>
         </ol>
       </section>
 
@@ -142,22 +142,102 @@
       </section>
 
       <section class="section-wrap fishport-cta" aria-label="Fish Port call to action">
-        <div>
+        <div class="fishport-cta-copy">
           <strong>Start your day early and witness the energy behind the Tuna Capital of the Philippines.</strong>
         </div>
-        <a class="card-link" href="things-to-do.html">Plan Morning Visit</a>
+        <div class="fishport-cta-ride" aria-hidden="true">
+          <img class="taxi-icon" src="assets/images/taxi-cta-icon.png" alt="Taxi icon">
+          <div>
+            <strong>Need a Ride?</strong>
+            <span>Call a trusted local taxi</span>
+          </div>
+        </div>
+        <button class="card-link fishport-plan-button" type="button" data-taxi-toggle aria-controls="fishport-taxi-details" aria-expanded="false">Plan Morning Visit</button>
       </section>
 
+      <section class="section-wrap fishport-taxi-details" id="fishport-taxi-details" aria-labelledby="taxi-title" hidden>
+        <div class="taxi-intro">
+          <img class="taxi-badge" src="assets/images/gensan-city-taxi-service.png" alt="Gensan City Taxi Service logo">
+          <div>
+            <h2>Need a Ride?</h2>
+            <p>Call a trusted local taxi to take you to the <strong>General Santos Fish Port Complex.</strong></p>
+          </div>
+          <ul class="taxi-feature-list" aria-label="Taxi service features">
+            <li><span class="taxi-detail-icon icon-shield" aria-hidden="true"></span>Reliable</li>
+            <li><span class="taxi-detail-icon icon-users" aria-hidden="true"></span>Safe</li>
+            <li><span class="taxi-detail-icon icon-seat" aria-hidden="true"></span>Comfortable</li>
+            <li><span class="taxi-detail-icon icon-clock" aria-hidden="true"></span>Advance Booking Available</li>
+          </ul>
+          <div class="fishport-taxi-map" aria-labelledby="fishport-map-title">
+            <h3 id="fishport-map-title">General Santos City Fish Port Complex</h3>
+            <div class="route-map">
+              <iframe title="General Santos City Fish Port Complex map" src="https://www.google.com/maps?q=General%20Santos%20City%20Fish%20Port%20Complex&ll=6.0355625,125.1431094&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <a class="route-external-link" href="https://www.google.com/maps/place/General+Santos+City+Fish+Port+Complex/@6.0355678,125.1405345,1121m/data=!3m2!1e3!4b1!4m6!3m5!1s0x32f7a145e5f08bc5:0xa2c7b2f958f4a38c!8m2!3d6.0355625!4d125.1431094!16s%2Fg%2F1td9smx7?authuser=0&entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+                <span class="route-link-icon icon-pin" aria-hidden="true"></span>
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="taxi-profile">
+          <h2 id="taxi-title">Gensan City Taxi</h2>
+          <p>Reliable Airport &amp; City Taxi Service in General Santos City, Philippines. Safe | On-Time | Comfortable | Advance Booking Available Message us to reserve your ride today.</p>
+          <ul class="taxi-meta-list">
+            <li><span class="taxi-detail-icon icon-briefcase" aria-hidden="true"></span>Transportation Service</li>
+            <li><span class="taxi-detail-icon icon-pin" aria-hidden="true"></span>General Santos City</li>
+          </ul>
+          <a class="taxi-phone" href="tel:+639350255176">0935 025 5176</a>
+          <div class="taxi-contact-channels" aria-label="Gensan City Taxi contact channels">
+            <a href="https://www.instagram.com/gensancitytaxi2001/" target="_blank" rel="noopener">
+              <span class="taxi-contact-icon icon-instagram" aria-hidden="true"></span>
+              <strong>gensancitytaxi2001</strong>
+              <small>Instagram</small>
+            </a>
+            <a href="tel:+639350255176">
+              <span class="taxi-contact-icon icon-phone" aria-hidden="true"></span>
+              <strong>0935 025 5176</strong>
+              <small>Mobile</small>
+            </a>
+            <a href="mailto:gensancitytaxi@gmail.com">
+              <span class="taxi-contact-icon icon-email" aria-hidden="true"></span>
+              <strong>gensancitytaxi@gmail.com</strong>
+              <small>Email</small>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100063770273399" target="_blank" rel="noopener">
+              <span class="taxi-contact-icon icon-facebook" aria-hidden="true"></span>
+              <strong>Gensan City Taxi</strong>
+              <small>FB page</small>
+            </a>
+            <a href="https://wa.me/639350255176" target="_blank" rel="noopener">
+              <span class="taxi-contact-icon icon-whatsapp" aria-hidden="true"></span>
+              <strong>+63 935 025 5176</strong>
+              <small>WhatsApp</small>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-wrap guide-reactions" data-guide-reactions aria-labelledby="guide-reactions-title">
+        <p class="reaction-count"><span data-reaction-total>0</span> People Reacted</p>
+        <h2 id="guide-reactions-title">Was this guide helpful?</h2>
+        <div class="reaction-options" aria-label="Guide reactions">
+          <button type="button" data-reaction="happy"><span aria-hidden="true">🙂</span><strong>Happy</strong><small data-reaction-count>0</small></button>
+          <button type="button" data-reaction="surprised"><span aria-hidden="true">😮</span><strong>Surprised</strong><small data-reaction-count>0</small></button>
+          <button type="button" data-reaction="sad"><span aria-hidden="true">😢</span><strong>Sad</strong><small data-reaction-count>0</small></button>
+          <button type="button" data-reaction="angry"><span aria-hidden="true">😡</span><strong>Angry</strong><small data-reaction-count>0</small></button>
+        </div>
+      </section>
       <section class="section-wrap nearby-ideas" aria-labelledby="nearby-title">
         <div class="section-heading compact">
           <p class="eyebrow">After your visit</p>
           <h2 id="nearby-title">Nearby ideas</h2>
         </div>
         <div class="nearby-link-grid">
-          <a href="things-to-do.html">Plaza Heneral Santos</a>
-          <a href="things-to-do.html">Queen Tuna Park</a>
-          <a href="things-to-do.html">Sarangani Highlands Garden</a>
-          <a href="food-restaurants.html">Local Breakfast Spots</a>
+          <a href="things-to-do.html"><span class="nearby-icon icon-palm" aria-hidden="true"></span>Plaza Heneral Santos</a>
+          <a href="things-to-do.html"><span class="nearby-icon icon-tree" aria-hidden="true"></span>Quezon Tuna Park</a>
+          <a href="things-to-do.html"><span class="nearby-icon icon-mountain" aria-hidden="true"></span>Sarangani Highlands Garden</a>
+          <a href="food-restaurants.html"><span class="nearby-icon icon-cup" aria-hidden="true"></span>Local Breakfast Spots</a>
         </div>
       </section>
     </main>

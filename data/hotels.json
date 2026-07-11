@@ -60,7 +60,7 @@
             },
             {
                 "title": "Dining choices",
-                "text": "Mint Cafe, Tea Leaf Restaurant, Lobby Lounge, Zanzibar, and in-room dining are listed by the hotel."
+                "text": "Mint Cafe, Tea Leaf Restaurant, Lobby Lounge, Zanzibar, and in-room dining give guests several food and lounge choices."
             },
             {
                 "title": "Wellness",
@@ -104,7 +104,7 @@
                     "title": "From General Santos Airport",
                     "paragraphs": [
                         "If you are coming from General Santos Airport, the most convenient option is to take a taxi or book a ride in advance.",
-                        "You may contact Gensan City Taxi through its Facebook page, or call or text the numbers below before traveling."
+                        "You may contact Gensan City Taxi through Instagram, mobile, email, Facebook page, or WhatsApp before traveling."
                     ],
                     "link": {
                         "label": "Gensan City Taxi Facebook page",
@@ -112,16 +112,24 @@
                     },
                     "contacts": [
                         {
-                            "label": "Smart",
-                            "value": "0950 260 6057"
+                            "label": "Instagram",
+                            "value": "gensancitytaxi2001"
                         },
                         {
-                            "label": "TM",
+                            "label": "Mobile",
                             "value": "0935 025 5176"
                         },
                         {
-                            "label": "Landline",
-                            "value": "(083) 552 1164"
+                            "label": "Email",
+                            "value": "gensancitytaxi@gmail.com"
+                        },
+                        {
+                            "label": "FB page",
+                            "value": "Gensan City Taxi"
+                        },
+                        {
+                            "label": "WhatsApp",
+                            "value": "+63 935 025 5176"
                         }
                     ],
                     "suggestedMessage": "Hello, I need a taxi going to Greenleaf Hotel. May I know if a unit is available and the estimated fare?",
@@ -195,7 +203,7 @@
                 "title": "Business base"
             },
             {
-                "text": "Official hotel information lists Cafe Summit and Grazie Bistro among its dining offers.",
+                "text": "Cafe Summit and Grazie Bistro give guests convenient dining choices during the stay.",
                 "title": "Dining choices"
             },
             {
@@ -217,7 +225,7 @@
         ],
         "details": [
             "This guide includes Grand Summit Hotel General Santos as a business-category hotel option for visitors who want a polished city stay with dining and event facilities in one place.",
-            "Its official hotel information highlights rooms and suites, Cafe Summit, Grazie Bistro, leisure and wellness areas, and spaces for meetings or celebrations.",
+            "Guests can expect rooms and suites, Cafe Summit, Grazie Bistro, leisure and wellness areas, and spaces for meetings or celebrations.",
             "It is a practical fit for business travelers, event guests, couples, and visitors who prefer a modern hotel base while staying in General Santos City."
         ],
         "facebookUrl": "https://www.facebook.com/GrandSummitHotelsPH/",
@@ -281,19 +289,19 @@
         ],
         "highlights": [
             {
-                "text": "A practical business-hotel option with guest rooms, meeting support, dining, and transport help listed on the official site.",
+                "text": "A practical business-hotel option with guest rooms, meeting support, dining, and transport help.",
                 "title": "Business category"
             },
             {
-                "text": "Official hotel information lists a business center and fiber-optic Wi-Fi.",
+                "text": "A business center and fiber-optic Wi-Fi support work trips and longer city stays.",
                 "title": "Business support"
             },
             {
-                "text": "Royale Lounge is listed as the hotel dining venue.",
+                "text": "Royale Lounge gives guests an on-site dining venue.",
                 "title": "Dining on site"
             },
             {
-                "text": "Airport shuttle service is listed for in-house guests.",
+                "text": "Airport shuttle service helps in-house guests plan arrival and departure.",
                 "title": "Arrival help"
             }
         ],
@@ -306,9 +314,9 @@
             "Function and banquet spaces"
         ],
         "details": [
-            "This guide includes East Asia Royale Hotel as a business-category GenSan stay because its official information highlights guest rooms, business facilities, dining, function spaces, and transport support.",
-            "Its official website lists 102 guest rooms, several room categories, fiber-optic Wi-Fi, a business center, Royale Lounge, and airport shuttle service for in-house guests.",
-            "It is a practical fit for travelers who want published room rates, city access, dining, meeting support, and direct official contact channels."
+            "This guide includes East Asia Royale Hotel as a business-category GenSan stay because it brings together guest rooms, business facilities, dining, function spaces, and transport support.",
+            "The hotel has 102 guest rooms, several room categories, fiber-optic Wi-Fi, a business center, Royale Lounge, and airport shuttle service for in-house guests.",
+            "It is a practical fit for travelers who want city access, dining, meeting support, and direct contact channels."
         ],
         "logo": "assets/images/east-asia-royale/logo.png"
     },
@@ -373,7 +381,7 @@
                 "title": "Family category"
             },
             {
-                "text": "Official contact details place the hotel at Roxas Avenue corner Jose P. Laurel Street.",
+                "text": "Its Roxas Avenue corner Jose P. Laurel Street location keeps guests close to the city center.",
                 "title": "Central address"
             },
             {
@@ -394,14 +402,14 @@
         ],
         "details": [
             "This guide includes Q Citipark Hotel GenSan as a family-category hotel option for visitors who want practical city access and room choices suited for group stays.",
-            "Its official site describes it as a clean and comfortable business boutique hotel with guest rooms, function rooms, Citi Bistro, and event spaces.",
+            "The hotel works well as a clean, comfortable city base with guest rooms, function rooms, Citi Bistro, and event spaces.",
             "It is a practical fit for families, small groups, and visitors who want a city hotel base while moving around General Santos City."
         ]
     },
     {
         "title": "Microtel by Wyndham General Santos",
-        "category": "Family",
-        "description": "Microtel by Wyndham General Santos is a practical family-friendly GenSan hotel along Valley High National Highway, with modern rooms, free breakfast and WiFi, friendly service, event spaces, and easy access to city stops and nearby attractions.",
+        "category": "Business",
+        "description": "Microtel by Wyndham General Santos is a practical business-friendly GenSan hotel along Valley High National Highway, with modern rooms, free breakfast and WiFi, friendly service, event spaces, and easy access to city stops and nearby attractions.",
         "label": "Check hotel details",
         "url": "https://www.wyndhamhotels.com/microtel/general-santos-city-philippines/microtel-by-wyndham-general-santos/overview",
         "image": "assets/images/microtel/exterior.png",
@@ -429,7 +437,7 @@
                 "alt": "Microtel by Wyndham General Santos banquet setup"
             }
         ],
-        "score": "Family",
+        "score": "Business",
         "scoreText": "",
         "facts": [
             {
@@ -438,7 +446,7 @@
             },
             {
                 "label": "Best for",
-                "value": "Family stays and city access"
+                "value": "Business stays and city access"
             },
             {
                 "label": "Nearby",
@@ -455,20 +463,20 @@
         ],
         "highlights": [
             {
-                "title": "Family category",
-                "text": "A practical guide option for families and small groups who want a clean, simple hotel base with breakfast, WiFi, and city access."
+                "title": "Business category",
+                "text": "A practical guide option for business travelers and small groups who want a clean, simple hotel base with breakfast, WiFi, and city access."
             },
             {
-                "title": "Official Wyndham listing",
-                "text": "The official page describes modern rooms, free breakfast and WiFi, and friendly service for a brilliantly simple stay."
+                "title": "Simple stay setup",
+                "text": "Modern rooms, free breakfast, WiFi, and friendly service keep the stay simple and convenient."
             },
             {
                 "title": "Nearby trips",
-                "text": "Wyndham highlights access to Glan White Beach, Sarangani Bay, and Kalaja Eco Park."
+                "text": "The location can work for guests planning trips toward Glan White Beach, Sarangani Bay, and Kalaja Eco Park."
             },
             {
                 "title": "Events ready",
-                "text": "The official page lists meetings, events, and groups with smartly appointed meeting space."
+                "text": "Meeting and event spaces make it useful for groups and simple gatherings."
             }
         ],
         "facilities": [
@@ -482,9 +490,9 @@
             "Wyndham booking channel"
         ],
         "details": [
-            "This guide includes Microtel by Wyndham General Santos as a family-category hotel option because its official Wyndham page emphasizes modern rooms, free breakfast and WiFi, friendly service, and simple guest convenience.",
+            "This guide includes Microtel by Wyndham General Santos as a business-category hotel option because it offers modern rooms, free breakfast and WiFi, friendly service, and simple guest convenience.",
             "For visitors, the advantage is a straightforward stay along Valley High National Highway with city access and a recognizable hotel brand booking channel.",
-            "It is a practical fit for families, small groups, event guests, and visitors who want an uncomplicated GenSan base while also keeping nearby trips like Sarangani Bay or Glan in mind."
+            "It is a practical fit for business travelers, small groups, event guests, and visitors who want an uncomplicated GenSan base while also keeping nearby trips like Sarangani Bay or Glan in mind."
         ],
         "facebookUrl": "https://www.facebook.com/p/Microtel-Inn-Suites-by-Wyndham-100089953681352/",
         "logo": "assets/images/microtel/logo.png"
@@ -549,7 +557,7 @@
         "highlights": [
             {
                 "title": "Business-boutique category",
-                "text": "Avior presents itself as a business-boutique hotel for travelers who want a central GenSan base."
+                "text": "Avior works as a business-boutique hotel for travelers who want a central GenSan base."
             },
             {
                 "title": "City address",
@@ -557,11 +565,11 @@
             },
             {
                 "title": "Dining on site",
-                "text": "The official site highlights The Kitchen Table and Cafe Santi among its dining options."
+                "text": "The Kitchen Table and Cafe Santi give guests on-site dining options."
             },
             {
                 "title": "Events ready",
-                "text": "Avior lists ballrooms and function rooms for meetings, events, and celebrations."
+                "text": "Ballrooms and function rooms support meetings, events, and celebrations."
             }
         ],
         "facilities": [
@@ -575,8 +583,8 @@
             "Business-friendly location"
         ],
         "details": [
-            "This guide includes Avior Hotel as a business-category GenSan stay because its official site describes it as a business-boutique hotel with 95 rooms and a Santiago Boulevard location.",
-            "Its official information highlights free airport transfer, a 24-hour front desk, The Kitchen Table, Cafe Santi, ballrooms, and function rooms.",
+            "This guide includes Avior Hotel as a business-category GenSan stay because it is a business-boutique hotel with 95 rooms and a Santiago Boulevard location.",
+            "Guests can use free airport transfer, a 24-hour front desk, The Kitchen Table, Cafe Santi, ballrooms, and function rooms.",
             "It is a practical fit for business travelers, event guests, couples, and city visitors who want a modern hotel base in General Santos City."
         ]
     },
@@ -640,11 +648,11 @@
         "highlights": [
             {
                 "title": "Business meets leisure",
-                "text": "The official site positions SunCity Suites as a business-meets-leisure hotel for work trips and comfortable city stays."
+                "text": "SunCity Suites works as a business-meets-leisure hotel for work trips and comfortable city stays."
             },
             {
                 "title": "Suite choices",
-                "text": "Official hotel information highlights 43 rooms and suites for different visitor needs."
+                "text": "Its 43 rooms and suites give guests several choices for different stay needs."
             },
             {
                 "title": "Dining on site",
@@ -665,7 +673,7 @@
             "Central complex location"
         ],
         "details": [
-            "This guide includes SunCity Suites as a business-category GenSan hotel because its official site describes it around business-meets-leisure stays, suites, dining, and event facilities.",
+            "This guide includes SunCity Suites as a business-category GenSan hotel because it brings together business-meets-leisure stays, suites, dining, and event facilities.",
             "Its location in the Sun City Complex makes it a practical base for guests who want a hotel connected to city movement, dining, and event access.",
             "It is a practical fit for business travelers, event guests, couples, and small groups who want room choices and an accessible General Santos City stay."
         ]
@@ -719,7 +727,7 @@
             "Air-conditioned rooms",
             "Hot and cold shower",
             "Private C.R.",
-            "Netflix and YouTube noted in signage",
+            "Netflix and YouTube",
             "Front desk area"
         ],
         "highlights": [
@@ -729,31 +737,571 @@
             },
             {
                 "title": "Room basics",
-                "text": "Provided photos and signage show air-conditioned rooms, hot and cold shower, and rooms with own C.R."
+                "text": "Rooms are presented with air-conditioning, hot and cold shower, and private C.R. basics."
             },
             {
                 "title": "Short-stay flexibility",
-                "text": "Exterior signage shows short-stay rates, useful for travelers who need flexible city lodging."
+                "text": "Short-stay options make it useful for travelers who need flexible city lodging."
             },
             {
                 "title": "Direct contact",
-                "text": "Visitors can verify availability, rates, and room details through the official Facebook page or contact number."
+                "text": "Visitors can confirm availability, rates, and room details through the Facebook page or contact number."
             }
         ],
         "facilities": [
             "Air-conditioned rooms",
             "Hot and cold shower",
             "Private C.R.",
-            "Netflix and YouTube noted in signage",
+            "Netflix and YouTube",
             "Front desk area",
             "Common area",
             "Short-stay options"
         ],
         "details": [
             "This guide includes Alma Residences GenSan as a budget-category stay because it is positioned around affordable rooms, simple essentials, and practical short-stay convenience.",
-            "The supplied photos show a front desk area, common seating/work space, compact guest room, and exterior signage noting air-conditioned rooms, hot and cold shower, rooms with own C.R., and entertainment options.",
+            "The property has a front desk area, common seating/work space, compact guest room, air-conditioned rooms, hot and cold shower, rooms with own C.R., and entertainment options.",
             "It is a practical fit for solo travelers, short city visits, budget-conscious guests, and visitors who prefer to contact the property directly before booking."
         ],
         "phone": "0919 366 2824"
+    },
+    {
+        "title": "The Sonly Suites & Restaurant",
+        "category": "Budget",
+        "description": "The Sonly Suites & Restaurant is a budget-friendly GenSan stay with simple rooms, a restaurant setting, and a practical local atmosphere for visitors who want an affordable place with dining on site.",
+        "label": "Check hotel details",
+        "url": "https://www.facebook.com/SonlySuitesandRestaurant",
+        "facebookUrl": "https://www.facebook.com/SonlySuitesandRestaurant",
+        "logo": "assets/images/sonly-suites/logo.png",
+        "image": "assets/images/sonly-suites/exterior.jpg",
+        "guideLabel": "Hotel guide",
+        "location": "Mateo Road, Lagao, General Santos City, Philippines, 9500",
+        "gallery": [
+            {
+                "src": "assets/images/sonly-suites/exterior.jpg",
+                "alt": "The Sonly Suites and Restaurant exterior"
+            },
+            {
+                "src": "assets/images/sonly-suites/restaurant.jpg",
+                "alt": "The Sonly Suites and Restaurant dining area"
+            },
+            {
+                "src": "assets/images/sonly-suites/queen-room.jpg",
+                "alt": "The Sonly Suites guest room"
+            },
+            {
+                "src": "assets/images/sonly-suites/twin-room.jpg",
+                "alt": "The Sonly Suites twin room"
+            },
+            {
+                "src": "assets/images/sonly-suites/dining-room.jpg",
+                "alt": "The Sonly Suites restaurant seating"
+            }
+        ],
+        "score": "Budget",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Budget stays with dining"
+            },
+            {
+                "label": "On site",
+                "value": "Suites and restaurant"
+            }
+        ],
+        "amenities": [
+            "Budget-friendly rooms",
+            "Free WiFi",
+            "Air-conditioned rooms",
+            "Private bathroom",
+            "Restaurant on site",
+            "24-hour front desk",
+            "Dining area",
+            "Free private parking"
+        ],
+        "highlights": [
+            {
+                "title": "Budget category",
+                "text": "A practical option for travelers looking for a simple, lower-cost stay in General Santos City."
+            },
+            {
+                "title": "Restaurant on site",
+                "text": "The property includes a restaurant and dining area, useful for guests who want meals close to their room."
+            },
+            {
+                "title": "Room choices",
+                "text": "Photos show queen and twin-style room setups for different traveler needs."
+            },
+            {
+                "title": "Direct inquiry",
+                "text": "Visitors can check updated details, availability, and inquiries through the official Facebook page."
+            }
+        ],
+        "facilities": [
+            "Guest rooms",
+            "Free WiFi",
+            "Air-conditioned rooms",
+            "Private bathroom",
+            "Restaurant",
+            "Dining area",
+            "24-hour front desk",
+            "Free private parking"
+        ],
+        "details": [
+            "This guide includes The Sonly Suites & Restaurant as a budget-category stay because it combines simple lodging with an on-site restaurant setup.",
+            "The property photos show an exterior entrance, restaurant seating, dining areas, and basic guest room layouts, with guest essentials such as WiFi, air-conditioning, private bathroom access, and TV noted for the stay.",
+            "It is a practical fit for budget-conscious travelers, small groups, and visitors who prefer to contact the property through Facebook before booking."
+        ],
+        "phone": "0943 707 9495"
+    },
+    {
+        "title": "Florotel Gensan",
+        "category": "Family",
+        "description": "Florotel Gensan is a family-friendly city hotel near J.P. Laurel Avenue and Pendatun Avenue, with air-conditioned rooms, WiFi, breakfast options, parking, and practical front-desk support for GenSan visitors.",
+        "label": "Check hotel details",
+        "url": "https://www.facebook.com/FlorotelGensanPage",
+        "facebookUrl": "https://www.facebook.com/FlorotelGensanPage",
+        "logo": "assets/images/florotel/logo.png",
+        "image": "assets/images/florotel/exterior.png",
+        "guideLabel": "Hotel guide",
+        "location": "J.P. Laurel Avenue corner Pendatun Avenue, General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/florotel/exterior.png",
+                "alt": "Florotel Gensan exterior"
+            },
+            {
+                "src": "assets/images/florotel/lobby.jpg",
+                "alt": "Florotel Gensan lobby and front desk"
+            },
+            {
+                "src": "assets/images/florotel/guest-room.jpg",
+                "alt": "Florotel Gensan guest room"
+            },
+            {
+                "src": "assets/images/florotel/twin-room.jpg",
+                "alt": "Florotel Gensan twin room"
+            },
+            {
+                "src": "assets/images/florotel/bistro.jpg",
+                "alt": "Florotel Gensan bistro seating"
+            }
+        ],
+        "score": "Family",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Family stays and city access"
+            },
+            {
+                "label": "Location",
+                "value": "J.P. Laurel and Pendatun area"
+            }
+        ],
+        "amenities": [
+            "Family rooms",
+            "Free WiFi",
+            "Air-conditioned rooms",
+            "Private bathroom",
+            "Breakfast options",
+            "24-hour front desk",
+            "Daily housekeeping",
+            "Free private parking"
+        ],
+        "highlights": [
+            {
+                "title": "Family category",
+                "text": "A practical option for families and small groups who want simple room essentials and city access."
+            },
+            {
+                "title": "Room basics",
+                "text": "Rooms are presented with air-conditioning, WiFi, private bathroom access, shower amenities, and TV."
+            },
+            {
+                "title": "Breakfast and bistro",
+                "text": "The hotel can work well for guests who want breakfast options and dining space within the property."
+            },
+            {
+                "title": "Arrival support",
+                "text": "Parking, front-desk assistance, housekeeping, and security make the stay easier for short city visits."
+            }
+        ],
+        "facilities": [
+            "Family rooms",
+            "Free WiFi",
+            "Air-conditioned rooms",
+            "Private bathroom",
+            "Breakfast options",
+            "24-hour front desk",
+            "Daily housekeeping",
+            "Free private parking"
+        ],
+        "details": [
+            "This guide includes Florotel Gensan as a family-category hotel option because it offers room basics, breakfast options, and a practical location near J.P. Laurel Avenue and Pendatun Avenue.",
+            "The property photos show an exterior, front desk, guest rooms, and bistro-style seating, with essentials such as WiFi, air-conditioning, private bathroom access, TV, and parking noted for the stay.",
+            "It is a practical fit for families, couples, and small groups who want a straightforward GenSan base with direct Facebook contact and a local phone number."
+        ],
+        "phone": "0968 851 2411"
+    },
+    {
+        "title": "Hotel San Marco",
+        "category": "Family",
+        "description": "Hotel San Marco is a family-friendly GenSan hotel with warm classic interiors, family room options, breakfast, restaurant and bar service, airport transfer support, and practical guest services for city stays.",
+        "label": "Check hotel details",
+        "url": "https://www.facebook.com/hotelsan.marco.1",
+        "facebookUrl": "https://www.facebook.com/hotelsan.marco.1",
+        "logo": "assets/images/hotel-san-marco/logo.jpg",
+        "image": "assets/images/hotel-san-marco/exterior.jpg",
+        "guideLabel": "Hotel guide",
+        "location": "General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/hotel-san-marco/exterior.jpg",
+                "alt": "Hotel San Marco exterior at night"
+            },
+            {
+                "src": "assets/images/hotel-san-marco/lobby.jpg",
+                "alt": "Hotel San Marco lobby and dining area"
+            },
+            {
+                "src": "assets/images/hotel-san-marco/restaurant.jpg",
+                "alt": "Hotel San Marco restaurant table setup"
+            },
+            {
+                "src": "assets/images/hotel-san-marco/guest-room.jpg",
+                "alt": "Hotel San Marco guest room"
+            },
+            {
+                "src": "assets/images/hotel-san-marco/family-room.jpg",
+                "alt": "Hotel San Marco family room"
+            }
+        ],
+        "score": "Family",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Family stays and value"
+            },
+            {
+                "label": "On site",
+                "value": "Restaurant, bar, and breakfast"
+            }
+        ],
+        "amenities": [
+            "Family rooms",
+            "Free WiFi",
+            "Free parking",
+            "24-hour front desk",
+            "Restaurant",
+            "Bar",
+            "Airport transfer",
+            "Luggage storage"
+        ],
+        "highlights": [
+            {
+                "title": "Family category",
+                "text": "A practical hotel option for families and small groups who want room choices, dining, and city access."
+            },
+            {
+                "title": "Guest service",
+                "text": "Guest feedback commonly points to polite, accommodating staff and responsive service."
+            },
+            {
+                "title": "Breakfast value",
+                "text": "Breakfast and overall value are strong reasons visitors may consider this hotel for a GenSan stay."
+            },
+            {
+                "title": "Travel support",
+                "text": "Free parking, airport transfer support, front-desk service, and luggage storage help simplify arrival and movement."
+            }
+        ],
+        "facilities": [
+            "Family rooms",
+            "Free WiFi",
+            "Free parking",
+            "24-hour front desk",
+            "Restaurant",
+            "Bar",
+            "Airport transfer",
+            "Luggage storage"
+        ],
+        "details": [
+            "This guide includes Hotel San Marco as a family-category hotel option because it combines family rooms, dining, classic interiors, and helpful guest services in one GenSan stay.",
+            "The property photos show an exterior, lobby, restaurant setup, guest room, and family room, with amenities such as WiFi, parking, restaurant and bar service, airport transfer, and luggage storage noted for visitors.",
+            "For direct inquiries, guests can use Smart +63 947 893 2237, Globe +63 917 706 5347, or telephone (083) 305-5167, and may also check the hotel's Facebook page before booking."
+        ],
+        "phone": "+63 947 893 2237"
+    },
+    {
+        "title": "3G Garden Hotel",
+        "category": "Budget",
+        "description": "3G Garden Hotel is a budget-friendly GenSan stay along the Yusepeng Road and National Highway area, with simple room options, free breakfast, air-conditioned rooms, WiFi, parking, and practical essentials for short city stays.",
+        "label": "Check hotel details",
+        "url": "https://www.facebook.com/3GHotel",
+        "facebookUrl": "https://www.facebook.com/3GHotel",
+        "email": "3ggardenhotelgensan@gmail.com",
+        "logo": "assets/images/3g-garden-hotel/logo.jpg",
+        "image": "assets/images/3g-garden-hotel/exterior.jpg",
+        "guideLabel": "Hotel guide",
+        "location": "Yusepeng Road, National Highway, General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/3g-garden-hotel/exterior.jpg",
+                "alt": "3G Garden Hotel exterior"
+            },
+            {
+                "src": "assets/images/3g-garden-hotel/lobby.jpg",
+                "alt": "3G Garden Hotel lobby"
+            },
+            {
+                "src": "assets/images/3g-garden-hotel/dining-area.jpg",
+                "alt": "3G Garden Hotel dining area"
+            },
+            {
+                "src": "assets/images/3g-garden-hotel/double-room.jpg",
+                "alt": "3G Garden Hotel double room"
+            },
+            {
+                "src": "assets/images/3g-garden-hotel/family-room.jpg",
+                "alt": "3G Garden Hotel family room"
+            }
+        ],
+        "score": "Budget",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Affordable short stays"
+            },
+            {
+                "label": "Location",
+                "value": "Yusepeng Road and National Highway area"
+            }
+        ],
+        "amenities": [
+            "Free breakfast",
+            "Air-conditioned rooms",
+            "Affordable rates",
+            "Free WiFi",
+            "Wide and safe parking",
+            "Standby generator",
+            "Family room",
+            "Deluxe room options"
+        ],
+        "highlights": [
+            {
+                "title": "Budget category",
+                "text": "A practical option for visitors who want a lower-cost GenSan stay with basic comforts included."
+            },
+            {
+                "title": "Room options",
+                "text": "Room choices are presented for solo guests, business travelers, quick escapes, and families."
+            },
+            {
+                "title": "Included basics",
+                "text": "Free breakfast, WiFi, air-conditioning, and parking help keep the stay simple and convenient."
+            },
+            {
+                "title": "Backup power",
+                "text": "A standby generator is noted as part of the property essentials for guest convenience."
+            }
+        ],
+        "facilities": [
+            "Free breakfast",
+            "Air-conditioned rooms",
+            "Affordable rates",
+            "Free WiFi",
+            "Wide and safe parking",
+            "Standby generator",
+            "Family room",
+            "Deluxe room options"
+        ],
+        "details": [
+            "This guide includes 3G Garden Hotel as a budget-category hotel option because it focuses on affordable rates, room choices, and practical essentials for quick GenSan stays.",
+            "The property photos show an exterior, lobby, dining area, double room, and family room, with listed amenities such as free breakfast, WiFi, air-conditioning, parking, and standby generator support.",
+            "It can work for quick escapes, business travelers, families, and visitors who prefer to inquire through Facebook or email before booking. Email: 3ggardenhotelgensan@gmail.com."
+        ]
+    },
+    {
+        "title": "Columbus Plaza Hotel",
+        "category": "Family",
+        "description": "Columbus Plaza Hotel is a family-friendly GenSan hotel on Osmena corner Champaca Streets, with air-conditioned family rooms, private bathrooms, free WiFi, breakfast, parking, shuttle support, and guest services for practical city stays.",
+        "label": "Check hotel details",
+        "url": "https://www.facebook.com/columbusplazahotel",
+        "facebookUrl": "https://www.facebook.com/columbusplazahotel",
+        "logo": "assets/images/columbus-plaza-hotel/logo.jpg",
+        "image": "assets/images/columbus-plaza-hotel/exterior.jpg",
+        "guideLabel": "Hotel guide",
+        "location": "Osmena corner Champaca Streets, General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/columbus-plaza-hotel/exterior.jpg",
+                "alt": "Columbus Plaza Hotel exterior"
+            },
+            {
+                "src": "assets/images/columbus-plaza-hotel/lobby.jpg",
+                "alt": "Columbus Plaza Hotel lobby"
+            },
+            {
+                "src": "assets/images/columbus-plaza-hotel/dining-area.jpg",
+                "alt": "Columbus Plaza Hotel dining area"
+            },
+            {
+                "src": "assets/images/columbus-plaza-hotel/single-room.jpg",
+                "alt": "Columbus Plaza Hotel single room"
+            },
+            {
+                "src": "assets/images/columbus-plaza-hotel/twin-room.jpg",
+                "alt": "Columbus Plaza Hotel twin room"
+            }
+        ],
+        "score": "Family",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Family rooms and city access"
+            },
+            {
+                "label": "Location",
+                "value": "Osmena corner Champaca Streets"
+            }
+        ],
+        "amenities": [
+            "Family rooms",
+            "Free WiFi",
+            "Free parking",
+            "Asian breakfast",
+            "Room service",
+            "24-hour front desk",
+            "Airport shuttle",
+            "Non-smoking rooms"
+        ],
+        "highlights": [
+            {
+                "title": "Family category",
+                "text": "A practical option for families and small groups who want private rooms, city access, and simple guest services."
+            },
+            {
+                "title": "Room basics",
+                "text": "Rooms are presented with air-conditioning, private bathroom access, TV, wardrobe space, and tiled floors."
+            },
+            {
+                "title": "Breakfast and service",
+                "text": "Asian breakfast, room service, lounge areas, concierge support, and a 24-hour front desk make the stay easier."
+            },
+            {
+                "title": "Arrival support",
+                "text": "Free private parking and paid shuttle support help guests plan airport and city movement."
+            }
+        ],
+        "facilities": [
+            "Family rooms",
+            "Free WiFi",
+            "Free parking",
+            "Asian breakfast",
+            "Room service",
+            "24-hour front desk",
+            "Airport shuttle",
+            "Non-smoking rooms"
+        ],
+        "details": [
+            "This guide includes Columbus Plaza Hotel as a family-category hotel option because it offers family rooms, breakfast, guest services, and a practical location on Osmena corner Champaca Streets.",
+            "The property photos show an exterior, lobby, dining area, single room, and twin room, with amenities such as WiFi, air-conditioning, private bathrooms, parking, room service, and shuttle support noted for visitors.",
+            "It can work for families, small groups, and visitors who want a straightforward GenSan base with direct Facebook contact and a local phone number."
+        ],
+        "phone": "0977 805 3315"
+    },
+    {
+        "title": "ICON Venue & Suites",
+        "category": "Family",
+        "description": "ICON Venue & Suites is a family-friendly GenSan stay and event venue on C. M. Recto corner Albano Street, with room options, breakfast, WiFi, an in-house restaurant, rooftop bar and cafe, and venue spaces for gatherings.",
+        "label": "Check hotel details",
+        "url": "https://www.facebook.com/ICONVenueandSuites",
+        "facebookUrl": "https://www.facebook.com/ICONVenueandSuites",
+        "logo": "assets/images/icon-venue-suites/logo.jpg",
+        "image": "assets/images/icon-venue-suites/exterior.jpg",
+        "guideLabel": "Hotel guide",
+        "location": "C. M. Recto corner Albano Street, General Santos City",
+        "gallery": [
+            {
+                "src": "assets/images/icon-venue-suites/exterior.jpg",
+                "alt": "ICON Venue and Suites exterior"
+            },
+            {
+                "src": "assets/images/icon-venue-suites/event-hall.jpg",
+                "alt": "ICON Venue and Suites event hall"
+            },
+            {
+                "src": "assets/images/icon-venue-suites/event-setup.jpg",
+                "alt": "ICON Venue and Suites event setup"
+            },
+            {
+                "src": "assets/images/icon-venue-suites/guest-room.jpg",
+                "alt": "ICON Venue and Suites guest room"
+            },
+            {
+                "src": "assets/images/icon-venue-suites/family-room.jpg",
+                "alt": "ICON Venue and Suites family room"
+            }
+        ],
+        "score": "Family",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Best for",
+                "value": "Family stays and events"
+            },
+            {
+                "label": "On site",
+                "value": "Suites, restaurant, rooftop bar and cafe"
+            }
+        ],
+        "amenities": [
+            "Free breakfast",
+            "Free WiFi access",
+            "Air-conditioned rooms",
+            "Hot and cold shower",
+            "PWD-friendly elevator",
+            "In-house restaurant",
+            "Rooftop bar and cafe",
+            "Family room"
+        ],
+        "highlights": [
+            {
+                "title": "Family category",
+                "text": "A practical option for families and groups who want room choices plus venue spaces in one place."
+            },
+            {
+                "title": "Room choices",
+                "text": "Room types are presented for single, standard, deluxe, triple, and family stays."
+            },
+            {
+                "title": "Included basics",
+                "text": "Free breakfast, WiFi access, bottled water, guest kit, LED TV, and air-conditioned rooms are listed as guest essentials."
+            },
+            {
+                "title": "Venue-ready stay",
+                "text": "Event hall and celebration setup photos make it useful for gatherings, meetings, and family occasions."
+            }
+        ],
+        "facilities": [
+            "Free breakfast",
+            "Free WiFi access",
+            "Air-conditioned rooms",
+            "Hot and cold shower",
+            "PWD-friendly elevator",
+            "In-house restaurant",
+            "Rooftop bar and cafe",
+            "Family room"
+        ],
+        "details": [
+            "This guide includes ICON Venue & Suites as a family-category option because it combines guest rooms with venue spaces for families, groups, and events.",
+            "The property information lists single, standard, deluxe, triple, and family room options, plus amenities such as free breakfast, WiFi access, bottled water, guest kit, LED TV, hot and cold shower, and air-conditioning.",
+            "Visitors can inquire through the Facebook page or mobile number before booking."
+        ],
+        "phone": "0933 866 7716"
     }
 ]
