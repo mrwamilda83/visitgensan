@@ -107,16 +107,17 @@ const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
 const listingRequestForm = document.querySelector(".development-listing-form");
 const developmentPreviewHosts = ["localhost", "127.0.0.1"];
-const productionDevelopmentHosts = ["visitgensan.com", "www.visitgensan.com", "visitgensan.pages.dev"];
+const productionDevelopmentHosts = ["visitgensan.com", "www.visitgensan.com"];
 const isLocalDevelopmentPreview = developmentPreviewHosts.includes(window.location.hostname);
 const isProductionDevelopmentHost = productionDevelopmentHosts.includes(window.location.hostname);
 const isUnderDevelopmentPage = document.body.classList.contains("under-development-home");
 // Localhost is for development preview only. Production hosts stay in under-development mode until launch.
-const isDevelopmentLocked = isUnderDevelopmentPage && !isLocalDevelopmentPreview;
+const isDevelopmentLocked = false;
 
 if (isUnderDevelopmentPage) {
   document.body.classList.toggle("is-development-preview", isLocalDevelopmentPreview);
-  document.body.classList.toggle("is-development-locked", isDevelopmentLocked || isProductionDevelopmentHost);
+  document.body.classList.toggle("is-development-notice", isProductionDevelopmentHost);
+  document.body.classList.toggle("is-development-locked", isDevelopmentLocked);
 
   if (isLocalDevelopmentPreview) {
     document.querySelectorAll("[aria-disabled='true']").forEach((element) => {
@@ -978,6 +979,7 @@ function routeContactIcon(label = "") {
     '.about-polaroid',
     '.about-tuna-seal',
     '.about-side-champions',
+    '.author-box',
     '.section-heading',
     '.feature-card',
     '.card-grid > *',
@@ -1014,4 +1016,49 @@ function routeContactIcon(label = "") {
   );
 
   revealItems.forEach((item) => revealObserver.observe(item));
+})();
+
+
+(function initAuthorPanel() {
+  const panel = document.querySelector('#author-panel');
+  const openButtons = Array.from(document.querySelectorAll('[data-author-open]'));
+  const closeButtons = Array.from(document.querySelectorAll('[data-author-close]'));
+
+  if (!panel || !openButtons.length) {
+    return;
+  }
+
+  const openPanel = () => {
+    panel.classList.add('is-open');
+    panel.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('author-panel-open');
+    closeButtons[0]?.focus();
+  };
+
+  const closePanel = () => {
+    panel.classList.remove('is-open');
+    panel.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('author-panel-open');
+    openButtons[0]?.focus();
+  };
+
+  openButtons.forEach((button) => {
+    button.addEventListener('click', openPanel);
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', closePanel);
+  });
+
+  panel.addEventListener('click', (event) => {
+    if (event.target === panel) {
+      closePanel();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && panel.classList.contains('is-open')) {
+      closePanel();
+    }
+  });
 })();
