@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -72,12 +72,26 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
+        <button class="nav-about-button" type="button" data-author-open>About</button>
         <a href="hotels.html">Hotels</a>
         <a href="things-to-do.html" aria-current="page">Things To Do</a>
         <a href="food-restaurants.html">Food & Restaurants</a>
         <a href="travel-guides.html">Travel Guides</a>
       </nav>
     </header>
+    <section class="author-panel" id="author-panel" aria-labelledby="author-panel-title" aria-hidden="true">
+      <div class="author-panel-photo" aria-hidden="true"></div>
+      <div class="author-panel-shade" aria-hidden="true"></div>
+      <button class="author-panel-close" type="button" data-author-close aria-label="Close about author">Close</button>
+      <div class="author-panel-content">
+        <img class="author-panel-avatar" src="assets/images/mark-ryan-wamilda.jpg" alt="Mark Ryan Wamilda">
+        <p class="eyebrow">About the Author</p>
+        <h2 id="author-panel-title">Mark Ryan Wamilda</h2>
+        <p>Hi, I&rsquo;m <strong><a href="https://markryanwamilda.com" target="_blank" rel="noopener">Mark Ryan Wamilda</a></strong>, the creator of <strong>VisitGensan.com</strong>. I built this local guide to help visitors and residents discover useful places around General Santos City, from hotels, restaurants, parks, and attractions to practical travel tips.</p>
+        <p>My goal is to make GenSan easier to explore by sharing helpful information, local notes, photos, and links to official pages whenever available. VisitGensan.com is also my personal tribute to the city I proudly call home.</p>
+        <p>As an independent local guide, some details may change over time. Readers are encouraged to contact each business or destination directly for the latest schedules, rates, and availability.</p>
+      </div>
+    </section>
 
     <main class="activity-tour-page">
       <section class="page-hero activity-hero">

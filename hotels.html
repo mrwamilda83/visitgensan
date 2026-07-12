@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -72,12 +72,26 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
+        <button class="nav-about-button" type="button" data-author-open>About</button>
         <a href="hotels.html" aria-current="page">Hotels</a>
         <a href="things-to-do.html">Things To Do</a>
         <a href="food-restaurants.html">Food & Restaurants</a>
         <a href="travel-guides.html">Travel Guides</a>
       </nav>
     </header>
+    <section class="author-panel" id="author-panel" aria-labelledby="author-panel-title" aria-hidden="true">
+      <div class="author-panel-photo" aria-hidden="true"></div>
+      <div class="author-panel-shade" aria-hidden="true"></div>
+      <button class="author-panel-close" type="button" data-author-close aria-label="Close about author">Close</button>
+      <div class="author-panel-content">
+        <img class="author-panel-avatar" src="assets/images/mark-ryan-wamilda.jpg" alt="Mark Ryan Wamilda">
+        <p class="eyebrow">About the Author</p>
+        <h2 id="author-panel-title">Mark Ryan Wamilda</h2>
+        <p>Hi, I&rsquo;m <strong><a href="https://markryanwamilda.com" target="_blank" rel="noopener">Mark Ryan Wamilda</a></strong>, the creator of <strong>VisitGensan.com</strong>. I built this local guide to help visitors and residents discover useful places around General Santos City, from hotels, restaurants, parks, and attractions to practical travel tips.</p>
+        <p>My goal is to make GenSan easier to explore by sharing helpful information, local notes, photos, and links to official pages whenever available. VisitGensan.com is also my personal tribute to the city I proudly call home.</p>
+        <p>As an independent local guide, some details may change over time. Readers are encouraged to contact each business or destination directly for the latest schedules, rates, and availability.</p>
+      </div>
+    </section>
 
     <main>
       <section class="page-hero hotel-hero">
@@ -117,9 +131,9 @@
           <p>Browse additional GenSan hotel picks by category, then open each guide for photos, location notes, official links, and visitor-ready details.</p>
         </div>
         <div class="hotel-options-carousel" data-carousel>
-          <button class="carousel-arrow carousel-arrow-prev" type="button" data-carousel-button="previous" aria-label="Show previous hotel options">‹</button>
+          <button class="carousel-arrow carousel-arrow-prev" type="button" data-carousel-button="previous" aria-label="Show previous hotel options">&#8249;</button>
           <div class="card-grid hotel-options-grid" data-carousel-track data-list="hotels" data-skip="1" data-limit="14" data-insert-featured-after="1"></div>
-          <button class="carousel-arrow carousel-arrow-next" type="button" data-carousel-button="next" aria-label="Show next hotel options">›</button>
+          <button class="carousel-arrow carousel-arrow-next" type="button" data-carousel-button="next" aria-label="Show next hotel options">&#8250;</button>
         </div>
       </section>
 
