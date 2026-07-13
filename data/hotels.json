@@ -8,28 +8,37 @@
         "url": "https://greenleafhotelgensan.com/",
         "facebookUrl": "https://www.facebook.com/greenleafhotelgensan/",
         "logo": "assets/images/greenleaf-logo.png",
-        "image": "assets/images/greenleaf-lobby.png",
+        "image": "assets/images/greenleaf-official-exterior.jpg",
         "gallery": [
             {
-                "src": "assets/images/greenleaf-lobby.png",
-                "alt": "Greenleaf Hotel Gensan lobby"
-            },
-            {
-                "src": "assets/images/greenleaf-pool-night.png",
-                "alt": "Greenleaf Hotel Gensan pool"
-            },
-            {
-                "src": "assets/images/greenleaf-exterior-front.png",
+                "src": "assets/images/greenleaf-official-exterior.jpg",
                 "alt": "Greenleaf Hotel Gensan exterior"
             },
             {
-                "src": "assets/images/greenleaf-lounge.png",
-                "alt": "Greenleaf Hotel Gensan lounge"
+                "src": "assets/images/greenleaf-official-lobby-lounge.jpg",
+                "alt": "Greenleaf Hotel Gensan lobby lounge"
             },
             {
-                "src": "assets/images/greenleaf-bed-room.png",
+                "src": "assets/images/greenleaf-official-pool.jpg",
+                "alt": "Greenleaf Hotel Gensan pool"
+            },
+            {
+                "src": "assets/images/greenleaf-official-restaurant.jpg",
+                "alt": "Greenleaf Hotel Gensan restaurant"
+            },
+            {
+                "src": "assets/images/greenleaf-official-ballroom.jpg",
+                "alt": "Greenleaf Hotel Gensan ballroom"
+            },
+            {
+                "src": "assets/images/greenleaf-official-guest-room.jpg",
                 "alt": "Greenleaf Hotel Gensan guest room"
             }
+        ],
+        "photoCredit": "Photo Credits: Images courtesy of Greenleaf Hotel Gensan (Official Website & Facebook). Used with permission.",
+        "disclaimer": [
+            "VisitGenSan.com is an independent local travel guide and is not affiliated with the hotels listed unless otherwise stated. Hotel information is provided for visitor reference and may change without notice. Please confirm current rates, availability, policies, and other details directly with the hotel.",
+            "Some photos are provided by the property or used with permission from its official website and social media pages. Copyright remains with the respective owners."
         ],
         "score": "Business",
         "scoreText": "",

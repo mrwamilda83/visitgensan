@@ -481,6 +481,29 @@ document.addEventListener("click", async (event) => {
     closeImageLightbox();
     return;
   }
+
+  const galleryNavButton = event.target.closest("[data-gallery-direction]");
+  if (galleryNavButton) {
+    const gallery = galleryNavButton.closest(".featured-hotel-gallery");
+    const thumbnailButtons = Array.from(gallery?.querySelectorAll(".gallery-thumb") || []);
+    const visibleCount = 5;
+    const maxStart = Math.max(0, thumbnailButtons.length - visibleCount);
+    const currentStart = Number(gallery?.dataset.thumbStart || 0);
+    const direction = galleryNavButton.dataset.galleryDirection === "next" ? 1 : -1;
+    const nextStart = Math.max(0, Math.min(maxStart, currentStart + direction));
+
+    if (!gallery) return;
+
+    event.preventDefault();
+    gallery.dataset.thumbStart = String(nextStart);
+    thumbnailButtons.forEach((button, index) => {
+      button.hidden = index < nextStart || index >= nextStart + visibleCount;
+    });
+    gallery.querySelector('[data-gallery-direction="previous"]')?.toggleAttribute("disabled", nextStart === 0);
+    gallery.querySelector('[data-gallery-direction="next"]')?.toggleAttribute("disabled", nextStart === maxStart);
+    return;
+  }
+
   const galleryButton = event.target.closest(".gallery-thumb");
   if (galleryButton) {
     const gallery = galleryButton.closest(".featured-hotel-gallery");
@@ -713,7 +736,7 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
   const details = Array.isArray(item.details) ? item.details : [];
   const gallery = (Array.isArray(item.gallery) && item.gallery.length ? item.gallery : [
     { src: item.image || "assets/images/hotel-pool-room.png", alt: `${item.title} photo` }
-  ]).slice(0, 5);
+  ]).slice(0, 6);
   const highlights = Array.isArray(item.highlights) ? item.highlights : [];
   const facilities = Array.isArray(item.facilities) ? item.facilities : [];
   const gettingThere = item.gettingThere && Array.isArray(item.gettingThere.routes) ? item.gettingThere : buildGettingThere(item);
@@ -725,17 +748,22 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
 
   return `
     <article class="featured-hotel-card">
-      <div class="featured-hotel-gallery">
+      <div class="featured-hotel-gallery" data-thumb-start="0">
         <div class="gallery-main">
           <img src="${escapeAttribute(mainPhoto.src || image)}" alt="${escapeAttribute(mainPhoto.alt || `${item.title} photo`)}">
         </div>
-        <div class="gallery-thumbs">
-          ${thumbnails.map((photo, index) => `
-            <button class="gallery-thumb${index === 0 ? " is-active" : ""}" type="button" data-src="${escapeAttribute(photo.src)}" data-alt="${escapeAttribute(photo.alt || `${item.title} photo ${index + 1}`)}" aria-selected="${index === 0 ? "true" : "false"}">
-              <img src="${escapeAttribute(photo.src)}" alt="${escapeAttribute(photo.alt || `${item.title} photo ${index + 1}`)}">
-            </button>
-          `).join("")}
+        <div class="gallery-thumbs-row">
+          ${thumbnails.length > 5 ? `<button class="gallery-arrow gallery-arrow-previous" type="button" data-gallery-direction="previous" aria-label="Show previous Greenleaf Hotel photos" disabled>&#8249;</button>` : ""}
+          <div class="gallery-thumbs">
+            ${thumbnails.map((photo, index) => `
+              <button class="gallery-thumb${index === 0 ? " is-active" : ""}" type="button" data-src="${escapeAttribute(photo.src)}" data-alt="${escapeAttribute(photo.alt || `${item.title} photo ${index + 1}`)}" aria-selected="${index === 0 ? "true" : "false"}"${index >= 5 ? " hidden" : ""}>
+                <img src="${escapeAttribute(photo.src)}" alt="${escapeAttribute(photo.alt || `${item.title} photo ${index + 1}`)}">
+              </button>
+            `).join("")}
+          </div>
+          ${thumbnails.length > 5 ? `<button class="gallery-arrow gallery-arrow-next" type="button" data-gallery-direction="next" aria-label="Show next Greenleaf Hotel photos">&#8250;</button>` : ""}
         </div>
+        ${item.photoCredit ? `<p class="gallery-photo-credit">${escapeHtml(item.photoCredit)}</p>` : ""}
         <div class="gallery-info-panel">
           ${galleryAmenities.length ? `
             <section class="gallery-amenities">
@@ -787,7 +815,10 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
         ` : ""}
         <aside class="hotel-disclaimer" aria-label="Listing disclaimer">
           <strong>Independent local guide</strong>
-          <p>VisitGensan.com is an independent local guide and is not affiliated with the hotels listed unless clearly stated. Rates, amenities, availability, and contact details may change, so please confirm directly with the hotel or visit its official channels for the latest information.</p>
+          ${(Array.isArray(item.disclaimer) && item.disclaimer.length
+            ? item.disclaimer
+            : ["VisitGensan.com is an independent local guide and is not affiliated with the hotels listed unless clearly stated. Rates, amenities, availability, and contact details may change, so please confirm directly with the hotel or visit its official channels for the latest information."]
+          ).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
         </aside>
       </div>
       <div class="hotel-detail-panel" id="${escapeAttribute(detailId)}" hidden>
