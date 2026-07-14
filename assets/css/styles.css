@@ -1360,8 +1360,7 @@ h3 {
 }
 
 .hotel-location,
-.featured-hotel-body > p,
-.hotel-disclaimer p {
+.featured-hotel-body > p {
   text-align: justify;
   text-justify: inter-word;
 }
@@ -1401,7 +1400,12 @@ h3 {
 }
 
 .hotel-disclaimer {
-  margin-top: 18px;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 0;
+  margin: 0 12px 12px;
   border: 1px solid #b9dfd9;
   border-radius: 8px;
   background: #edf7f5;
@@ -1411,7 +1415,7 @@ h3 {
 
 .hotel-disclaimer strong {
   display: block;
-  margin-bottom: 6px;
+  margin: 0 0 4px;
   color: var(--teal-dark);
   font-size: 0.86rem;
   font-weight: 900;
@@ -1422,11 +1426,19 @@ h3 {
   margin: 0;
   color: #38575e;
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  text-align: left;
 }
 
 .hotel-disclaimer p + p {
-  margin-top: 10px;
+  margin-top: 12px;
+}
+
+@media (max-width: 920px) {
+  .hotel-disclaimer {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
 
@@ -1561,6 +1573,21 @@ h3 {
 
 .detail-copy {
   max-width: 940px;
+}
+
+.detail-list-columns ul {
+  column-count: 2;
+  column-gap: clamp(32px, 7vw, 84px);
+}
+
+.detail-list-columns li {
+  break-inside: avoid;
+}
+
+@media (max-width: 640px) {
+  .detail-list-columns ul {
+    column-count: 1;
+  }
 }
 
 .hotel-detail-panel p {
@@ -3122,8 +3149,7 @@ h3 {
 
   .hotel-location,
   .featured-hotel-body > p,
-  .hotel-facts,
-  .hotel-disclaimer {
+  .hotel-facts {
     width: 100%;
   }
 

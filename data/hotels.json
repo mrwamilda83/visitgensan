@@ -509,36 +509,57 @@
     {
         "title": "Avior Hotel",
         "category": "Business",
-        "description": "Avior Hotel is a business-boutique hotel along Santiago Boulevard in General Santos City, with 95 rooms, dining spaces, airport transfer service, and event venues for business travelers and city visitors.",
+        "description": "Avior Hotel is a business-boutique hotel in the heart of General Santos City, thoughtfully designed to provide a comfortable and productive stay for both business and leisure travelers. Conveniently located along Santiago Boulevard, the hotel offers modern accommodations, versatile event spaces, quality dining experiences, and warm Filipino hospitality—making it your second home in SOX.",
         "label": "Check hotel details",
         "url": "https://aviorhotel.com/",
         "facebookUrl": "https://www.facebook.com/AviorHotelOfficial",
         "logo": "assets/images/avior/logo.png",
-        "image": "assets/images/avior/exterior.png",
+        "image": "assets/images/avior/avior-0190.jpg",
         "guideLabel": "Hotel guide",
         "location": "Santiago Boulevard, General Santos City",
         "gallery": [
             {
-                "src": "assets/images/avior/exterior.png",
-                "alt": "Avior Hotel exterior on Santiago Boulevard"
+                "src": "assets/images/avior/avior-0190.jpg",
+                "alt": "Avior Hotel lobby and reception"
             },
             {
-                "src": "assets/images/avior/lobby.png",
-                "alt": "Avior Hotel lobby"
+                "src": "assets/images/avior/avior-0211.jpg",
+                "alt": "Avior Hotel dining room and buffet"
             },
             {
-                "src": "assets/images/avior/guest-room.png",
+                "src": "assets/images/avior/avior-0214.jpg",
+                "alt": "Avior Hotel dining bar and seating area"
+            },
+            {
+                "src": "assets/images/avior/avior-0220.jpg",
+                "alt": "Avior Hotel restaurant seating area"
+            },
+            {
+                "src": "assets/images/avior/avior-0265.jpg",
+                "alt": "Avior Hotel guest room with work desk"
+            },
+            {
+                "src": "assets/images/avior/avior-0274.jpg",
                 "alt": "Avior Hotel guest room"
             },
             {
-                "src": "assets/images/avior/dining.png",
-                "alt": "Avior Hotel dining area"
+                "src": "assets/images/avior/avior-0295.jpg",
+                "alt": "Avior Hotel twin guest room"
             },
             {
-                "src": "assets/images/avior/lounge.png",
-                "alt": "Avior Hotel lounge"
+                "src": "assets/images/avior/avior-0322.jpg",
+                "alt": "Avior Hotel Alpha Lounge"
+            },
+            {
+                "src": "assets/images/avior/avior-0333.jpg",
+                "alt": "Avior Hotel elevator lobby"
+            },
+            {
+                "src": "assets/images/avior/avior-0336.jpg",
+                "alt": "Avior Hotel Atrium Ballroom entrance"
             }
         ],
+        "photoCredit": "Photo Credit: Official photos courtesy of Avior Hotel. Used with permission.",
         "score": "Business",
         "scoreText": "",
         "facts": [
@@ -556,12 +577,14 @@
             }
         ],
         "amenities": [
-            "95 rooms",
-            "Free airport transfer",
-            "24-hour front desk",
-            "The Kitchen Table",
-            "Cafe Santi",
-            "Ballrooms and function rooms"
+            "Complimentary Wi-Fi",
+            "Complimentary Buffet Breakfast",
+            "Service Water",
+            "Electronic Door Lock System",
+            "In-room Safe",
+            "Hairdryer",
+            "Hot and Cold Shower",
+            "Coffee and Tea Making Unit"
         ],
         "highlights": [
             {
@@ -582,15 +605,59 @@
             }
         ],
         "facilities": [
-            "95 rooms",
-            "Free airport transfer",
-            "24-hour front desk",
-            "The Kitchen Table",
-            "Cafe Santi",
-            "Ballrooms",
-            "Function rooms",
-            "Business-friendly location"
+            "Complimentary Wi-Fi",
+            "Complimentary Buffet Breakfast",
+            "Service Water",
+            "Electronic Door Lock System",
+            "In-room Safe",
+            "Hairdryer",
+            "Hot and Cold Shower",
+            "Coffee and Tea Making Unit"
         ],
+        "otherFacilities": [
+            "24-Hour Front Desk",
+            "Room Service",
+            "Laundry and Pressing Service",
+            "Café and Restaurant (The Kitchen Table x Cafe Santi)",
+            "Mini Fitness Gym",
+            "PWD Room",
+            "Airport Shuttle Service (available upon request; charges may apply)",
+            "Free Parking",
+            "Prayer Room",
+            "Breastfeeding Room",
+            "Meeting & Function Rooms"
+        ],
+        "roomOfferings": [
+            "Standard Single Room",
+            "Standard Single King Room",
+            "Standard Double/Twin Room",
+            "Superior Room",
+            "Premier Room",
+            "Executive Room",
+            "Executive Suite"
+        ],
+        "bookingDetails": {
+            "intro": "Guests may book directly through:",
+            "email": "reservations@aviorhotel.com",
+            "phones": [
+                {
+                    "label": "Landline",
+                    "display": "(083) 877-7777",
+                    "href": "+63838777777"
+                },
+                {
+                    "label": "Mobile",
+                    "display": "0917 712 9217",
+                    "href": "+639177129217"
+                },
+                {
+                    "label": "Mobile",
+                    "display": "0998 841 3327",
+                    "href": "+639988413327"
+                }
+            ],
+            "messengerLabel": "Facebook Messenger"
+        },
         "details": [
             "This guide includes Avior Hotel as a business-category GenSan stay because it is a business-boutique hotel with 95 rooms and a Santiago Boulevard location.",
             "Guests can use free airport transfer, a 24-hour front desk, The Kitchen Table, Cafe Santi, ballrooms, and function rooms.",

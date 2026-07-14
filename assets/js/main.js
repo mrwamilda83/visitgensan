@@ -622,12 +622,29 @@ async function loadItems(type) {
   try {
     const response = await fetch(`data/${type}.json`, { cache: "no-store" });
     if (!response.ok) throw new Error(`Unable to load ${type}`);
-    itemCache[type] = await response.json();
+    const items = await response.json();
+    itemCache[type] = type === "hotels" ? placeHotelAfter(items, "Avior Hotel", "Greenleaf Hotel Gensan") : items;
     return itemCache[type];
   } catch (error) {
-    itemCache[type] = fallbackData[type] || [];
+    const fallbackItems = fallbackData[type] || [];
+    itemCache[type] = type === "hotels" ? placeHotelAfter(fallbackItems, "Avior Hotel", "Greenleaf Hotel Gensan") : fallbackItems;
     return itemCache[type];
   }
+}
+
+function placeHotelAfter(items, hotelTitle, precedingTitle) {
+  const orderedItems = [...items];
+  const hotelIndex = orderedItems.findIndex((item) => item.title === hotelTitle);
+
+  if (hotelIndex < 0) return orderedItems;
+
+  const [hotel] = orderedItems.splice(hotelIndex, 1);
+  const precedingIndex = orderedItems.findIndex((item) => item.title === precedingTitle);
+
+  if (precedingIndex < 0) return items;
+
+  orderedItems.splice(precedingIndex + 1, 0, hotel);
+  return orderedItems;
 }
 
 async function renderGuideHotel(type, index = 0, shouldScroll = false, existingContainer) {
@@ -736,9 +753,15 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
   const details = Array.isArray(item.details) ? item.details : [];
   const gallery = (Array.isArray(item.gallery) && item.gallery.length ? item.gallery : [
     { src: item.image || "assets/images/hotel-pool-room.png", alt: `${item.title} photo` }
-  ]).slice(0, 6);
+  ]).slice(0, 10);
   const highlights = Array.isArray(item.highlights) ? item.highlights : [];
   const facilities = Array.isArray(item.facilities) ? item.facilities : [];
+  const otherFacilities = Array.isArray(item.otherFacilities) ? item.otherFacilities : [];
+  const roomOfferings = Array.isArray(item.roomOfferings) ? item.roomOfferings : [];
+  const bookingDetails = item.bookingDetails && typeof item.bookingDetails === "object" ? item.bookingDetails : null;
+  const bookingPhones = Array.isArray(bookingDetails?.phones) ? bookingDetails.phones : [];
+  const bookingLandline = bookingPhones.find((phone) => phone.label === "Landline");
+  const bookingMobiles = bookingPhones.filter((phone) => phone.label === "Mobile");
   const gettingThere = item.gettingThere && Array.isArray(item.gettingThere.routes) ? item.gettingThere : buildGettingThere(item);
   const image = item.image || "assets/images/hotel-pool-room.png";
   const mainPhoto = gallery[0];
@@ -753,7 +776,7 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
           <img src="${escapeAttribute(mainPhoto.src || image)}" alt="${escapeAttribute(mainPhoto.alt || `${item.title} photo`)}">
         </div>
         <div class="gallery-thumbs-row">
-          ${thumbnails.length > 5 ? `<button class="gallery-arrow gallery-arrow-previous" type="button" data-gallery-direction="previous" aria-label="Show previous Greenleaf Hotel photos" disabled>&#8249;</button>` : ""}
+          ${thumbnails.length > 5 ? `<button class="gallery-arrow gallery-arrow-previous" type="button" data-gallery-direction="previous" aria-label="Show previous ${escapeAttribute(item.title)} photos" disabled>&#8249;</button>` : ""}
           <div class="gallery-thumbs">
             ${thumbnails.map((photo, index) => `
               <button class="gallery-thumb${index === 0 ? " is-active" : ""}" type="button" data-src="${escapeAttribute(photo.src)}" data-alt="${escapeAttribute(photo.alt || `${item.title} photo ${index + 1}`)}" aria-selected="${index === 0 ? "true" : "false"}"${index >= 5 ? " hidden" : ""}>
@@ -761,7 +784,7 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
               </button>
             `).join("")}
           </div>
-          ${thumbnails.length > 5 ? `<button class="gallery-arrow gallery-arrow-next" type="button" data-gallery-direction="next" aria-label="Show next Greenleaf Hotel photos">&#8250;</button>` : ""}
+          ${thumbnails.length > 5 ? `<button class="gallery-arrow gallery-arrow-next" type="button" data-gallery-direction="next" aria-label="Show next ${escapeAttribute(item.title)} photos">&#8250;</button>` : ""}
         </div>
         ${item.photoCredit ? `<p class="gallery-photo-credit">${escapeHtml(item.photoCredit)}</p>` : ""}
         <div class="gallery-info-panel">
@@ -813,19 +836,43 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
             `).join("")}
           </dl>
         ` : ""}
-        <aside class="hotel-disclaimer" aria-label="Listing disclaimer">
-          <strong>Independent local guide</strong>
-          ${(Array.isArray(item.disclaimer) && item.disclaimer.length
-            ? item.disclaimer
-            : ["VisitGensan.com is an independent local guide and is not affiliated with the hotels listed unless clearly stated. Rates, amenities, availability, and contact details may change, so please confirm directly with the hotel or visit its official channels for the latest information."]
-          ).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-        </aside>
       </div>
+      <aside class="hotel-disclaimer" aria-label="Listing disclaimer">
+        <strong>Independent local guide</strong>
+        <p>VisitGenSan.com is an independent local visitor guide and is not affiliated with the establishments featured unless otherwise stated. Information is provided for visitor reference and may change without notice. Please confirm current rates, operating hours, amenities, policies, and other details directly with the establishment before your visit.</p>
+        <p>Some photos may be provided by the featured establishment or used with permission from official websites and social media pages. Copyright remains with their respective owners.</p>
+      </aside>
       <div class="hotel-detail-panel" id="${escapeAttribute(detailId)}" hidden>
         <div class="detail-copy">
           <h4>Why it is in this guide</h4>
           ${details.map((detail) => `<p>${escapeHtml(detail)}</p>`).join("")}
         </div>
+        ${otherFacilities.length ? `
+          <div class="detail-copy detail-list-columns">
+            <h4>OTHER FACILITIES AND SERVICES</h4>
+            <ul>
+              ${otherFacilities.map((facility) => `<li>${escapeHtml(facility)}</li>`).join("")}
+            </ul>
+          </div>
+        ` : ""}
+        ${roomOfferings.length ? `
+          <div class="detail-copy detail-list-columns">
+            <h4>ROOM OFFERINGS</h4>
+            <ul>
+              ${roomOfferings.map((room) => `<li>${escapeHtml(room)}</li>`).join("")}
+            </ul>
+          </div>
+        ` : ""}
+        ${bookingDetails ? `
+          <div class="detail-copy">
+            <h4>BOOKING DETAILS</h4>
+            <p>${escapeHtml(bookingDetails.intro || "Guests may book directly through:")}</p>
+            ${bookingDetails.email ? `<p>Email: <a href="mailto:${escapeAttribute(bookingDetails.email)}">${escapeHtml(bookingDetails.email)}</a></p>` : ""}
+            ${bookingLandline ? `<p>Landline: <a href="tel:${escapeAttribute(bookingLandline.href || formatPhoneHref(bookingLandline.display))}">${escapeHtml(bookingLandline.display)}</a></p>` : ""}
+            ${bookingMobiles.length ? `<p>Mobile: ${bookingMobiles.map((phone) => `<a href="tel:${escapeAttribute(phone.href || formatPhoneHref(phone.display))}">${escapeHtml(phone.display)}</a>`).join(" | ")}</p>` : ""}
+            ${item.facebookUrl ? `<p><a href="${escapeAttribute(item.facebookUrl)}" target="_blank" rel="noopener">${escapeHtml(bookingDetails.messengerLabel || "Facebook Messenger")}</a></p>` : ""}
+          </div>
+        ` : ""}
         ${highlights.length ? `
           <div class="property-highlights">
             <h4>Property highlights</h4>
