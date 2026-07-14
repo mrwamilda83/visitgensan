@@ -13,6 +13,8 @@ function jsonResponse(body, status = 200, extraHeaders = {}) {
     headers: {
       "content-type": "application/json; charset=UTF-8",
       "cache-control": "no-store",
+      "cdn-cache-control": "no-store",
+      "cloudflare-cdn-cache-control": "no-store",
       ...extraHeaders
     }
   });
@@ -23,7 +25,9 @@ function getClientIp(request) {
 }
 
 function normalizePage(value) {
-  const page = String(value || "").split("/").pop();
+  const rawPage = String(value || "").trim().toLowerCase().split("?")[0].split("#")[0];
+  const pageName = rawPage.split("/").filter(Boolean).pop() || "";
+  const page = pageName && !pageName.endsWith(".html") ? `${pageName}.html` : pageName;
   return VALID_PAGES.has(page) ? page : "";
 }
 

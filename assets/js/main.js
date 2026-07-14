@@ -311,7 +311,12 @@ function moveImageLightbox(direction) {
   renderImageLightbox();
 }
 
-const guideReactionPage = location.pathname.split("/").pop() || "index.html";
+function normalizeGuideReactionPage(pathname) {
+  const page = String(pathname || "").split("/").filter(Boolean).pop() || "index";
+  return page.toLowerCase().endsWith(".html") ? page.toLowerCase() : `${page.toLowerCase()}.html`;
+}
+
+const guideReactionPage = normalizeGuideReactionPage(location.pathname);
 const guideReactionTokenKey = "visitgensan-guide-reaction-visitor";
 const guideReactionSelectedKey = `visitgensan-guide-reaction:${guideReactionPage}`;
 const guideReactionApiPath = "/api/reactions";
@@ -368,12 +373,18 @@ async function loadGuideReactions(container) {
   try {
     const visitor = getGuideReactionVisitorToken();
     const params = new URLSearchParams({ page: guideReactionPage, visitor });
-    const response = await fetch(`${guideReactionApiPath}?${params.toString()}`, { cache: "no-store" });
+    const response = await fetch(`${guideReactionApiPath}?${params.toString()}`, {
+      cache: "no-store",
+      headers: {
+        "cache-control": "no-cache",
+        pragma: "no-cache"
+      }
+    });
     if (!response.ok) throw new Error("Unable to load guide reactions");
     renderGuideReactions(container, await response.json());
   } catch (error) {
     const savedReaction = localStorage.getItem(guideReactionSelectedKey);
-    renderGuideReactions(container, savedReaction ? { totals: { [savedReaction]: 1 }, selected: savedReaction } : {});
+    renderGuideReactions(container, { totals: {}, selected: savedReaction || null });
   }
 }
 
@@ -391,7 +402,12 @@ async function submitGuideReaction(reactionButton) {
   try {
     const response = await fetch(guideReactionApiPath, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      cache: "no-store",
+      headers: {
+        "content-type": "application/json",
+        "cache-control": "no-cache",
+        pragma: "no-cache"
+      },
       body: JSON.stringify({
         page: guideReactionPage,
         reaction: nextReaction,
@@ -405,19 +421,8 @@ async function submitGuideReaction(reactionButton) {
     localStorage.setItem(guideReactionSelectedKey, data.selected || nextReaction);
     renderGuideReactions(container, data);
   } catch (error) {
-    const optimisticTotals = {};
-    guideReactionLabels.forEach((reaction) => {
-      const count = container.querySelector(`[data-reaction="${reaction}"] [data-reaction-count]`);
-      optimisticTotals[reaction] = Number(count?.textContent || 0);
-    });
-
-    if (previousReaction && optimisticTotals[previousReaction]) {
-      optimisticTotals[previousReaction] = Math.max(0, optimisticTotals[previousReaction] - 1);
-    }
-
-    optimisticTotals[nextReaction] = Number(optimisticTotals[nextReaction] || 0) + 1;
-    localStorage.setItem(guideReactionSelectedKey, nextReaction);
-    renderGuideReactions(container, { totals: optimisticTotals, selected: nextReaction });
+    console.error("Unable to save guide reaction", error);
+    await loadGuideReactions(container);
   } finally {
     setGuideReactionBusy(container, false);
   }
