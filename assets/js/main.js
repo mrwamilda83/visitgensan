@@ -333,7 +333,7 @@ const guideReactionFeedbackStates = {
     state: "already-reacted",
     icon: "i",
     title: "Reaction Already Submitted",
-    message: "You’ve already reacted to this guide. Your first reaction cannot be changed.",
+    message: "You’ve already reacted to this guide. Only one reaction can be submitted.",
     buttonLabel: "Got It"
   }
 };
