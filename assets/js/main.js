@@ -323,6 +323,48 @@ const guideReactionApiPath = "/api/reactions";
 const guideReactionLabels = ["happy", "surprised", "sad", "angry"];
 const guideReactionThankYouMessage = "Thank you for your feedback! Your reaction helps us improve our VisitGenSan guides.";
 const guideReactionAlreadySubmittedMessage = "You’ve already reacted to this guide. Only one reaction can be submitted.";
+let lastReactionFeedbackTrigger = null;
+
+function getReactionFeedbackModal() {
+  let modal = document.querySelector("[data-reaction-feedback-modal]");
+  if (modal) return modal;
+
+  modal = document.createElement("div");
+  modal.className = "reaction-feedback-modal";
+  modal.dataset.reactionFeedbackModal = "";
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="reaction-feedback-card" role="dialog" aria-modal="true" aria-labelledby="reaction-feedback-title" aria-describedby="reaction-feedback-message">
+      <button class="reaction-feedback-close" type="button" data-reaction-feedback-close aria-label="Close reaction feedback">&times;</button>
+      <p class="reaction-feedback-title" id="reaction-feedback-title">VisitGenSan</p>
+      <p class="reaction-feedback-message" id="reaction-feedback-message" data-reaction-feedback-message></p>
+      <button class="reaction-feedback-ok" type="button" data-reaction-feedback-close>OK</button>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  return modal;
+}
+
+function showReactionFeedback(message, trigger) {
+  const modal = getReactionFeedbackModal();
+  const messageNode = modal.querySelector("[data-reaction-feedback-message]");
+
+  lastReactionFeedbackTrigger = trigger || document.activeElement;
+  if (messageNode) messageNode.textContent = message;
+  modal.hidden = false;
+  document.body.classList.add("has-reaction-feedback-modal");
+  modal.querySelector(".reaction-feedback-ok")?.focus();
+}
+
+function closeReactionFeedback() {
+  const modal = document.querySelector("[data-reaction-feedback-modal]");
+  if (!modal || modal.hidden) return;
+
+  modal.hidden = true;
+  document.body.classList.remove("has-reaction-feedback-modal");
+  lastReactionFeedbackTrigger?.focus?.();
+  lastReactionFeedbackTrigger = null;
+}
 
 function getGuideReactionVisitorToken() {
   let token = localStorage.getItem(guideReactionTokenKey);
@@ -398,7 +440,7 @@ async function submitGuideReaction(reactionButton) {
 
   const previousReaction = localStorage.getItem(guideReactionSelectedKey);
   if (previousReaction) {
-    window.alert(guideReactionAlreadySubmittedMessage);
+    showReactionFeedback(guideReactionAlreadySubmittedMessage, reactionButton);
     return;
   }
 
@@ -424,7 +466,7 @@ async function submitGuideReaction(reactionButton) {
 
     if (response.status === 409) {
       renderGuideReactions(container, data);
-      window.alert(guideReactionAlreadySubmittedMessage);
+      showReactionFeedback(guideReactionAlreadySubmittedMessage, reactionButton);
       return;
     }
 
@@ -432,7 +474,7 @@ async function submitGuideReaction(reactionButton) {
 
     localStorage.setItem(guideReactionSelectedKey, data.selected || nextReaction);
     renderGuideReactions(container, data);
-    window.alert(guideReactionThankYouMessage);
+    showReactionFeedback(guideReactionThankYouMessage, reactionButton);
   } catch (error) {
     console.error("Unable to save guide reaction", error);
     await loadGuideReactions(container);
@@ -445,6 +487,18 @@ document.querySelectorAll("[data-guide-reactions]").forEach((container) => {
   loadGuideReactions(container);
 });
 document.addEventListener("click", async (event) => {
+  const reactionFeedbackClose = event.target.closest("[data-reaction-feedback-close]");
+  if (reactionFeedbackClose) {
+    event.preventDefault();
+    closeReactionFeedback();
+    return;
+  }
+
+  if (event.target.matches("[data-reaction-feedback-modal]")) {
+    closeReactionFeedback();
+    return;
+  }
+
   const reactionButton = event.target.closest("[data-guide-reactions] [data-reaction]");
   if (reactionButton) {
     event.preventDefault();
@@ -587,6 +641,13 @@ document.addEventListener("click", async (event) => {
 
 
 document.addEventListener("keydown", (event) => {
+  const reactionFeedbackModal = document.querySelector("[data-reaction-feedback-modal]");
+  if (event.key === "Escape" && reactionFeedbackModal && !reactionFeedbackModal.hidden) {
+    event.preventDefault();
+    closeReactionFeedback();
+    return;
+  }
+
   const lightbox = document.querySelector("[data-image-lightbox]");
   if (!lightbox || lightbox.hidden) return;
 

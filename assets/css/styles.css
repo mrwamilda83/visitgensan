@@ -3799,6 +3799,101 @@ h3 {
   }
 }
 
+.has-reaction-feedback-modal {
+  overflow: hidden;
+}
+
+.reaction-feedback-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 5vw, 40px);
+  background: rgba(3, 22, 26, 0.72);
+}
+
+.reaction-feedback-modal[hidden] {
+  display: none;
+}
+
+.reaction-feedback-card {
+  position: relative;
+  width: min(460px, 100%);
+  border-top: 5px solid var(--teal);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+  padding: clamp(30px, 6vw, 42px) clamp(22px, 6vw, 38px) clamp(24px, 5vw, 34px);
+  text-align: center;
+}
+
+.reaction-feedback-title {
+  margin: 0 42px 12px;
+  color: var(--teal-dark);
+  font-size: clamp(1.25rem, 4vw, 1.55rem);
+  font-weight: 900;
+}
+
+.reaction-feedback-message {
+  margin: 0 auto 24px;
+  color: #385960;
+  font-size: clamp(0.98rem, 2.6vw, 1.08rem);
+  line-height: 1.6;
+}
+
+.reaction-feedback-close,
+.reaction-feedback-ok {
+  border: 0;
+  background: var(--teal);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.reaction-feedback-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 999px;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.reaction-feedback-ok {
+  min-width: 112px;
+  border-radius: 999px;
+  padding: 11px 28px;
+}
+
+.reaction-feedback-close:hover,
+.reaction-feedback-close:focus-visible,
+.reaction-feedback-ok:hover,
+.reaction-feedback-ok:focus-visible {
+  background: var(--teal-dark);
+  outline: 3px solid rgba(4, 123, 131, 0.24);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .reaction-feedback-modal {
+    padding: 16px;
+  }
+
+  .reaction-feedback-card {
+    border-radius: 14px;
+  }
+
+  .reaction-feedback-ok {
+    width: 100%;
+  }
+}
+
 
 /* Sarangani Highlands Garden guide */
 .sarangani-guide {
