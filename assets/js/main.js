@@ -321,8 +321,22 @@ const guideReactionTokenKey = "visitgensan-guide-reaction-visitor";
 const guideReactionSelectedKey = `visitgensan-guide-reaction:${guideReactionPage}`;
 const guideReactionApiPath = "/api/reactions";
 const guideReactionLabels = ["happy", "surprised", "sad", "angry"];
-const guideReactionThankYouMessage = "Thank you for your feedback! Your reaction helps us improve our VisitGenSan guides.";
-const guideReactionAlreadySubmittedMessage = "You’ve already reacted to this guide. Only one reaction can be submitted.";
+const guideReactionFeedbackStates = {
+  success: {
+    state: "success",
+    icon: "✓",
+    title: "Thank You!",
+    message: "Your reaction has been recorded. It helps us improve our VisitGenSan guides.",
+    buttonLabel: "Done"
+  },
+  alreadyReacted: {
+    state: "already-reacted",
+    icon: "i",
+    title: "Reaction Already Submitted",
+    message: "You’ve already reacted to this guide. Your first reaction cannot be changed.",
+    buttonLabel: "Got It"
+  }
+};
 let lastReactionFeedbackTrigger = null;
 
 function getReactionFeedbackModal() {
@@ -336,24 +350,32 @@ function getReactionFeedbackModal() {
   modal.innerHTML = `
     <div class="reaction-feedback-card" role="dialog" aria-modal="true" aria-labelledby="reaction-feedback-title" aria-describedby="reaction-feedback-message">
       <button class="reaction-feedback-close" type="button" data-reaction-feedback-close aria-label="Close reaction feedback">&times;</button>
-      <p class="reaction-feedback-title" id="reaction-feedback-title">VisitGenSan</p>
+      <span class="reaction-feedback-icon" data-reaction-feedback-icon aria-hidden="true"></span>
+      <p class="reaction-feedback-title" id="reaction-feedback-title" data-reaction-feedback-title></p>
       <p class="reaction-feedback-message" id="reaction-feedback-message" data-reaction-feedback-message></p>
-      <button class="reaction-feedback-ok" type="button" data-reaction-feedback-close>OK</button>
+      <button class="reaction-feedback-ok" type="button" data-reaction-feedback-close data-reaction-feedback-button></button>
     </div>
   `;
   document.body.appendChild(modal);
   return modal;
 }
 
-function showReactionFeedback(message, trigger) {
+function showReactionFeedback(feedback, trigger) {
   const modal = getReactionFeedbackModal();
+  const iconNode = modal.querySelector("[data-reaction-feedback-icon]");
+  const titleNode = modal.querySelector("[data-reaction-feedback-title]");
   const messageNode = modal.querySelector("[data-reaction-feedback-message]");
+  const button = modal.querySelector("[data-reaction-feedback-button]");
 
   lastReactionFeedbackTrigger = trigger || document.activeElement;
-  if (messageNode) messageNode.textContent = message;
+  modal.dataset.reactionFeedbackState = feedback.state;
+  if (iconNode) iconNode.textContent = feedback.icon;
+  if (titleNode) titleNode.textContent = feedback.title;
+  if (messageNode) messageNode.textContent = feedback.message;
+  if (button) button.textContent = feedback.buttonLabel;
   modal.hidden = false;
   document.body.classList.add("has-reaction-feedback-modal");
-  modal.querySelector(".reaction-feedback-ok")?.focus();
+  button?.focus();
 }
 
 function closeReactionFeedback() {
@@ -440,7 +462,7 @@ async function submitGuideReaction(reactionButton) {
 
   const previousReaction = localStorage.getItem(guideReactionSelectedKey);
   if (previousReaction) {
-    showReactionFeedback(guideReactionAlreadySubmittedMessage, reactionButton);
+    showReactionFeedback(guideReactionFeedbackStates.alreadyReacted, reactionButton);
     return;
   }
 
@@ -466,7 +488,7 @@ async function submitGuideReaction(reactionButton) {
 
     if (response.status === 409) {
       renderGuideReactions(container, data);
-      showReactionFeedback(guideReactionAlreadySubmittedMessage, reactionButton);
+      showReactionFeedback(guideReactionFeedbackStates.alreadyReacted, reactionButton);
       return;
     }
 
@@ -474,7 +496,7 @@ async function submitGuideReaction(reactionButton) {
 
     localStorage.setItem(guideReactionSelectedKey, data.selected || nextReaction);
     renderGuideReactions(container, data);
-    showReactionFeedback(guideReactionThankYouMessage, reactionButton);
+    showReactionFeedback(guideReactionFeedbackStates.success, reactionButton);
   } catch (error) {
     console.error("Unable to save guide reaction", error);
     await loadGuideReactions(container);

@@ -3828,8 +3828,33 @@ h3 {
   text-align: center;
 }
 
+.reaction-feedback-modal[data-reaction-feedback-state="already-reacted"] .reaction-feedback-card {
+  border-top-color: #e57b16;
+}
+
+.reaction-feedback-icon {
+  display: grid;
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 18px;
+  place-items: center;
+  border-radius: 999px;
+  background: #e2f5f2;
+  color: var(--teal-dark);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.reaction-feedback-modal[data-reaction-feedback-state="already-reacted"] .reaction-feedback-icon {
+  background: #fff0df;
+  color: #d76700;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
 .reaction-feedback-title {
-  margin: 0 42px 12px;
+  margin: 0 0 12px;
   color: var(--teal-dark);
   font-size: clamp(1.25rem, 4vw, 1.55rem);
   font-weight: 900;
