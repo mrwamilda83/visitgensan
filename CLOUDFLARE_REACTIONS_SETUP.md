@@ -9,38 +9,57 @@ This adds shared live reaction counts for Things To Do guide pages while keeping
 - `wrangler.example.toml` shows the required D1 binding.
 - `assets/js/main.js` now reads and saves shared reaction totals through the API.
 
-## One-time Cloudflare setup
+## Later Cloudflare setup
 
-Run these from the project root after installing or using Wrangler.
+Do not run these steps until the production change is approved.
 
-```bash
-npx wrangler d1 create visitgensan-reactions
-```
+1. Sign in to the correct Cloudflare account from the project root:
 
-Cloudflare will print a `database_id`. Copy `wrangler.example.toml` to `wrangler.toml`, then replace `PASTE_D1_DATABASE_ID_HERE` with that ID.
+   ```bash
+   npx wrangler login
+   npx wrangler whoami
+   ```
 
-```bash
-copy wrangler.example.toml wrangler.toml
-npx wrangler d1 migrations apply visitgensan-reactions --remote
-```
+2. Check whether `visitgensan-reactions` already exists. Reuse it if present; otherwise create it once:
 
-## Cloudflare Pages binding
+   ```bash
+   npx wrangler d1 list
+   npx wrangler d1 create visitgensan-reactions
+   ```
 
-In Cloudflare Pages, make sure the production environment has this D1 binding:
+3. Apply the checked-in migration to the remote database:
 
-- Binding name: `VISITGENSAN_DB`
-- Database: `visitgensan-reactions`
+   ```bash
+   npx wrangler d1 migrations apply visitgensan-reactions --remote
+   ```
 
-Do not change DNS, custom domains, or paid plan settings.
+4. In Cloudflare Dashboard, open **Workers & Pages**, select the VisitGenSan Pages project, then open **Settings > Bindings**. Add a **D1 database binding** to the Production environment with these exact values:
 
-## Deploy
+   - Variable name: `VISITGENSAN_DB`
+   - D1 database: `visitgensan-reactions`
 
-Commit and push to GitHub `main`. Cloudflare Pages will deploy automatically.
+   Add the same binding to Preview only if shared reactions also need to work on preview deployments.
+
+5. Save the binding and redeploy the current production commit so the Pages Function receives it. Do not change DNS, custom domains, or paid-plan settings.
+
+6. Verify the API before testing the buttons:
+
+   ```text
+   https://visitgensan.com/api/reactions?page=plaza-heneral-santos.html&visitor=verification-visitor-token-123456
+   ```
+
+   A successful response must return HTTP 200 with JSON containing `totals` and `selected`. HTTP 503 means the `VISITGENSAN_DB` binding is still missing from that deployment.
+
+7. Test a reaction in one browser, refresh the page, and then open the same guide in a different browser. The shared total should be identical in both browsers.
+
+## Optional local Wrangler configuration
+
+`wrangler.example.toml` is a template for local Pages development. If it is needed later, copy it to `wrangler.toml` and replace `PASTE_D1_DATABASE_ID_HERE` with the database ID returned by Cloudflare. Do not commit a placeholder configuration.
 
 ## Behavior
 
 - Each guide page has separate totals.
-- Visitors can select one reaction per guide page.
-- Visitors can change their reaction later.
+- Visitors can submit only one reaction per guide page.
+- The first submitted reaction is final and cannot be changed later.
 - Counts are shared for all visitors.
-- Rapid repeated changes are rate-limited by the Pages Function.
+- Rapid repeated submissions are rate-limited by the Pages Function.

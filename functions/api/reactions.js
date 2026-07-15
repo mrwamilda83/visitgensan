@@ -67,7 +67,7 @@ async function enforceRateLimit(db, visitorId) {
   ).bind(nextCount, visitorId).run();
 
   if (nextCount > RATE_LIMIT_MAX_ATTEMPTS) {
-    return jsonResponse({ error: "Too many reaction changes. Please wait a moment and try again." }, 429);
+    return jsonResponse({ error: "Too many reaction attempts. Please wait a moment and try again." }, 429);
   }
 
   return null;
@@ -150,16 +150,25 @@ async function handlePost(request, db) {
     return rateLimitResponse;
   }
 
-  await db.prepare(
+  const insertResult = await db.prepare(
     `INSERT INTO guide_reactions (page, visitor_id, reaction, created_at, updated_at)
      VALUES (?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
-     ON CONFLICT(page, visitor_id) DO UPDATE SET
-       reaction = excluded.reaction,
-       updated_at = CURRENT_TIMESTAMP`
+     ON CONFLICT(page, visitor_id) DO NOTHING`
   ).bind(page, visitorId, reaction).run();
 
   const totals = await getTotals(db, page);
-  return jsonResponse({ page, totals, selected: reaction });
+  const selected = await getSelectedReaction(db, page, visitorId);
+
+  if (Number(insertResult.meta?.changes || 0) === 0) {
+    return jsonResponse({
+      error: "You’ve already reacted to this guide. Only one reaction can be submitted.",
+      page,
+      totals,
+      selected
+    }, 409);
+  }
+
+  return jsonResponse({ page, totals, selected });
 }
 
 export async function onRequest(context) {

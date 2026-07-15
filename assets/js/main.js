@@ -321,6 +321,8 @@ const guideReactionTokenKey = "visitgensan-guide-reaction-visitor";
 const guideReactionSelectedKey = `visitgensan-guide-reaction:${guideReactionPage}`;
 const guideReactionApiPath = "/api/reactions";
 const guideReactionLabels = ["happy", "surprised", "sad", "angry"];
+const guideReactionThankYouMessage = "Thank you for your feedback! Your reaction helps us improve our VisitGenSan guides.";
+const guideReactionAlreadySubmittedMessage = "You’ve already reacted to this guide. Only one reaction can be submitted.";
 
 function getGuideReactionVisitorToken() {
   let token = localStorage.getItem(guideReactionTokenKey);
@@ -395,7 +397,10 @@ async function submitGuideReaction(reactionButton) {
   if (!container || !guideReactionLabels.includes(nextReaction)) return;
 
   const previousReaction = localStorage.getItem(guideReactionSelectedKey);
-  if (previousReaction === nextReaction) return;
+  if (previousReaction) {
+    window.alert(guideReactionAlreadySubmittedMessage);
+    return;
+  }
 
   setGuideReactionBusy(container, true);
 
@@ -415,11 +420,19 @@ async function submitGuideReaction(reactionButton) {
       })
     });
 
-    if (!response.ok) throw new Error("Unable to save guide reaction");
-
     const data = await response.json();
+
+    if (response.status === 409) {
+      renderGuideReactions(container, data);
+      window.alert(guideReactionAlreadySubmittedMessage);
+      return;
+    }
+
+    if (!response.ok) throw new Error(data.error || "Unable to save guide reaction");
+
     localStorage.setItem(guideReactionSelectedKey, data.selected || nextReaction);
     renderGuideReactions(container, data);
+    window.alert(guideReactionThankYouMessage);
   } catch (error) {
     console.error("Unable to save guide reaction", error);
     await loadGuideReactions(container);
