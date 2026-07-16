@@ -4805,7 +4805,38 @@ body.author-panel-open {
 @media (max-width: 720px) {
   .author-panel {
     align-items: end;
-    padding: 82px 22px 34px;
+    height: 100dvh;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    background: #17363c;
+    padding: 82px max(32px, env(safe-area-inset-right)) 34px max(24px, env(safe-area-inset-left));
+    touch-action: pan-y;
+    transform: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .author-panel.is-open {
+    transform: none;
+  }
+
+  .author-panel-photo,
+  .author-panel-shade {
+    position: fixed;
+    pointer-events: none;
+  }
+
+  .author-panel-content {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .author-panel p,
+  .author-panel a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .author-panel-shade {
