@@ -633,6 +633,7 @@ document.addEventListener("click", async (event) => {
   if (carouselButton) {
     const carousel = carouselButton.closest("[data-carousel]");
     const track = carousel?.querySelector("[data-carousel-track]");
+    const activityExplorer = carousel?.closest("[data-activity-explorer]");
     const direction = carouselButton.dataset.carouselButton === "previous" ? -1 : 1;
     const card = track?.querySelector(".listing-card");
 
@@ -640,6 +641,19 @@ document.addEventListener("click", async (event) => {
 
     event.preventDefault();
     const gap = Number.parseFloat(getComputedStyle(track).columnGap || "0");
+    const previewRequest = String(Number(track.dataset.previewRequest || 0) + 1);
+    track.dataset.previewRequest = previewRequest;
+    let previewComplete = false;
+
+    const previewAfterScroll = () => {
+      if (previewComplete || track.dataset.previewRequest !== previewRequest) return;
+      previewComplete = true;
+      track.removeEventListener("scrollend", previewAfterScroll);
+      previewFirstVisibleActivityCard(track, activityExplorer);
+    };
+
+    track.addEventListener("scrollend", previewAfterScroll, { once: true });
+    window.setTimeout(previewAfterScroll, 600);
     track.scrollBy({ left: direction * (card.getBoundingClientRect().width + gap), behavior: "smooth" });
     return;
   }
@@ -688,6 +702,115 @@ document.addEventListener("keydown", (event) => {
     moveImageLightbox(1);
   }
 });
+async function initActivityExplorer() {
+  const explorer = document.querySelector("[data-activity-explorer]");
+  const container = explorer?.querySelector("[data-activity-list]");
+
+  if (!explorer || !container) return;
+
+  const title = explorer.querySelector("[data-activity-title]");
+  const description = explorer.querySelector("[data-activity-description]");
+  const guide = explorer.querySelector("[data-activity-guide]");
+  const backgroundLayers = Array.from(explorer.querySelectorAll(".activity-background"));
+  const defaultState = {
+    title: title?.textContent || "City stops and nearby trips",
+    description: description?.textContent || "",
+    image: "assets/images/things-to-do-final-banner.png"
+  };
+  const items = await loadItems("activities");
+  let selectedItem = null;
+  let restingPreviewItem = null;
+  let visibleBackground = backgroundLayers.find((layer) => layer.classList.contains("is-visible")) || backgroundLayers[0];
+  let currentImage = defaultState.image;
+  let backgroundRequest = 0;
+
+  container.innerHTML = items.map((item, index) => `
+    <button class="listing-card activity-card" type="button" data-activity-index="${index}" aria-label="Select ${escapeAttribute(item.title)}" aria-pressed="false">
+      <img src="${escapeAttribute(item.image || defaultState.image)}" alt="">
+      <h2>${escapeHtml(item.title)}</h2>
+    </button>
+  `).join("");
+
+  function changeBackground(image) {
+    const nextImage = image || defaultState.image;
+    const request = ++backgroundRequest;
+    if (nextImage === currentImage || backgroundLayers.length < 2) return;
+
+    const preload = new Image();
+    preload.onload = () => {
+      if (request !== backgroundRequest) return;
+
+      const nextLayer = backgroundLayers.find((layer) => layer !== visibleBackground);
+      nextLayer.style.backgroundImage = `url("${nextImage.replaceAll('"', '\\"')}")`;
+      nextLayer.classList.add("is-visible");
+      visibleBackground.classList.remove("is-visible");
+      visibleBackground = nextLayer;
+      currentImage = nextImage;
+    };
+    preload.src = nextImage;
+  }
+
+  function showActivity(item) {
+    const state = item || defaultState;
+    if (title) title.textContent = state.title;
+    if (description) description.textContent = state.description;
+    changeBackground(state.image);
+
+    if (guide) {
+      guide.hidden = !item;
+      guide.setAttribute("href", item?.url || "#");
+    }
+  }
+
+  function restoreSelection() {
+    showActivity(restingPreviewItem);
+  }
+
+  explorer.addEventListener("activity-carousel-preview", (event) => {
+    const item = items[Number(event.detail?.index)];
+    if (!item) return;
+
+    restingPreviewItem = item;
+    showActivity(item);
+  });
+
+  container.querySelectorAll("[data-activity-index]").forEach((card) => {
+    const item = items[Number(card.dataset.activityIndex)];
+    if (!item) return;
+
+    card.addEventListener("pointerenter", () => showActivity(item));
+    card.addEventListener("pointerleave", restoreSelection);
+    card.addEventListener("focus", () => showActivity(item));
+    card.addEventListener("blur", restoreSelection);
+    card.addEventListener("click", () => {
+      selectedItem = item;
+      restingPreviewItem = selectedItem;
+      container.querySelectorAll("[data-activity-index]").forEach((candidate) => {
+        const isSelected = candidate === card;
+        candidate.classList.toggle("is-selected", isSelected);
+        candidate.setAttribute("aria-pressed", String(isSelected));
+      });
+      showActivity(selectedItem);
+    });
+  });
+}
+
+function previewFirstVisibleActivityCard(track, explorer) {
+  const trackBounds = track.getBoundingClientRect();
+  const visibleCard = Array.from(track.querySelectorAll("[data-activity-index]")).find((card) => {
+    const cardBounds = card.getBoundingClientRect();
+    return cardBounds.left >= trackBounds.left - 1 && cardBounds.right <= trackBounds.right + 1;
+  });
+
+  if (!visibleCard || !explorer) return;
+
+  explorer.dispatchEvent(new CustomEvent("activity-carousel-preview", {
+    detail: { index: Number(visibleCard.dataset.activityIndex) }
+  }));
+}
+
+initActivityExplorer();
+
 document.querySelectorAll("[data-list]").forEach(async (container) => {
   const type = container.dataset.list;
   const limit = Number(container.dataset.limit || 0);

@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="assets/images/logo-mark.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#047b83">
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260703-tours">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260716-things">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,7 +61,7 @@
       }
     </script>
   </head>
-  <body>
+  <body class="things-to-do-page">
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="VisitGensan.com home">
         <img class="brand-icon" src="assets/images/logo-mark.svg" alt="">
@@ -93,65 +93,31 @@
       </div>
     </section>
 
-    <main class="activity-tour-page">
-      <section class="page-hero activity-hero">
-        <div class="activity-hero-copy">
-          <p class="eyebrow">Things to do in GenSan</p>
-          <h1>City stops and nearby trips</h1>
-          <p>From tuna culture and city landmarks to scenic views and beach escapes, discover the best experiences in and around General Santos City.</p>
-        </div>
-      </section>
+    <main class="activity-tour-page" data-activity-explorer>
+      <section class="activity-explorer" aria-labelledby="activity-explorer-title">
+        <div class="activity-background activity-background-primary is-visible" aria-hidden="true"></div>
+        <div class="activity-background activity-background-secondary" aria-hidden="true"></div>
+        <div class="activity-explorer-overlay" aria-hidden="true"></div>
 
-      <section class="section-wrap activity-tour-board" aria-labelledby="activities-title">
-        <div class="section-heading">
-          <p class="eyebrow">Tour picks</p>
-          <h2 id="activities-title">Start with these GenSan experiences</h2>
-          <p>Cards for the main visitor routes: fish port culture, city landmarks, bay views, local heritage, and quick day trips from GenSan.</p>
-        </div>
-        <div class="card-grid activity-card-grid" data-list="activities"></div>
-        <aside class="travel-tip">
-          <strong>Travel tip</strong>
-          <p>Start early for Fish Port plans, bring sun protection and water, and confirm access or opening hours before longer side trips.</p>
-        </aside>
-      </section>
+        <div class="activity-explorer-layout">
+          <div class="activity-hero-copy" aria-live="polite">
+            <p class="eyebrow">Things to do in GenSan</p>
+            <h1 id="activity-explorer-title" data-activity-title>City stops and nearby trips</h1>
+            <p data-activity-description>From tuna culture and city landmarks to scenic views and beach escapes, discover the best experiences in and around General Santos City.</p>
+            <a class="activity-guide-button" href="#" data-activity-guide hidden>View Guide</a>
+          </div>
 
-      <section class="section-wrap muted-band" aria-labelledby="itinerary-title">
-        <div class="section-heading">
-          <p class="eyebrow">Trip flow</p>
-          <h2 id="itinerary-title">Simple visitor routes</h2>
-        </div>
-        <div class="info-grid">
-          <article>
-            <span>Half day</span>
-            <h3>Plaza, bay walk, tuna dinner</h3>
-            <p>Good for first-time visitors who want easy city stops without a long drive.</p>
-          </article>
-          <article>
-            <span>1 day</span>
-            <h3>Fish Port, landmarks, highlands</h3>
-            <p>Build the day around tuna culture in the morning, then city views and sunset.</p>
-          </article>
-          <article>
-            <span>Weekend</span>
-            <h3>GenSan plus Sarangani coast</h3>
-            <p>Add Gumasa, Lake Sebu, or another nearby nature trip when you have more time.</p>
-          </article>
+          <div class="activity-carousel" data-carousel aria-label="Things to do destinations">
+            <div class="activity-card-grid" data-activity-list data-carousel-track></div>
+            <div class="activity-carousel-controls">
+              <button class="activity-carousel-arrow" type="button" data-carousel-button="previous" aria-label="Show previous destinations">&#8592;</button>
+              <button class="activity-carousel-arrow" type="button" data-carousel-button="next" aria-label="Show next destinations">&#8594;</button>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div>
-        <strong>VisitGensan.com</strong>
-        <p>&copy; 2026 VisitGensan.com. All rights reserved.</p>
-      </div>
-      <div class="footer-links">
-        <a href="listing-policy.html">Listing Policy</a>
-        <a href="get-featured.html">Get Featured</a>
-        <a href="mailto:mrwamilda83@gmail.com">Contact Us</a>
-      </div>
-    </footer>
-
-    <script src="assets/js/main.js?v=20260703-tours"></script>
+    <script src="assets/js/main.js?v=20260716-things"></script>
   </body>
 </html>
