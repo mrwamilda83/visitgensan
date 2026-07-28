@@ -725,7 +725,7 @@ async function initActivityExplorer() {
   let backgroundRequest = 0;
 
   container.innerHTML = items.map((item, index) => `
-    <button class="listing-card activity-card" type="button" data-activity-index="${index}" aria-label="Select ${escapeAttribute(item.title)}" aria-pressed="false">
+    <button class="listing-card activity-card${index === 0 ? " is-selected" : ""}" type="button" data-activity-index="${index}" aria-label="Select ${escapeAttribute(item.title)}" aria-pressed="${index === 0 ? "true" : "false"}">
       <img src="${escapeAttribute(item.image || defaultState.image)}" alt="">
       <h2>${escapeHtml(item.title)}</h2>
     </button>
@@ -769,6 +769,11 @@ async function initActivityExplorer() {
   explorer.addEventListener("activity-carousel-preview", (event) => {
     const item = items[Number(event.detail?.index)];
     if (!item) return;
+    container.querySelectorAll("[data-activity-index]").forEach((card) => {
+      const isSelected = Number(card.dataset.activityIndex) === Number(event.detail.index);
+      card.classList.toggle("is-selected", isSelected);
+      card.setAttribute("aria-pressed", String(isSelected));
+    });
 
     restingPreviewItem = item;
     showActivity(item);

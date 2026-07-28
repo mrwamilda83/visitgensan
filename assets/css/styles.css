@@ -2039,12 +2039,23 @@ h3 {
   border-color: var(--yellow);
   box-shadow: 0 24px 52px rgba(3, 21, 25, 0.46);
   outline: none;
-  transform: translateY(-6px);
+  transform: translateY(-5px) scale(1.03);
 }
 
 .activity-card.is-selected {
   border-color: var(--yellow);
   box-shadow: 0 0 0 3px rgba(246, 185, 66, 0.34), 0 24px 52px rgba(3, 21, 25, 0.48);
+  transform: scale(1.03);
+}
+
+.activity-card-grid:has(.activity-card:hover) .activity-card.is-selected:not(:hover),
+.activity-card-grid:focus-within .activity-card.is-selected:not(:focus-visible) {
+  transform: none;
+}
+
+.activity-card.is-selected:hover,
+.activity-card.is-selected:focus-visible {
+  transform: translateY(-5px) scale(1.03);
 }
 
 .activity-card img {
