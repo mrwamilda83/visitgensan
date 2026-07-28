@@ -2015,6 +2015,8 @@ h3 {
 }
 
 .activity-card {
+  --activity-card-scale: 1.08;
+  --activity-card-lift: 0px;
   position: relative;
   flex: 0 0 calc((100% - (2 * clamp(12px, 1.25vw, 20px))) / 3);
   aspect-ratio: 3 / 4;
@@ -2032,30 +2034,35 @@ h3 {
   scroll-snap-align: start;
   text-align: left;
   transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  transform-origin: center;
 }
 
 .activity-card:hover,
 .activity-card:focus-visible {
+  z-index: 2;
   border-color: var(--yellow);
   box-shadow: 0 24px 52px rgba(3, 21, 25, 0.46);
   outline: none;
-  transform: translateY(-5px) scale(1.03);
+  transform: translateY(var(--activity-card-lift)) scale(var(--activity-card-scale));
 }
 
 .activity-card.is-selected {
+  z-index: 1;
   border-color: var(--yellow);
   box-shadow: 0 0 0 3px rgba(246, 185, 66, 0.34), 0 24px 52px rgba(3, 21, 25, 0.48);
-  transform: scale(1.03);
+  transform: scale(var(--activity-card-scale));
 }
 
 .activity-card-grid:has(.activity-card:hover) .activity-card.is-selected:not(:hover),
 .activity-card-grid:focus-within .activity-card.is-selected:not(:focus-visible) {
+  z-index: auto;
   transform: none;
 }
 
 .activity-card.is-selected:hover,
 .activity-card.is-selected:focus-visible {
-  transform: translateY(-5px) scale(1.03);
+  z-index: 2;
+  transform: translateY(var(--activity-card-lift)) scale(var(--activity-card-scale));
 }
 
 .activity-card img {
@@ -2123,6 +2130,11 @@ h3 {
 
   .things-to-do-page .site-header {
     height: 72px;
+  }
+  .activity-card-grid {
+    width: calc(100% + 12px);
+    margin-inline: -6px;
+    padding: 12px 10px 16px;
   }
 }
 
@@ -2205,6 +2217,8 @@ h3 {
   }
 
   .activity-card {
+    --activity-card-scale: 1.03;
+    --activity-card-lift: -5px;
     flex-basis: calc((100% - clamp(12px, 1.25vw, 20px)) / 2);
   }
 }
