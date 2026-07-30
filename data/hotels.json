@@ -1375,5 +1375,92 @@
             "Visitors can inquire through the Facebook page or mobile number before booking."
         ],
         "phone": "0933 866 7716"
+    },
+    {
+        "title": "Sarangani Highlands Garden",
+        "category": "Resort",
+        "description": "Enjoy hilltop views, colorful gardens, rooms, and a relaxed food-and-photo stop.",
+        "label": "View garden guide",
+        "guideUrl": "sarangani-highlands-garden.html",
+        "facebookUrl": "https://www.facebook.com/sales.shg",
+        "image": "assets/images/sarangani-highlands/garden-fountain.jpg",
+        "guideLabel": "Hotel guide",
+        "location": "Purok Wal. Brgy. Tambler G.S.C",
+        "gallery": [
+            {
+                "src": "assets/images/sarangani-highlands/pool-bright-view.png",
+                "alt": "Bright infinity pool overlooking Sarangani Bay at Sarangani Highlands Garden"
+            },
+            {
+                "src": "assets/images/sarangani-highlands/garden-fountain.jpg",
+                "alt": "Colorful flower fountain display at Sarangani Highlands Garden"
+            },
+            {
+                "src": "assets/images/sarangani-highlands/garden-lawn-path.png",
+                "alt": "Sunny landscaped garden path and lawn at Sarangani Highlands Garden"
+            },
+            {
+                "src": "assets/images/sarangani-highlands/quick-info-night-courtyard.png",
+                "alt": "Sarangani Highlands Garden courtyard and hotel building glowing at night"
+            },
+            {
+                "src": "assets/images/sarangani-highlands/sarangani-collage-01-room.png",
+                "alt": "Cozy hotel room at Sarangani Highlands Garden"
+            },
+            {
+                "src": "assets/images/sarangani-highlands/sarangani-collage-02-family-room.png",
+                "alt": "Family room with multiple beds at Sarangani Highlands Garden"
+            }
+        ],
+        "score": "Resort",
+        "scoreText": "",
+        "facts": [
+            {
+                "label": "Good for",
+                "value": "Garden views"
+            },
+            {
+                "label": "Experience",
+                "value": "Dining and photos"
+            },
+            {
+                "label": "Also offers",
+                "value": "Hotel rooms"
+            }
+        ],
+        "amenities": [
+            "Infinity pool",
+            "Garden restaurant",
+            "Hotel rooms",
+            "Bay view areas",
+            "Event spaces"
+        ],
+        "highlights": [
+            {
+                "title": "Scenic highland stay",
+                "text": "Colorful gardens, open-air spaces, and bay views create a peaceful escape from the busy city."
+            },
+            {
+                "title": "Rooms and leisure",
+                "text": "Visitors can relax near the infinity pool or book a room for a quieter stay."
+            },
+            {
+                "title": "Dining and photos",
+                "text": "The garden restaurant, flower displays, and scenic pathways support relaxed food-and-photo stops."
+            }
+        ],
+        "facilities": [
+            "Infinity pool",
+            "Garden restaurant",
+            "Hotel rooms",
+            "Bay view areas",
+            "Event spaces"
+        ],
+        "details": [
+            "Sarangani Highlands Garden offers a peaceful escape from the busy city with colorful gardens, open-air spaces, bay views, and a relaxed restaurant setting.",
+            "You can enjoy a meal, take photos around the flower displays, relax near the infinity pool, or book a room for a quieter stay.",
+            "It is a good stop for families, couples, barkada trips, and visitors who want a scenic place to unwind."
+        ],
+        "phone": "0922-859-0041"
     }
 ]

@@ -99,7 +99,8 @@ const categoryNotes = {
   hotels: {
     Business: "Business hotels are ideal for work trips, offering convenient locations, reliable Wi-Fi, comfortable rooms, and easy access to meetings, offices, transport, and city essentials.",
     Family: "Family hotels are ideal for parents, children, and small groups, offering spacious rooms, convenient locations, easy food access, and a comfortable setup for relaxed city stays.",
-    Budget: "Budget hotels are ideal for travelers who want affordable stays, simple essentials, convenient locations, and practical comfort for short trips or city visits."
+    Budget: "Budget hotels are ideal for travelers who want affordable stays, simple essentials, convenient locations, and practical comfort for short trips or city visits.",
+    Resort: "Resorts are ideal for relaxing stays, offering scenic surroundings, gardens, leisure spaces, dining, and comfortable accommodations for families, couples, and weekend travelers."
   }
 };
 
@@ -1034,6 +1035,12 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
               <a class="hotel-icon-link website-link" href="${escapeAttribute(item.url)}" target="_blank" rel="noopener" aria-label="${escapeAttribute(item.title)} official website">
                 <span class="icon-globe" aria-hidden="true"></span>
                 <strong>Official website</strong>
+              </a>
+            ` : ""}
+            ${item.guideUrl ? `
+              <a class="hotel-icon-link website-link" href="${escapeAttribute(item.guideUrl)}" aria-label="View the full ${escapeAttribute(item.title)} guide">
+                <span class="icon-globe" aria-hidden="true"></span>
+                <strong>View full guide</strong>
               </a>
             ` : ""}
             ${item.phone ? `<a class="hotel-icon-link contact-link" href="tel:${escapeAttribute(formatPhoneHref(item.phone))}" aria-label="Call ${escapeAttribute(item.title)} at ${escapeAttribute(item.phone)}"><span class="icon-mobile" aria-hidden="true"></span><strong>${escapeHtml(item.phone)}</strong></a>` : ""}
