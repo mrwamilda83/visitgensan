@@ -1127,49 +1127,53 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
             <h4>${escapeHtml(gettingThere.title || "How to get there")}</h4>
             <div class="route-guide-grid">
               ${gettingThere.routes.map((route) => `
-                <article class="${route.image?.src ? "has-route-image" : ""}">
+                <article class="${[route.image?.src ? "has-route-image" : "", route.layout === "split" ? "route-layout-split" : ""].filter(Boolean).join(" ")}">
                   <div class="route-copy">
-                    <strong>${escapeHtml(route.title)}</strong>
-                    ${(Array.isArray(route.paragraphs) ? route.paragraphs : []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-                    ${route.image?.src ? `
-                      <figure class="route-photo">
-                        <img src="${escapeAttribute(route.image.src)}" alt="${escapeAttribute(route.image.alt || route.title)}">
-                      </figure>
-                    ` : ""}
-                    ${route.link?.url ? `
-                      <a class="route-external-link" href="${escapeAttribute(route.link.url)}" target="_blank" rel="noopener">
-                        <span class="route-link-icon" aria-hidden="true">f</span>
-                        <span>${escapeHtml(route.link.label || route.link.url)}</span>
-                      </a>
-                    ` : ""}
-                    ${Array.isArray(route.contacts) && route.contacts.length ? `
-                      <dl class="route-contact-list">
-                        ${route.contacts.map((contact) => `
-                          <div>
-                            <span class="route-contact-icon ${escapeAttribute(routeContactIcon(contact.label))}" aria-hidden="true"></span>
-                            <dt>${escapeHtml(contact.label)}</dt>
-                            <dd>${escapeHtml(contact.value)}</dd>
-                          </div>
-                        `).join("")}
-                      </dl>
-                    ` : ""}
-                    ${route.suggestedMessage ? `
-                      <div class="suggested-message">
-                        <h5>Suggested message</h5>
-                        <p>${escapeHtml(route.suggestedMessage)}</p>
-                      </div>
-                    ` : ""}
-                    ${route.map?.embedUrl ? `
-                      <div class="route-map">
-                        <iframe src="${escapeAttribute(route.map.embedUrl)}" title="${escapeAttribute(route.map.title || `${item.title} map`)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        ${route.map.url ? `
-                          <a class="map-link" href="${escapeAttribute(route.map.url)}" target="_blank" rel="noopener">
-                            <span class="map-link-icon" aria-hidden="true"></span>
-                            <span>${escapeHtml(route.map.label || "Open in Google Maps")}</span>
-                          </a>
-                        ` : ""}
-                      </div>
-                    ` : ""}
+                    <div class="route-primary">
+                      <strong>${escapeHtml(route.title)}</strong>
+                      ${(Array.isArray(route.paragraphs) ? route.paragraphs : []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+                      ${route.image?.src ? `
+                        <figure class="route-photo">
+                          <img src="${escapeAttribute(route.image.src)}" alt="${escapeAttribute(route.image.alt || route.title)}">
+                        </figure>
+                      ` : ""}
+                      ${route.link?.url ? `
+                        <a class="route-external-link" href="${escapeAttribute(route.link.url)}" target="_blank" rel="noopener">
+                          <span class="route-link-icon" aria-hidden="true">f</span>
+                          <span>${escapeHtml(route.link.label || route.link.url)}</span>
+                        </a>
+                      ` : ""}
+                      ${Array.isArray(route.contacts) && route.contacts.length ? `
+                        <dl class="route-contact-list">
+                          ${route.contacts.map((contact) => `
+                            <div>
+                              <span class="route-contact-icon ${escapeAttribute(routeContactIcon(contact.label))}" aria-hidden="true"></span>
+                              <dt>${escapeHtml(contact.label)}</dt>
+                              <dd>${escapeHtml(contact.value)}</dd>
+                            </div>
+                          `).join("")}
+                        </dl>
+                      ` : ""}
+                    </div>
+                    <div class="route-secondary">
+                      ${route.suggestedMessage ? `
+                        <div class="suggested-message">
+                          <h5>Suggested message</h5>
+                          <p>${escapeHtml(route.suggestedMessage)}</p>
+                        </div>
+                      ` : ""}
+                      ${route.map?.embedUrl ? `
+                        <div class="route-map">
+                          <iframe src="${escapeAttribute(route.map.embedUrl)}" title="${escapeAttribute(route.map.title || `${item.title} map`)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                          ${route.map.url ? `
+                            <a class="map-link" href="${escapeAttribute(route.map.url)}" target="_blank" rel="noopener">
+                              <span class="map-link-icon" aria-hidden="true"></span>
+                              <span>${escapeHtml(route.map.label || "Open in Google Maps")}</span>
+                            </a>
+                          ` : ""}
+                        </div>
+                      ` : ""}
+                    </div>
                   </div>
                 </article>
               `).join("")}

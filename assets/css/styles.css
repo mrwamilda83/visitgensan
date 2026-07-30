@@ -1655,6 +1655,26 @@ h3 {
   min-width: 0;
 }
 
+.route-guide-grid article.route-layout-split {
+  grid-column: 1 / -1;
+}
+
+.route-layout-split .route-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.route-layout-split .route-primary,
+.route-layout-split .route-secondary {
+  min-width: 0;
+}
+
+.route-layout-split .suggested-message {
+  margin-top: 0;
+}
+
 .route-guide-grid strong {
   display: block;
   margin-bottom: 8px;
@@ -1818,6 +1838,12 @@ h3 {
 .travel-note {
   margin: 14px 0 0;
   color: #285158;
+}
+
+@media (max-width: 720px) {
+  .route-layout-split .route-copy {
+    grid-template-columns: 1fr;
+  }
 }
 
 .listing-image {

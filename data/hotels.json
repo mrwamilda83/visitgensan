@@ -1466,6 +1466,7 @@
             "routes": [
                 {
                     "title": "From General Santos Airport",
+                    "layout": "split",
                     "paragraphs": [
                         "If you are coming from General Santos Airport, the most convenient option is to take a taxi or book a ride in advance.",
                         "You may contact Gensan City Taxi through Instagram, mobile, email, Facebook page, or WhatsApp before traveling."
