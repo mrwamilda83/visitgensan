@@ -1381,7 +1381,6 @@
         "category": "Resort",
         "description": "Enjoy hilltop views, colorful gardens, rooms, and a relaxed food-and-photo stop.",
         "label": "View garden guide",
-        "guideUrl": "sarangani-highlands-garden.html",
         "facebookUrl": "https://www.facebook.com/sales.shg",
         "image": "assets/images/sarangani-highlands/garden-fountain.jpg",
         "guideLabel": "Hotel guide",
@@ -1461,6 +1460,52 @@
             "You can enjoy a meal, take photos around the flower displays, relax near the infinity pool, or book a room for a quieter stay.",
             "It is a good stop for families, couples, barkada trips, and visitors who want a scenic place to unwind."
         ],
-        "phone": "0922-859-0041"
+        "phone": "0922-859-0041",
+        "gettingThere": {
+            "title": "How to get there",
+            "routes": [
+                {
+                    "title": "From General Santos Airport",
+                    "paragraphs": [
+                        "If you are coming from General Santos Airport, the most convenient option is to take a taxi or book a ride in advance.",
+                        "You may contact Gensan City Taxi through Instagram, mobile, email, Facebook page, or WhatsApp before traveling."
+                    ],
+                    "link": {
+                        "label": "Gensan City Taxi Facebook page",
+                        "url": "https://www.facebook.com/profile.php?id=100063770273399"
+                    },
+                    "contacts": [
+                        {
+                            "label": "Instagram",
+                            "value": "gensancitytaxi2001"
+                        },
+                        {
+                            "label": "Mobile",
+                            "value": "0935 025 5176"
+                        },
+                        {
+                            "label": "Email",
+                            "value": "gensancitytaxi@gmail.com"
+                        },
+                        {
+                            "label": "FB page",
+                            "value": "Gensan City Taxi"
+                        },
+                        {
+                            "label": "WhatsApp",
+                            "value": "+63 935 025 5176"
+                        }
+                    ],
+                    "suggestedMessage": "Hello, I need a taxi going to Sarangani Highlands Garden. May I know if a unit is available and the estimated fare?",
+                    "map": {
+                        "label": "Open in Google Maps",
+                        "title": "Sarangani Highlands Garden map",
+                        "url": "https://www.google.com/maps/search/?api=1&query=Sarangani%20Highlands%20Garden%2C%20Purok%20Wal.%20Brgy.%20Tambler%20G.S.C",
+                        "embedUrl": "https://www.google.com/maps?q=Sarangani%20Highlands%20Garden%2C%20Purok%20Wal.%20Brgy.%20Tambler%20G.S.C&output=embed"
+                    }
+                }
+            ],
+            "note": "Fares, availability, and contact details may change, so please confirm directly with the driver or taxi operator before traveling."
+        }
     }
 ]
