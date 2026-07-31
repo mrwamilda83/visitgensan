@@ -22,29 +22,7 @@
       url: "#"
     }
   ],
-  restaurants: [
-    {
-      title: "Tuna and Seafood Place",
-      category: "Food sample",
-      description: "Use this card for a verified seafood restaurant with original photos, menu notes, and map link.",
-      label: "Add verified restaurant",
-      url: "#"
-    },
-    {
-      title: "Cafe for Work or Study",
-      category: "Food sample",
-      description: "A useful category for visitors looking for coffee, Wi-Fi, quiet tables, and light meals.",
-      label: "Add cafe details",
-      url: "#"
-    },
-    {
-      title: "Local Budget Meal Spot",
-      category: "Food sample",
-      description: "A starter card for affordable local meals once prices, hours, and location are checked.",
-      label: "Verify food spot",
-      url: "#"
-    }
-  ],
+  restaurants: [],
   activities: [
     {
       title: "Seafood Culture Stop",
@@ -246,7 +224,7 @@ function getImageLightbox() {
 }
 
 function getGalleryLightboxItems(trigger) {
-  const gallery = trigger.closest(".fishport-photo-grid, .plaza-gallery-grid, .sarangani-gallery-grid");
+  const gallery = trigger.closest(".fishport-photo-grid, .plaza-gallery-grid, .sarangani-gallery-grid, .restaurant-gallery-mosaic");
   const links = gallery
     ? Array.from(gallery.querySelectorAll('a[href]')).filter((link) => link.querySelector("img"))
     : [trigger];
@@ -254,7 +232,8 @@ function getGalleryLightboxItems(trigger) {
     const image = link.querySelector("img");
     return {
       src: link.getAttribute("href"),
-      alt: image?.getAttribute("alt") || link.getAttribute("aria-label") || "Photo"
+      alt: image?.getAttribute("alt") || link.getAttribute("aria-label") || "Photo",
+      caption: link.dataset.caption || image?.getAttribute("alt") || link.getAttribute("aria-label") || "Photo"
     };
   }).filter((item) => item.src);
 
@@ -276,7 +255,7 @@ function renderImageLightbox() {
 
   image.src = item.src;
   image.alt = item.alt;
-  caption.textContent = item.alt;
+  caption.textContent = item.caption || item.alt;
   const hasMultiple = activeLightboxItems.length > 1;
   previous.hidden = !hasMultiple;
   next.hidden = !hasMultiple;
@@ -544,7 +523,7 @@ document.addEventListener("click", async (event) => {
     return;
   }
 
-  const lightboxImageLink = event.target.closest(".fishport-photo-grid a[href], .plaza-gallery-grid a[href], .sarangani-gallery-grid a[href], .sarangani-feature-photo[href], .sarangani-card-photo[href]");
+  const lightboxImageLink = event.target.closest(".fishport-photo-grid a[href], .plaza-gallery-grid a[href], .sarangani-gallery-grid a[href], .restaurant-gallery-mosaic a[href], .sarangani-feature-photo[href], .sarangani-card-photo[href]");
   if (lightboxImageLink) {
     event.preventDefault();
     openImageLightbox(lightboxImageLink);
@@ -603,12 +582,14 @@ document.addEventListener("click", async (event) => {
   if (galleryButton) {
     const gallery = galleryButton.closest(".featured-hotel-gallery");
     const mainImage = gallery?.querySelector(".gallery-main img");
+    const mainCaption = gallery?.querySelector("[data-gallery-caption]");
 
     if (!mainImage) return;
 
     event.preventDefault();
     mainImage.src = galleryButton.dataset.src;
     mainImage.alt = galleryButton.dataset.alt;
+    if (mainCaption) mainCaption.textContent = galleryButton.dataset.caption || galleryButton.dataset.alt || "";
     gallery.querySelectorAll(".gallery-thumb").forEach((button) => {
       button.classList.toggle("is-active", button === galleryButton);
       button.setAttribute("aria-selected", String(button === galleryButton));
@@ -953,9 +934,9 @@ function updateCategoryNote(type, category) {
 
 function renderCard(item, index = 0, type = "hotels") {
   const imageMarkup = item.image
-    ? `<img src="${escapeAttribute(item.image)}" alt="${escapeAttribute(item.title)}">`
+    ? `<img src="${escapeAttribute(item.image)}" alt="${escapeAttribute(item.imageAlt || item.title)}" loading="lazy" decoding="async">`
     : escapeHtml(item.category || "Listing");
-  const canOpenGuide = Array.isArray(item.gallery) && item.gallery.length;
+  const canOpenGuide = type === "hotels" && Array.isArray(item.gallery) && item.gallery.length;
   const linkHref = canOpenGuide ? "#hotel-guide" : (item.url || "#");
   const guideAttributes = canOpenGuide ? ` data-guide-type="${escapeAttribute(type)}" data-guide-index="${index}"` : "";
   const developmentAttributes = isDevelopmentLocked

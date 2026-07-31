@@ -2,7 +2,8 @@
 const VALID_PAGES = new Set([
   "fish-port-complex.html",
   "plaza-heneral-santos.html",
-  "sarangani-highlands-garden.html"
+  "sarangani-highlands-garden.html",
+  "the-white-house-cafe-gensan.html"
 ]);
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const RATE_LIMIT_MAX_ATTEMPTS = 10;

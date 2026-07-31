@@ -1,23 +1,98 @@
 [
   {
-    "title": "Tuna and Seafood Place",
-    "category": "Food sample",
-    "description": "Use this card for a verified seafood restaurant with original photos, menu notes, and map link.",
-    "label": "Add verified restaurant",
-    "url": "#"
-  },
-  {
-    "title": "Cafe for Work or Study",
-    "category": "Food sample",
-    "description": "A useful category for visitors looking for coffee, Wi-Fi, quiet tables, and light meals.",
-    "label": "Add cafe details",
-    "url": "#"
-  },
-  {
-    "title": "Local Budget Meal Spot",
-    "category": "Food sample",
-    "description": "A starter card for affordable local meals once prices, hours, and location are checked.",
-    "label": "Verify food spot",
-    "url": "#"
+    "title": "The White House Cafè Gensan",
+    "slug": "the-white-house-cafe-gensan",
+    "category": "Restaurant · Coffee Shop",
+    "bio": "Gensan’s Best 🍽️🥗☕️🍕",
+    "description": "The White House Cafè Gensan is a restaurant and coffee shop on Manansala Street, with a bright dining room and official photos showing seafood, pizza, prepared food, and colorful iced beverages.",
+    "label": "View restaurant guide",
+    "url": "the-white-house-cafe-gensan.html",
+    "location": "manansala st. general santos city, General Santos City, Philippines",
+    "phone": "0935 956 1253",
+    "facebookHoursLabel": "Always open",
+    "hoursNote": "Facebook displays “Always open.” Confirm current opening hours directly with the restaurant.",
+    "facebookUrl": "https://www.facebook.com/profile.php?id=100091523032713",
+    "image": "assets/images/the-white-house-cafe-gensan/mixed-seafood.webp",
+    "imageAlt": "Crab, shrimp, shellfish, and corn presented in sauce",
+    "gallery": [
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/exterior-day.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-exterior-day.webp",
+        "alt": "White building exterior with The White House Cafè signage and plants",
+        "caption": "Daytime exterior of the building with The White House Cafè signage and plants."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/entrance.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-entrance.webp",
+        "alt": "Glass entrance framed by wood and potted plants",
+        "caption": "Glass entrance framed by wood and potted plants."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/exterior-night.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-exterior-night.webp",
+        "alt": "Illuminated building exterior and café entrance at night",
+        "caption": "Illuminated building exterior and café entrance at night."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/buffet-and-table-setup.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-buffet-and-table-setup.webp",
+        "alt": "Dining room arranged with buffet tables and long place settings",
+        "caption": "Dining room arranged with buffet tables and long place settings."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/long-table-setup.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-long-table-setup.webp",
+        "alt": "Dining room with long tables, flowers, and place settings",
+        "caption": "Dining room with long tables, flowers, and place settings."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/interior-display.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-interior-display.webp",
+        "alt": "Dining area with a bottle display, tables, and service counter",
+        "caption": "Dining area with a bottle display, tables, and service counter."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/mixed-seafood.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-mixed-seafood.webp",
+        "alt": "Crab, shrimp, shellfish, and corn presented in sauce",
+        "caption": "Crab, shrimp, shellfish, and corn presented in sauce."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/pizza.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-pizza.webp",
+        "alt": "Pizza topped with cheese and sliced meats",
+        "caption": "Pizza topped with cheese and sliced meats."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/sizzling-dish.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-sizzling-dish.webp",
+        "alt": "Sizzling platter with chopped browned meat, onions, egg, and dipping sauce",
+        "caption": "Sizzling platter with chopped browned meat, onions, egg, and dipping sauce."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/plated-meat-and-greens.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-plated-meat-and-greens.webp",
+        "alt": "Cooked meat pieces with greens in a brown sauce",
+        "caption": "Cooked meat pieces with greens in a brown sauce."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/baked-shellfish.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-baked-shellfish.webp",
+        "alt": "Tray of baked shellfish with yellow topping and chopped green garnish",
+        "caption": "Tray of baked shellfish with yellow topping and chopped green garnish."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/colorful-iced-drinks.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-colorful-iced-drinks.webp",
+        "alt": "Three colorful iced drinks displayed inside the dining area",
+        "caption": "Three colorful iced drinks displayed inside the dining area."
+      },
+      {
+        "src": "assets/images/the-white-house-cafe-gensan/tiered-sharing-spread.webp",
+        "thumbnail": "assets/images/the-white-house-cafe-gensan/thumb-tiered-sharing-spread.webp",
+        "alt": "Tiered spread with fruit, grilled foods, fish, rice, shellfish, and vegetables",
+        "caption": "Tiered spread with fruit, grilled foods, fish, rice, shellfish, and vegetables."
+      }
+    ]
   }
 ]
