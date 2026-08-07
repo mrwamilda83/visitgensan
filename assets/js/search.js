@@ -115,6 +115,8 @@
     ])
   });
 
+  const initializedSearchForms = new WeakSet();
+
   function stemToken(token) {
     if (token.length > 4 && token.endsWith("ies")) return `${token.slice(0, -3)}y`;
     if (token.length > 4 && token.endsWith("es") && !token.endsWith("sses")) return token.slice(0, -2);
@@ -485,7 +487,12 @@
     return target.href;
   }
 
-  function submitSearchForm(event, form, input, message) {
+  function handleSearchFormSubmit(event) {
+    const form = event.currentTarget;
+    const input = form.querySelector('input[name="q"]');
+    const message = form.querySelector("[data-search-form-message]");
+    if (!input) return;
+
     const query = String(input.value || "");
     event.preventDefault();
 
@@ -503,22 +510,31 @@
     }
   }
 
+  function forwardEnterToFormSubmit(event) {
+    const form = event.currentTarget.form;
+    if (event.key !== "Enter" || event.isComposing || event.defaultPrevented || !form) return;
+    if (typeof form.requestSubmit !== "function") return;
+
+    event.preventDefault();
+    form.requestSubmit();
+  }
+
   function initializeSearchForms() {
     const currentQuery = getQueryFromLocation();
     document.querySelectorAll("[data-site-search-form]").forEach((form) => {
+      if (initializedSearchForms.has(form)) return;
+
       const input = form.querySelector('input[name="q"]');
       const message = form.querySelector("[data-search-form-message]");
       if (!input) return;
       if (form.closest("[data-search-page]") && currentQuery) input.value = currentQuery;
 
-      form.addEventListener("submit", (event) => submitSearchForm(event, form, input, message));
-      input.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") submitSearchForm(event, form, input, message);
-      });
-
+      form.addEventListener("submit", handleSearchFormSubmit);
+      input.addEventListener("keydown", forwardEnterToFormSubmit);
       input.addEventListener("input", () => {
         if (message?.textContent) message.textContent = "";
       });
+      initializedSearchForms.add(form);
     });
   }
 
