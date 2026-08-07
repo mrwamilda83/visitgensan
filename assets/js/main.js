@@ -841,13 +841,49 @@ function previewFirstVisibleActivityCard(track, explorer) {
 
 initActivityExplorer();
 
-document.querySelectorAll("[data-list]").forEach(async (container) => {
-  const type = container.dataset.list;
+function itemMatchesCollection(item, requestedCollection) {
+  const normalizedCollection = String(requestedCollection || "").trim().toLocaleLowerCase();
+  if (!normalizedCollection) return true;
+
+  const itemCollections = Array.isArray(item?.collection) ? item.collection : [item?.collection];
+  return itemCollections.some((collection) => (
+    String(collection || "").trim().toLocaleLowerCase() === normalizedCollection
+  ));
+}
+
+function getListSources(container) {
+  const sourceConfig = container.dataset.listSources || container.dataset.list || "";
+
+  return sourceConfig
+    .split(",")
+    .map((source) => source.trim())
+    .filter(Boolean)
+    .map((source) => {
+      const [type, collection = ""] = source.split(":").map((value) => value.trim());
+      return { type, collection };
+    })
+    .filter((source) => source.type);
+}
+
+async function loadListEntries(container) {
+  const sources = getListSources(container);
+  const sourceEntries = await Promise.all(sources.map(async ({ type, collection }) => {
+    const items = await loadItems(type);
+    const requestedCollection = collection || (sources.length === 1 ? container.dataset.collection : "");
+
+    return items
+      .map((item, index) => ({ item, index, type }))
+      .filter((entry) => itemMatchesCollection(entry.item, requestedCollection));
+  }));
+
+  return sourceEntries.flat();
+}
+
+document.querySelectorAll("[data-list], [data-list-sources]").forEach(async (container) => {
   const limit = Number(container.dataset.limit || 0);
   const skip = Number(container.dataset.skip || 0);
-  const items = await loadItems(type);
   const insertFeaturedAfter = Number(container.dataset.insertFeaturedAfter ?? -1);
-  const indexedItems = items.map((item, index) => ({ item, index }));
+  const indexedItems = await loadListEntries(container);
   const slicedItems = skip > 0 ? indexedItems.slice(skip) : indexedItems;
   let visibleItems = limit > 0 ? slicedItems.slice(0, limit) : slicedItems;
 
@@ -858,7 +894,7 @@ document.querySelectorAll("[data-list]").forEach(async (container) => {
   }
 
   container.innerHTML = visibleItems
-    .map((entry) => renderCard(entry.item, entry.index, type, container.dataset.cardStatus))
+    .map((entry) => renderCard(entry.item, entry.index, entry.type, container.dataset.cardStatus))
     .join("");
 });
 

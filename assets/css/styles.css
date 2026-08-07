@@ -1123,6 +1123,10 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.card-grid-fluid {
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+}
+
 .listing-card {
   display: flex;
   min-height: 100%;
@@ -5390,10 +5394,6 @@ body.author-panel-open {
   }
 }
 
-.restaurant-listing-grid {
-  grid-template-columns: minmax(0, 420px);
-}
-
 .restaurant-guide-page {
   background: linear-gradient(180deg, #f4fbfa 0, #ffffff 520px);
 }
@@ -5609,10 +5609,6 @@ body.author-panel-open {
 }
 
 @media (max-width: 640px) {
-  .restaurant-listing-grid {
-    grid-template-columns: 1fr;
-  }
-
   .restaurant-guide-hero {
     padding-top: 26px;
   }

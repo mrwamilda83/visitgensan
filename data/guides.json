@@ -1,23 +1,50 @@
 [
   {
+    "collection": "homepage",
     "title": "GenSan Airport to City Guide",
     "category": "Guide draft",
     "description": "Explain arrival options, estimated travel time, fare reminders, and what visitors should prepare.",
+    "status": "guide-coming-soon",
     "label": "Write guide",
     "url": "#"
   },
   {
+    "collection": "homepage",
     "title": "Getting Around GenSan",
     "category": "Guide draft",
     "description": "Cover common transport options, local tips, parking notes, and route planning basics.",
+    "status": "guide-coming-soon",
     "label": "Write guide",
     "url": "#"
   },
   {
+    "collection": "homepage",
     "title": "Weekend GenSan Starter Plan",
     "category": "Guide draft",
     "description": "A visitor-friendly itinerary combining hotel check-in, food, city stops, and nearby trips.",
+    "status": "guide-coming-soon",
     "label": "Write itinerary",
     "url": "#"
+  },
+  {
+    "collection": "food",
+    "title": "GenSan Tuna and Seafood Guide",
+    "category": "Guide draft",
+    "description": "Discover tuna dishes, seafood favorites, local dining spots, and food experiences connected to GenSan’s tuna industry.",
+    "status": "guide-coming-soon"
+  },
+  {
+    "collection": "food",
+    "title": "Cafés and Coffee Shops in GenSan",
+    "category": "Guide draft",
+    "description": "Explore local cafés, coffee shops, dessert places, and relaxed spaces for coffee, snacks, and casual meetups.",
+    "status": "guide-coming-soon"
+  },
+  {
+    "collection": "food",
+    "title": "Local Favorites and Budget Eats",
+    "category": "Guide draft",
+    "description": "Find approachable local meals, everyday favorites, and affordable places to eat around General Santos City.",
+    "status": "guide-coming-soon"
   }
 ]
