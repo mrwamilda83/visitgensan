@@ -698,18 +698,22 @@ async function initActivityExplorer() {
     image: "assets/images/things-to-do-final-banner.png"
   };
   const items = await loadItems("activities");
-  let selectedItem = null;
-  let restingPreviewItem = null;
+  const requestedListingIndex = findRequestedListingIndex(items);
+  let selectedItem = requestedListingIndex >= 0 ? items[requestedListingIndex] : null;
+  let restingPreviewItem = selectedItem;
   let visibleBackground = backgroundLayers.find((layer) => layer.classList.contains("is-visible")) || backgroundLayers[0];
   let currentImage = defaultState.image;
   let backgroundRequest = 0;
 
-  container.innerHTML = items.map((item, index) => `
-    <button class="listing-card activity-card${index === 0 ? " is-selected" : ""}" type="button" data-activity-index="${index}" aria-label="Select ${escapeAttribute(item.title)}" aria-pressed="${index === 0 ? "true" : "false"}">
+  container.innerHTML = items.map((item, index) => {
+    const isSelected = requestedListingIndex >= 0 ? index === requestedListingIndex : index === 0;
+    return `
+    <button class="listing-card activity-card${isSelected ? " is-selected" : ""}" type="button" data-activity-index="${index}" aria-label="Select ${escapeAttribute(item.title)}" aria-pressed="${isSelected ? "true" : "false"}">
       <img src="${escapeAttribute(item.image || defaultState.image)}" alt="">
       <h2>${escapeHtml(item.title)}</h2>
     </button>
-  `).join("");
+  `;
+  }).join("");
 
   function changeBackground(image) {
     const nextImage = image || defaultState.image;
@@ -737,8 +741,10 @@ async function initActivityExplorer() {
     changeBackground(state.image);
 
     if (guide) {
-      guide.hidden = !item;
-      guide.setAttribute("href", item?.url || "#");
+      const guideUrl = item?.url && item.url !== "#" ? item.url : "";
+      guide.hidden = !guideUrl;
+      if (guideUrl) guide.setAttribute("href", guideUrl);
+      else guide.removeAttribute("href");
     }
   }
 
@@ -778,6 +784,8 @@ async function initActivityExplorer() {
       showActivity(selectedItem);
     });
   });
+
+  if (selectedItem) showActivity(selectedItem);
 }
 
 function previewFirstVisibleActivityCard(track, explorer) {
@@ -818,6 +826,12 @@ document.querySelectorAll("[data-list]").forEach(async (container) => {
 document.querySelectorAll("[data-featured-list]").forEach(async (container) => {
   const type = container.dataset.featuredList;
   const activeCategory = document.querySelector(`[data-category-controls="${type}"] [data-category-filter].is-active`)?.dataset.categoryFilter;
+  const requestedListing = getRequestedListingTitle();
+
+  if (requestedListing) {
+    await renderGuideHotel(type, 0, false, container, requestedListing);
+    return;
+  }
 
   if (container.hasAttribute("data-category-results") && activeCategory) {
     await renderCategoryHotels(type, activeCategory, false);
@@ -841,6 +855,21 @@ async function loadItems(type) {
   }
 }
 
+function getRequestedListingTitle() {
+  try {
+    return String(new URLSearchParams(window.location.search).get("listing") || "").trim();
+  } catch (error) {
+    return "";
+  }
+}
+
+function findRequestedListingIndex(items, requestedTitle = getRequestedListingTitle()) {
+  const normalizedTitle = String(requestedTitle || "").trim().toLocaleLowerCase();
+  if (!normalizedTitle || !Array.isArray(items)) return -1;
+
+  return items.findIndex((item) => String(item?.title || "").trim().toLocaleLowerCase() === normalizedTitle);
+}
+
 function placeHotelAfter(items, hotelTitle, precedingTitle) {
   const orderedItems = [...items];
   const hotelIndex = orderedItems.findIndex((item) => item.title === hotelTitle);
@@ -856,9 +885,10 @@ function placeHotelAfter(items, hotelTitle, precedingTitle) {
   return orderedItems;
 }
 
-async function renderGuideHotel(type, index = 0, shouldScroll = false, existingContainer) {
+async function renderGuideHotel(type, index = 0, shouldScroll = false, existingContainer, requestedTitle = "") {
   const items = await loadItems(type);
-  const item = items[index] || items[0];
+  const requestedIndex = findRequestedListingIndex(items, requestedTitle);
+  const item = items[requestedIndex >= 0 ? requestedIndex : index] || items[0];
   const container = existingContainer || document.querySelector(`[data-featured-list="${type}"]`);
 
   if (!item || !container) return;

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "hotels-resorts",
+    "title": "Hotels & Resorts in GenSan",
+    "category": "Accommodation Guide",
+    "description": "Browse business, family, budget, and resort accommodation options in General Santos City.",
+    "keywords": ["hotel", "resort", "accommodation", "stay", "lodging", "budget", "family", "business"],
+    "image": "assets/images/hero-gensan-banner.png",
+    "url": "hotels.html"
+  },
+  {
+    "id": "things-to-do",
+    "title": "Things to Do in General Santos City",
+    "category": "Attractions Guide",
+    "description": "Explore activities, landmarks, cultural stops, nature trips, scenic views, and nearby beach escapes.",
+    "keywords": ["things to do", "sightseeing", "attraction", "tourist spot", "activity", "beach", "coast", "culture"],
+    "image": "assets/images/things-to-do-final-banner.png",
+    "url": "things-to-do.html"
+  },
+  {
+    "id": "food-restaurants",
+    "title": "Where to Eat in GenSan",
+    "category": "Food & Restaurant Guide",
+    "description": "Plan food stops around General Santos City, including tuna, seafood, restaurants, cafés, and casual dining.",
+    "keywords": ["food", "eat", "dining", "restaurant", "tuna", "seafood", "coffee", "cafe", "café"],
+    "image": "assets/images/food-restaurants-banner.png",
+    "url": "food-restaurants.html"
+  },
+  {
+    "id": "travel-guides",
+    "title": "GenSan Travel Guides",
+    "category": "Travel Guide",
+    "description": "Use practical local guides to plan transport, city stops, nearby trips, and a visitor-friendly GenSan itinerary.",
+    "keywords": ["travel guide", "itinerary", "trip plan", "transport", "planning", "visitor guide"],
+    "image": "assets/images/travel-guides-banner.png",
+    "url": "travel-guides.html"
+  },
+  {
+    "id": "get-featured",
+    "title": "Get Featured on VisitGenSan",
+    "category": "Site Information",
+    "description": "Learn how a General Santos City hotel, restaurant, attraction, or local business can request a VisitGenSan listing.",
+    "keywords": ["submit listing", "business listing", "get featured", "join VisitGenSan"],
+    "image": "assets/images/logo-mark.svg",
+    "url": "get-featured.html"
+  },
+  {
+    "id": "listing-policy",
+    "title": "VisitGenSan Listing Policy",
+    "category": "Site Information",
+    "description": "Read how VisitGenSan reviews, maintains, corrects, and updates public listing information.",
+    "keywords": ["listing policy", "corrections", "submissions", "information updates"],
+    "image": "assets/images/logo-mark.svg",
+    "url": "listing-policy.html"
+  }
+]

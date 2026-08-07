@@ -142,12 +142,13 @@
           <p class="eyebrow">General Santos City visitor guide</p>
           <h1>Explore General Santos City with a practical local guide.</h1>
           <p class="hero-text">Find places to stay, food worth trying, easy activities, and starter guides for planning a GenSan trip.</p>
-          <form class="search-panel development-disabled-control" role="search">
+          <form class="search-panel" role="search" action="search.html" method="get" data-site-search-form novalidate>
             <label for="site-search">Search VisitGensan</label>
             <div class="search-row">
-              <input id="site-search" name="q" type="search" placeholder="Search hotels, food, activities..." disabled>
-              <button type="submit" disabled>Search</button>
+              <input id="site-search" name="q" type="search" placeholder="Search hotels, food, activities..." autocomplete="off" aria-describedby="site-search-message">
+              <button type="submit">Search</button>
             </div>
+            <p class="search-form-message" id="site-search-message" data-search-form-message aria-live="polite"></p>
           </form>
         </div>
       </section>
@@ -243,5 +244,6 @@
     </footer>
 
     <script src="assets/js/main.js?v=20260711-seo"></script>
+    <script src="assets/js/search.js?v=20260807-global-search-3"></script>
   </body>
 </html>

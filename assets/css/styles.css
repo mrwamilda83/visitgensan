@@ -508,12 +508,220 @@ h3 {
   padding: 0 14px;
 }
 
+.search-row input:focus-visible,
+.search-row button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
 .search-row button,
 .card-link {
   background: var(--yellow);
   color: #14333b;
   cursor: pointer;
   font-weight: 900;
+}
+
+.search-form-message {
+  min-height: 1.4em;
+  margin: 8px 0 0;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.search-page-form {
+  margin-top: 24px;
+}
+
+.search-results-section {
+  min-height: 420px;
+}
+
+.search-results-status {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.search-result-card {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(150px, 0.42fr) minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(22, 52, 60, 0.1);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.search-result-card:hover,
+.search-result-card:focus-visible {
+  border-color: var(--teal);
+  box-shadow: 0 20px 42px rgba(22, 52, 60, 0.16);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.search-result-card:focus-visible {
+  box-shadow: 0 0 0 4px rgba(4, 123, 131, 0.22), 0 20px 42px rgba(22, 52, 60, 0.16);
+}
+
+.search-result-media {
+  display: grid;
+  min-height: 210px;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(145deg, #dff1ee, #cbeef3);
+}
+
+.search-result-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-result-placeholder {
+  max-width: 130px;
+  color: var(--teal-dark);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.search-result-body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+}
+
+.search-result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-verification-badge {
+  display: inline-flex;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 900;
+  line-height: 1;
+  padding: 6px 9px;
+  text-transform: uppercase;
+}
+
+.search-verification-badge.is-unverified {
+  background: #fff0eb;
+  color: #9b3f2d;
+}
+
+.search-verification-badge.is-verified {
+  background: #e4f4ed;
+  color: #246443;
+}
+
+.search-result-body h2 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.16;
+}
+
+.search-result-description,
+.search-result-location {
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.search-result-location {
+  color: #285158;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.search-result-action {
+  display: inline-flex;
+  margin-top: auto;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.search-state-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--mist);
+  padding: clamp(24px, 5vw, 44px);
+}
+
+.search-state-panel h2 {
+  margin: 0 0 10px;
+}
+
+.search-state-panel p,
+.search-state-panel li {
+  color: var(--muted);
+}
+
+.search-browse-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.search-browse-links a {
+  border: 1px solid #b9dfd9;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--teal-dark);
+  font-weight: 900;
+  padding: 8px 13px;
+  text-decoration: none;
+}
+
+.search-browse-links a:hover,
+.search-browse-links a:focus-visible {
+  border-color: var(--teal);
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  .search-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .search-result-card {
+    grid-template-columns: 1fr;
+  }
+
+  .search-result-media {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .search-result-body {
+    padding: 20px;
+  }
 }
 
 .section-wrap {
