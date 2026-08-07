@@ -86,16 +86,14 @@ const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
 const listingRequestForm = document.querySelector(".development-listing-form");
 const developmentPreviewHosts = ["localhost", "127.0.0.1"];
-const productionDevelopmentHosts = ["visitgensan.com", "www.visitgensan.com"];
 const isLocalDevelopmentPreview = developmentPreviewHosts.includes(window.location.hostname);
-const isProductionDevelopmentHost = productionDevelopmentHosts.includes(window.location.hostname);
 const isUnderDevelopmentPage = document.body.classList.contains("under-development-home");
-// Localhost is for development preview only. Production hosts stay in under-development mode until launch.
+// Keep the development notice markup dormant until it is intentionally enabled again.
 const isDevelopmentLocked = false;
 
 if (isUnderDevelopmentPage) {
   document.body.classList.toggle("is-development-preview", isLocalDevelopmentPreview);
-  document.body.classList.toggle("is-development-notice", isProductionDevelopmentHost);
+  document.body.classList.remove("is-development-notice");
   document.body.classList.toggle("is-development-locked", isDevelopmentLocked);
 
   if (isLocalDevelopmentPreview) {
