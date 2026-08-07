@@ -82,6 +82,43 @@ const categoryNotes = {
   }
 };
 
+const cardStatusDefinitions = Object.freeze({
+  active: Object.freeze({
+    key: "active",
+    disabled: false,
+    ribbonLabel: "",
+    actionLabel: "",
+    accessibilityLabel: ""
+  }),
+  "coming-soon": Object.freeze({
+    key: "coming-soon",
+    disabled: true,
+    ribbonLabel: "COMING SOON",
+    actionLabel: "Available Soon",
+    accessibilityLabel: "Coming soon. This card is not currently available."
+  }),
+  "guide-coming-soon": Object.freeze({
+    key: "guide-coming-soon",
+    disabled: true,
+    ribbonLabel: "GUIDE COMING SOON",
+    actionLabel: "Available Soon",
+    accessibilityLabel: "Guide coming soon. This card is not currently available."
+  }),
+  unavailable: Object.freeze({
+    key: "unavailable",
+    disabled: true,
+    ribbonLabel: "UNAVAILABLE",
+    actionLabel: "Unavailable",
+    accessibilityLabel: "This card is not currently available."
+  })
+});
+
+function resolveCardStatus(statusKey, hasDestination = true) {
+  const normalizedKey = String(statusKey || "active").trim().toLocaleLowerCase();
+  const status = cardStatusDefinitions[normalizedKey] || cardStatusDefinitions.active;
+  return !hasDestination && !status.disabled ? cardStatusDefinitions.unavailable : status;
+}
+
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
 const listingRequestForm = document.querySelector(".development-listing-form");
@@ -820,7 +857,9 @@ document.querySelectorAll("[data-list]").forEach(async (container) => {
     if (limit > 0) visibleItems = visibleItems.slice(0, limit);
   }
 
-  container.innerHTML = visibleItems.map((entry) => renderCard(entry.item, entry.index, type)).join("");
+  container.innerHTML = visibleItems
+    .map((entry) => renderCard(entry.item, entry.index, type, container.dataset.cardStatus))
+    .join("");
 });
 
 document.querySelectorAll("[data-featured-list]").forEach(async (container) => {
@@ -960,27 +999,41 @@ function updateCategoryNote(type, category) {
   }
 }
 
-function renderCard(item, index = 0, type = "hotels") {
+function renderCard(item, index = 0, type = "hotels", defaultStatus = "active") {
   const imageMarkup = item.image
     ? `<img src="${escapeAttribute(item.image)}" alt="${escapeAttribute(item.imageAlt || item.title)}" loading="lazy" decoding="async">`
     : escapeHtml(item.category || "Listing");
   const canOpenGuide = type === "hotels" && Array.isArray(item.gallery) && item.gallery.length;
   const linkHref = canOpenGuide ? "#hotel-guide" : (item.url || "#");
+  const hasDestination = canOpenGuide || Boolean(item.url && item.url !== "#");
+  const cardStatus = resolveCardStatus(item.status || defaultStatus, hasDestination);
+  const actionLabel = cardStatus.actionLabel || item.label || "View details";
   const guideAttributes = canOpenGuide ? ` data-guide-type="${escapeAttribute(type)}" data-guide-index="${index}"` : "";
   const developmentAttributes = isDevelopmentLocked
     ? ` aria-disabled="true" data-disabled-label="Temporarily unavailable"`
     : "";
+  const rootTag = cardStatus.disabled ? "article" : "a";
+  const rootAttributes = cardStatus.disabled
+    ? `class="listing-card listing-card-status-disabled" data-card-status="${escapeAttribute(cardStatus.key)}" aria-disabled="true"`
+    : `class="listing-card listing-card-link-wrap" href="${escapeAttribute(linkHref)}"${guideAttributes}${developmentAttributes}`;
+  const ribbonMarkup = cardStatus.ribbonLabel
+    ? `<span class="card-status-ribbon" aria-hidden="true">${escapeHtml(cardStatus.ribbonLabel)}</span>`
+    : "";
+  const accessibilityMarkup = cardStatus.accessibilityLabel
+    ? `<span class="sr-only">${escapeHtml(cardStatus.accessibilityLabel)}</span>`
+    : "";
 
   return `
-    <a class="listing-card listing-card-link-wrap" href="${escapeAttribute(linkHref)}"${guideAttributes}${developmentAttributes}>
+    <${rootTag} ${rootAttributes}>
       <div class="listing-body">
         <span class="meta">${escapeHtml(item.category || "Listing")}</span>
         <h3>${escapeHtml(item.title)}</h3>
         <p>${escapeHtml(item.description)}</p>
-        <span class="card-link">${escapeHtml(item.label || "View details")}</span>
+        <span class="card-link">${escapeHtml(actionLabel)}</span>
+        ${accessibilityMarkup}
       </div>
-      <div class="listing-image${item.image ? " has-photo" : ""}">${imageMarkup}</div>
-    </a>
+      <div class="listing-image${item.image ? " has-photo" : ""}">${imageMarkup}${ribbonMarkup}</div>
+    </${rootTag}>
   `;
 }
 
@@ -1317,8 +1370,7 @@ function routeContactIcon(label = "") {
     '.section-heading',
     '.feature-card',
     '.card-grid > *',
-    '.muted-band',
-    '.split-section'
+    '.muted-band'
   ].join(', ');
 
   const revealItems = Array.from(document.querySelectorAll(revealSelector));
