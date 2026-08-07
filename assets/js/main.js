@@ -977,16 +977,23 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
   const image = item.image || "assets/images/hotel-pool-room.png";
   const mainPhoto = gallery[0];
   const thumbnails = gallery;
+  const isUnverified = item.verified === false;
   const galleryAmenities = facilities.length ? facilities.slice(0, 8) : amenities;
   const hasOfficialWebsite = item.url && item.url !== "#" && item.url !== item.facebookUrl;
 
   return `
     <article class="featured-hotel-card">
-      <div class="featured-hotel-gallery" data-thumb-start="0">
-        <div class="gallery-main">
+      <div class="featured-hotel-gallery${isUnverified ? " is-unverified" : ""}" data-thumb-start="0">
+        <div class="gallery-main${isUnverified ? " gallery-main-unverified" : ""}">
           <img src="${escapeAttribute(mainPhoto.src || image)}" alt="${escapeAttribute(mainPhoto.alt || `${item.title} photo`)}">
+          ${isUnverified ? `
+            <aside class="hotel-verification-overlay" aria-label="Listing verification status">
+              <strong>Listing Not Yet Verified</strong>
+              <p>This property has not yet confirmed its information on VisitGenSan. Photos and listing details are temporary and may not reflect the property’s current appearance, facilities, rates, or availability. Please contact the establishment directly before booking or visiting.</p>
+            </aside>
+          ` : ""}
         </div>
-        <div class="gallery-thumbs-row">
+        ${!isUnverified ? `<div class="gallery-thumbs-row">
           ${thumbnails.length > 5 ? `<button class="gallery-arrow gallery-arrow-previous" type="button" data-gallery-direction="previous" aria-label="Show previous ${escapeAttribute(item.title)} photos" disabled>&#8249;</button>` : ""}
           <div class="gallery-thumbs">
             ${thumbnails.map((photo, index) => `
@@ -996,7 +1003,7 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
             `).join("")}
           </div>
           ${thumbnails.length > 5 ? `<button class="gallery-arrow gallery-arrow-next" type="button" data-gallery-direction="next" aria-label="Show next ${escapeAttribute(item.title)} photos">&#8250;</button>` : ""}
-        </div>
+        </div>` : ""}
         ${item.photoCredit ? `<p class="gallery-photo-credit">${escapeHtml(item.photoCredit)}</p>` : ""}
         <div class="gallery-info-panel">
           ${galleryAmenities.length ? `

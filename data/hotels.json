@@ -155,6 +155,7 @@
     },
     {
         "title": "Grand Summit Hotel General Santos",
+        "verified": false,
         "category": "Business",
         "description": "Grand Summit Hotel General Santos is a polished city hotel option with rooms and suites, dining spaces, leisure and wellness areas, and venues for meetings or celebrations.",
         "label": "Check hotel details",
@@ -242,6 +243,7 @@
     },
     {
         "title": "East Asia Royale Hotel",
+        "verified": false,
         "category": "Business",
         "description": "A business-friendly GenSan hotel along the National Highway in Lagao, with 102 guest rooms, business facilities, Royale Lounge dining, function spaces, and airport shuttle service for in-house guests.",
         "label": "Check hotel details",
@@ -417,6 +419,7 @@
     },
     {
         "title": "Microtel by Wyndham General Santos",
+        "verified": false,
         "category": "Business",
         "description": "Microtel by Wyndham General Santos is a practical business-friendly GenSan hotel along Valley High National Highway, with modern rooms, free breakfast and WiFi, friendly service, event spaces, and easy access to city stops and nearby attractions.",
         "label": "Check hotel details",
@@ -662,6 +665,7 @@
     },
     {
         "title": "SunCity Suites",
+        "verified": false,
         "category": "Business",
         "description": "SunCity Suites is a business-meets-leisure hotel in the Sun City Complex, with suites and rooms, Caffe Firenzo, event spaces, and a central GenSan base for travelers who want comfort and convenience.",
         "label": "Check hotel details",
