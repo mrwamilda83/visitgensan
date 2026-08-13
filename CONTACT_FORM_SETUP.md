@@ -30,7 +30,7 @@ The migration creates only `contact_abuse_records`. It stores keyed identifiers,
 1. Review and approve the local diff and tests.
 2. Confirm the four encrypted Production secrets and the `VISITGENSAN_DB` binding.
 3. Confirm the Turnstile widget allows `visitgensan.com` and any production hostname that serves the form, with action `contact`.
-4. Confirm the Google Apps Script accepts JSON containing `secret`, `name`, `email`, `subject`, and `message`, and returns JSON with `ok: true` or `success: true` only after Gmail accepts the message.
+4. Confirm the Google Apps Script accepts JSON containing `sharedSecret`, `name`, `email`, `subject`, and `message`, and returns JSON with `ok: true` or `success: true` only after Gmail accepts the message.
 5. Apply the D1 migration using the command above.
 6. Deploy the approved site change.
 7. Test one legitimate message and confirm generic behavior for invalid Turnstile, rate limiting, and provider failure.
