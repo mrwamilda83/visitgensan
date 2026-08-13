@@ -52,5 +52,14 @@
     "keywords": ["listing policy", "corrections", "submissions", "information updates"],
     "image": "assets/images/logo-mark.svg",
     "url": "listing-policy.html"
+  },
+  {
+    "id": "contact-us",
+    "title": "Contact VisitGenSan",
+    "category": "Site Information",
+    "description": "Send VisitGenSan a question, correction, business inquiry, listing request, or suggestion.",
+    "keywords": ["contact", "message", "question", "correction", "business inquiry", "listing request", "suggestion"],
+    "image": "assets/images/logo-mark.svg",
+    "url": "contact.html"
   }
 ]

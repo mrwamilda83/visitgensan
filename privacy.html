@@ -58,17 +58,17 @@
           <p><strong>Last Updated: August 13, 2026</strong></p>
         </div>
         <div class="text-panel">
-          <p>VisitGenSan.com respects the privacy of our visitors. This Privacy Policy describes the limited information processed by the website as it operates today, including its guide reactions, search, email links, Cloudflare infrastructure, and embedded Google Maps.</p>
+          <p>VisitGenSan.com respects the privacy of our visitors. This Privacy Policy describes the limited information processed by the website as it operates today, including its Contact Us form, guide reactions, search, Cloudflare infrastructure, Google services, and embedded Google Maps.</p>
           <p>VisitGenSan.com does not currently use analytics or advertising tracking systems. The specific data flows that do exist are explained below.</p>
 
           <h3>1. Information Processed When You Use the Website</h3>
-          <p>Most VisitGenSan pages can be viewed without providing your name, email address, or other contact information. Normal technical request information is processed by Cloudflare when it delivers the website, and additional limited information is processed when you use search, visit a reaction-enabled guide, load an embedded map, or choose to send an email.</p>
-          <p>Depending on the feature, this information can include a requested page or URL, a search term included in the VisitGenSan URL, a random reaction identifier, a guide-page name, a selected reaction, normal browser request information, or information you choose to include in an email.</p>
+          <p>Most VisitGenSan pages can be viewed without providing your name, email address, or other contact information. Normal technical request information is processed by Cloudflare when it delivers the website, and additional limited information is processed when you use search, visit a reaction-enabled guide, load an embedded map, or voluntarily submit the Contact Us form.</p>
+          <p>Depending on the feature, this information can include a requested page or URL, a search term included in the VisitGenSan URL, a random reaction identifier, a guide-page name, a selected reaction, normal browser request information, or a name, email address, subject, and message you choose to submit.</p>
 
-          <h3>2. Information You Choose to Send by Email</h3>
-          <p>VisitGenSan does not currently use a server-side form database for ordinary listing requests, Get Featured submissions, or contact inquiries. These flows use <code>mailto:</code> links that open the visitor&rsquo;s email application or provider.</p>
-          <p>The website may pre-fill a recipient, subject, message, or business information entered by the visitor. VisitGenSan receives that information only if the visitor chooses to send the email. The visitor&rsquo;s email provider and the recipient&rsquo;s email provider may also process the message.</p>
-          <p>Information voluntarily emailed to VisitGenSan may include a name, email address, business or organization name, Facebook or website link, contact details, photos, location, opening hours, services, listing information, and the contents of the message. This information is used to respond, review a listing or correction request, communicate with the sender, and operate the website.</p>
+          <h3>2. Information You Choose to Send Through Contact Us</h3>
+          <p>When you submit the Contact Us form, you voluntarily provide your name, email address, subject, and message. VisitGenSan uses this information to review and respond to questions, corrections, business or listing inquiries, privacy requests, suggestions, and other messages.</p>
+          <p>The form sends this information to the same-origin <code>/api/contact</code> endpoint. The browser does not receive or contact the private recipient email address or the server-to-server delivery endpoint.</p>
+          <p>VisitGenSan does not store contact names, visitor email addresses, subjects, or message contents in Cloudflare D1. Validated messages are forwarded as described in Sections 5 and 7 and are retained according to the applicable Google account and operational practices described in Section 10.</p>
 
           <h3>3. Guide Reactions</h3>
           <p>Four VisitGenSan guide pages contain reaction buttons. When a reaction-enabled guide loads, the website creates or reads a random browser identifier, stores it in <code>localStorage</code>, and automatically sends the identifier and guide-page name to the same-origin <code>/api/reactions</code> endpoint. This allows the page to display shared totals and determine whether that browser has already reacted.</p>
@@ -79,39 +79,44 @@
           <h3>4. Browser Storage and Cookies</h3>
           <p>VisitGenSan&rsquo;s own code does not currently set or read first-party cookies. VisitGenSan features do not rely on first-party cookies.</p>
           <p>The guide reaction feature uses <code>localStorage</code> to keep a random reaction visitor identifier and the selected reaction for supported guide pages. These values currently remain until they are cleared by the visitor, browser policy, or site code.</p>
-          <p>Cloudflare or Google Maps may process cookies according to their own systems and policies. Those cookies are separate from VisitGenSan&rsquo;s own code.</p>
+          <p>Cloudflare Turnstile, Cloudflare infrastructure, or Google Maps may process cookies or similar technologies according to their own systems and policies. Those technologies are separate from VisitGenSan&rsquo;s own code.</p>
 
           <h3>5. Cloudflare Hosting and Infrastructure</h3>
-          <p>VisitGenSan is hosted and delivered through Cloudflare. The website uses Cloudflare Pages, a Cloudflare Pages Function for <code>/api/reactions</code>, and Cloudflare D1 for reaction storage.</p>
+          <p>VisitGenSan is hosted and delivered through Cloudflare. The website uses Cloudflare Pages, Cloudflare Pages Functions for <code>/api/reactions</code> and <code>/api/contact</code>, and Cloudflare D1.</p>
           <p>To deliver and secure the website, Cloudflare may process normal technical request information such as an IP address, requested URL and query string, date and time, HTTP headers, browser <code>User-Agent</code>, referrer when supplied, and transport or security information.</p>
-          <p>Cloudflare may also provide infrastructure-level functions such as Network Error Logging and email-address protection. These are hosting, security, and delivery functions; VisitGenSan does not use them as website analytics.</p>
+          <p>For Contact Us submissions, Cloudflare processes the request through a Pages Function and verifies a Cloudflare Turnstile anti-bot token. The Function also uses the request IP address with a private server-side key to create a keyed hash for rate limiting and duplicate-submission protection. VisitGenSan does not store the raw IP address for this contact feature.</p>
+          <p>Cloudflare D1 stores only temporary keyed abuse-control records for Contact Us, including a keyed identifier, rate-limit or duplicate-record type, counters, window timestamps, and expiry timestamps. These records do not contain the visitor&rsquo;s name, email address, subject, message, raw IP address, Turnstile token, or email recipient. They expire within no more than 24 hours and expired records are automatically removed during later contact requests.</p>
+          <p>Cloudflare may also provide infrastructure-level functions such as Network Error Logging and email-address protection. These are hosting, anti-abuse, security, and delivery functions; VisitGenSan does not use them as website audience analytics.</p>
 
           <h3>6. Search</h3>
           <p>VisitGenSan search runs in the visitor&rsquo;s browser and searches same-origin VisitGenSan JSON data files. The search query is not sent to an external search provider.</p>
           <p>The query appears in the VisitGenSan search-page URL in the form <code>search.html?q=...</code>. Because it is part of the requested URL, Cloudflare processes it when delivering the search page.</p>
 
-          <h3>7. Google Maps and External Services</h3>
+          <h3>7. Google Services, Maps, and External Services</h3>
+          <p>After a Contact Us submission passes validation and anti-abuse checks, the Cloudflare Pages Function forwards the name, visitor email address, subject, and message server-to-server to a secured Google Apps Script endpoint. Google Apps Script delivers the message to the VisitGenSan owner&rsquo;s Google or Gmail account. Google therefore processes the contact message as the script, delivery, and mail provider. The private recipient address is not published on the website.</p>
           <p>Some VisitGenSan pages contain embedded Google Maps. A map may load automatically as a visitor scrolls near it. When an embedded map loads, Google may receive normal browser request information such as an IP address, browser information, and referrer. Google may also use cookies or other technologies according to Google&rsquo;s own policies.</p>
           <p>VisitGenSan also links to hotels, restaurants, attractions, tourism businesses, social media pages, booking services, maps, and other external websites. When a visitor follows one of these links, the destination service&rsquo;s privacy practices apply. VisitGenSan does not control the destination&rsquo;s content, cookies, security, or data processing.</p>
 
           <h3>8. Business Listings and Public Information</h3>
           <p>VisitGenSan may publish information about hotels, restaurants, attractions, tourism businesses, destinations, events, and other travel information related to General Santos City and surrounding areas.</p>
-          <p>Information may come from publicly available sources, official business information, direct communication with an establishment, or voluntary submissions. Businesses or individuals who believe information should be corrected or updated may contact VisitGenSan by email.</p>
+          <p>Information may come from publicly available sources, official business information, direct communication with an establishment, or voluntary submissions. Businesses or individuals who want to propose a listing, correction, or update may use the Contact Us page. VisitGenSan may reply with instructions for sharing any photos or supporting material that the contact form does not accept.</p>
 
           <h3>9. Analytics and Advertising</h3>
           <p>VisitGenSan does not currently use Google Analytics, Google Tag Manager, Google AdSense, Meta or Facebook Pixel, Microsoft Clarity, Hotjar, Cloudflare Web Analytics, or comparable analytics or advertising tracking systems.</p>
+          <p>Cloudflare Turnstile is used for contact-form security and abuse prevention. It is not used by VisitGenSan for advertising or audience analytics.</p>
           <p>If analytics or advertising services are enabled in the future, this Privacy Policy will be updated to describe them and the <strong>Last Updated</strong> date will be changed.</p>
 
           <h3>10. Data Retention and Security</h3>
-          <p>Reaction and rate-limit records in Cloudflare D1 currently do not have an automatic deletion schedule. Email communications may be retained according to operational needs and the applicable email-account practices. This policy will be updated if formal retention periods are introduced.</p>
-          <p>The reaction database uses hashed identifiers as described above rather than storing the raw reaction browser identifier, IP address, or <code>User-Agent</code>. However, no website, internet transmission, or electronic storage system can be guaranteed to be completely secure.</p>
+          <p>Reaction and reaction rate-limit records in Cloudflare D1 currently do not have an automatic deletion schedule. Contact-form message contents and contact fields are not stored in D1. Temporary contact abuse-control records expire within no more than 24 hours and are opportunistically deleted during contact requests after expiry.</p>
+          <p>Contact messages delivered through Google Apps Script and Gmail may be retained according to operational needs and the applicable Google-account practices. Cloudflare and Google may retain operational, security, delivery, or service records according to their own policies.</p>
+          <p>The reaction database uses hashed identifiers as described above rather than storing the raw reaction browser identifier, IP address, or <code>User-Agent</code>. The contact abuse controls use a private-keyed hash rather than storing the raw contact-request IP address. However, no website, internet transmission, or electronic storage system can be guaranteed to be completely secure.</p>
 
           <h3>11. Children&rsquo;s Privacy</h3>
           <p>VisitGenSan is a general tourism and travel-information website and is not specifically directed toward children.</p>
-          <p>VisitGenSan does not knowingly seek child-specific personal information. If you believe a child has provided personal information by email, please contact VisitGenSan so the matter can be reviewed.</p>
+          <p>VisitGenSan does not knowingly seek child-specific personal information. If you believe a child has provided personal information through Contact Us, please contact VisitGenSan so the matter can be reviewed.</p>
 
           <h3>12. Your Privacy Rights and Choices</h3>
-          <p>Subject to applicable law, you may contact VisitGenSan regarding personal information you voluntarily provided and request:</p>
+          <p>Subject to applicable law, you may use the <a href="contact.html">Contact Us page</a> regarding personal information you voluntarily provided and request:</p>
           <ul>
             <li>Access to information concerning you</li>
             <li>Correction of inaccurate information</li>
@@ -129,7 +134,7 @@
           <p>VisitGenSan does not currently provide an automated privacy dashboard or automated deletion system.</p>
 
           <h3>13. Contact Us</h3>
-          <p>For privacy questions, concerns, or requests relating to information you voluntarily submitted, email VisitGenSan at <strong><a href="mailto:mrwamilda83@gmail.com">mrwamilda83@gmail.com</a></strong>.</p>
+          <p>For privacy questions, concerns, or requests relating to information you voluntarily submitted, please use the <strong><a href="contact.html">Contact Us page</a></strong>.</p>
         </div>
       </section>
     </main>
@@ -139,7 +144,7 @@
         <a href="listing-policy.html">Listing Policy</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="get-featured.html">Get Featured</a>
-        <a href="mailto:mrwamilda83@gmail.com">Contact Us</a>
+        <a href="contact.html">Contact Us</a>
       </div>
     </footer>
     <script src="assets/js/main.js"></script>
