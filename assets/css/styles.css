@@ -3562,29 +3562,75 @@ h3 {
   }
 
   .about-gensan-visual {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display: block;
+    width: 100%;
     min-height: 0;
+    aspect-ratio: 780 / 620;
   }
 
-  .about-collage::before,
-  .about-tuna-seal,
-  .about-magandang-mark {
-    display: none;
+  .about-collage::before {
+    inset: 5% 0 12%;
   }
 
   .about-polaroid {
-    position: static;
+    position: absolute;
     height: auto;
-    min-height: 160px;
-    width: auto;
-    border-width: 5px;
-    transform: none;
+    min-height: 0;
+    border-width: clamp(4px, 1.03vw, 8px);
   }
 
-  .about-polaroid img {
-    aspect-ratio: 4 / 3;
+  .about-polaroid-culture {
+    top: 5.484%;
+    left: 2.308%;
+    width: 46.795%;
+    aspect-ratio: 365 / 240;
+  }
+
+  .about-polaroid-city {
+    top: 1.613%;
+    right: 9.744%;
+    width: 50%;
+    aspect-ratio: 390 / 245;
+  }
+
+  .about-polaroid-food {
+    top: 38.548%;
+    bottom: auto;
+    left: 5.897%;
+    width: 51.923%;
+    aspect-ratio: 405 / 250;
+  }
+
+  .about-polaroid-beach {
+    top: 41.29%;
+    right: 5.128%;
+    bottom: auto;
+    width: 50.641%;
+    aspect-ratio: 395 / 245;
+  }
+
+  .about-collage.is-spread .about-polaroid-culture {
+    transform: translate(-2.74%, -3.33%) rotate(-4deg);
+  }
+
+  .about-collage.is-spread .about-polaroid-city {
+    transform: translate(2.56%, -4.9%) rotate(4deg);
+  }
+
+  .about-collage.is-spread .about-polaroid-food {
+    transform: translate(-3.95%, 5.6%) rotate(-3deg);
+  }
+
+  .about-collage.is-spread .about-polaroid-beach {
+    transform: translate(3.04%, 6.53%) rotate(5deg);
+  }
+
+  .about-tuna-seal {
+    top: 31.935%;
+    display: grid;
+    width: 21.282%;
+    height: auto;
+    aspect-ratio: 1;
   }
 
   .feature-grid,
@@ -3908,13 +3954,35 @@ h3 {
   line-height: 1;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 641px) and (max-width: 900px) {
   .about-side-champions {
     position: static !important;
     align-items: center !important;
     justify-content: center !important;
     margin-top: 18px;
     text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-side-champions {
+    position: absolute !important;
+    top: 87.9% !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 11.03% !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .about-side-champions span {
+    font-size: clamp(0.65rem, 3vw, 0.75rem);
+  }
+
+  .about-side-champions strong {
+    font-size: clamp(1.6rem, 8vw, 2.1rem);
   }
 }
 
