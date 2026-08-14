@@ -721,9 +721,21 @@ async function initActivityExplorer() {
 
   container.innerHTML = items.map((item, index) => {
     const isSelected = requestedListingIndex >= 0 ? index === requestedListingIndex : index === 0;
+    const hasDestination = Boolean(item.url && item.url !== "#");
+    const cardStatus = resolveCardStatus(item.status, hasDestination);
+    const statusAttributes = cardStatus.disabled
+      ? ` data-card-status="${escapeAttribute(cardStatus.key)}"`
+      : "";
+    const ribbonMarkup = cardStatus.ribbonLabel
+      ? `<span class="card-status-ribbon" aria-hidden="true">${escapeHtml(cardStatus.ribbonLabel)}</span>`
+      : "";
+    const activityAriaLabel = cardStatus.accessibilityLabel
+      ? `Select ${item.title}. ${cardStatus.accessibilityLabel}`
+      : `Select ${item.title}`;
     return `
-    <button class="listing-card activity-card${isSelected ? " is-selected" : ""}" type="button" data-activity-index="${index}" aria-label="Select ${escapeAttribute(item.title)}" aria-pressed="${isSelected ? "true" : "false"}">
+    <button class="listing-card activity-card${isSelected ? " is-selected" : ""}" type="button" data-activity-index="${index}" aria-label="${escapeAttribute(activityAriaLabel)}" aria-pressed="${isSelected ? "true" : "false"}"${statusAttributes}>
       <img src="${escapeAttribute(item.image || defaultState.image)}" alt="">
+      ${ribbonMarkup}
       <h2>${escapeHtml(item.title)}</h2>
     </button>
   `;
