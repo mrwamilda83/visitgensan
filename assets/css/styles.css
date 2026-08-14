@@ -3228,6 +3228,10 @@ h3 {
   gap: 14px;
 }
 
+.nearby-link-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .nearby-link-grid a {
   display: flex;
   min-height: 86px;
