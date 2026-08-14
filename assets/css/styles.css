@@ -2532,6 +2532,29 @@ h3 {
     min-height: 0;
   }
 
+  .things-to-do-page {
+    height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .things-to-do-page .activity-tour-page,
+  .things-to-do-page .activity-explorer,
+  .things-to-do-page .activity-explorer-layout {
+    height: auto;
+    min-height: calc(100dvh - 73px);
+  }
+
+  .things-to-do-page .activity-tour-page {
+    overflow: visible;
+  }
+
+  .things-to-do-page .activity-explorer {
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
   .activity-explorer-layout {
     display: flex;
     flex-direction: column;
@@ -3555,6 +3578,20 @@ h3 {
   .hero,
   .page-hero {
     min-height: auto;
+  }
+
+  .main-page-hero {
+    padding-block: 24px;
+  }
+
+  .main-page-hero h1 {
+    font-size: 1.875rem;
+    line-height: 1.05;
+  }
+
+  .main-page-hero > div > p:not(.eyebrow) {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   h1 {
