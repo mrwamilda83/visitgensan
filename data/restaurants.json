@@ -12,6 +12,8 @@
     "facebookHoursLabel": "Always open",
     "hoursNote": "Facebook displays “Always open.” Confirm current opening hours directly with the restaurant.",
     "facebookUrl": "https://www.facebook.com/profile.php?id=100091523032713",
+    "logo": "assets/images/the-white-house-cafe-gensan/logo.webp",
+    "logoAlt": "The White House Cafè Gensan logo",
     "image": "assets/images/the-white-house-cafe-gensan/mixed-seafood.webp",
     "imageAlt": "Crab, shrimp, shellfish, and corn presented in sauce",
     "gallery": [
@@ -93,6 +95,213 @@
         "alt": "Tiered spread with fruit, grilled foods, fish, rice, shellfish, and vegetables",
         "caption": "Tiered spread with fruit, grilled foods, fish, rice, shellfish, and vegetables."
       }
+    ]
+  },
+  {
+    "title": "Cotton Bowl Grill & Steak House",
+    "slug": "cotton-bowl-grill-steak-house",
+    "category": "Steakhouse",
+    "bio": "Classic steak",
+    "description": "Cotton Bowl Grill & Steak House is a steakhouse in San Miguel, General Santos City. The restaurant serves grilled steaks and other hearty dishes in a casual dining room suited to families, groups, and celebrations.",
+    "label": "View restaurant guide",
+    "url": "cotton-bowl-grill-steak-house.html",
+    "location": "San Miguel, General Santos City, Philippines",
+    "phone": "0921 604 3988",
+    "email": "cottonbowlgrill@yahoo.com",
+    "hoursNote": "Operating hours are currently being confirmed. Contact the restaurant directly before visiting.",
+    "facebookUrl": "https://www.facebook.com/cottonbowlgrillsteakhouse",
+    "logo": "assets/images/cotton-bowl-grill-steak-house/logo.png",
+    "logoAlt": "Cotton Bowl Grill & Steak House logo",
+    "image": "assets/images/cotton-bowl-grill-steak-house/sliced-steak.jpg",
+    "imageAlt": "Sliced steak with green beans and a potato",
+    "gallery": [
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/exterior-day.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/exterior-day.jpg",
+        "alt": "Daytime exterior of Cotton Bowl Grill & Steak House",
+        "caption": "Daytime exterior of Cotton Bowl Grill & Steak House."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/exterior-night.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/exterior-night.jpg",
+        "alt": "Cotton Bowl Grill & Steak House exterior at night",
+        "caption": "Cotton Bowl Grill & Steak House exterior at night."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/exterior-night-wide.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/exterior-night-wide.jpg",
+        "alt": "Wide nighttime view of the restaurant storefront",
+        "caption": "Wide nighttime view of the restaurant storefront."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/dining-room.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/dining-room.jpg",
+        "alt": "Casual dining room with guests seated at dark wood tables",
+        "caption": "Casual dining room with guests seated at dark wood tables."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/busy-dining-room.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/busy-dining-room.jpg",
+        "alt": "Busy restaurant dining room decorated for a celebration",
+        "caption": "Busy restaurant dining room decorated for a celebration."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/floral-table-setup.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/floral-table-setup.jpg",
+        "alt": "Long dining table surrounded by floral decorations",
+        "caption": "Long dining table surrounded by floral decorations."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/sliced-steak.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/sliced-steak.jpg",
+        "alt": "Sliced steak with green beans and a potato",
+        "caption": "Sliced steak with green beans and a potato."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/grilled-steak.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/grilled-steak.jpg",
+        "alt": "Grilled steak served with green beans, tomato, and potato",
+        "caption": "Grilled steak served with green beans, tomato, and potato."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/t-bone-steak.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/t-bone-steak.jpg",
+        "alt": "T-bone steak served with vegetables and potato",
+        "caption": "T-bone steak served with vegetables and potato."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/grilled-tuna.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/grilled-tuna.jpg",
+        "alt": "Grilled tuna steaks garnished with green onions",
+        "caption": "Grilled tuna steaks garnished with green onions."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/fried-beef-bites.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/fried-beef-bites.jpg",
+        "alt": "Fried beef bites served with vegetables and potato",
+        "caption": "Fried beef bites served with vegetables and potato."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/sauced-chicken.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/sauced-chicken.jpg",
+        "alt": "Chicken covered in sauce and served with vegetables",
+        "caption": "Chicken covered in sauce and served with vegetables."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/burger.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/burger.jpg",
+        "alt": "Burger with a thick beef patty, cheese, and onion rings",
+        "caption": "Burger with a thick beef patty, cheese, and onion rings."
+      },
+      {
+        "src": "assets/images/cotton-bowl-grill-steak-house/spaghetti.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/spaghetti.jpg",
+        "alt": "Spaghetti with tomato sauce and grated cheese",
+        "caption": "Spaghetti with tomato sauce and grated cheese."
+      }
+    ]
+  },
+  {
+    "title": "Don Carmelo's Smokin' Area",
+    "slug": "don-carmelos-smokin-area",
+    "category": "Barbecue Restaurant",
+    "bio": "The original Smokehouse in Gensan.",
+    "description": "Don Carmelo's Smokin' Area is a barbecue restaurant on Nunez Street in Purok Malakas, Barangay San Isidro, General Santos City. It offers smokehouse-style grilled meats, steaks, sausages, sandwiches, pasta, and other hearty dishes in a casual setting with outdoor seating.",
+    "label": "View restaurant guide",
+    "url": "don-carmelos-smokin-area.html",
+    "location": "Nunez St., Purok Malakas, Bgy. San Isidro, General Santos City, Philippines, 9500",
+    "phone": "0927 463 4433",
+    "email": "contact@smokinarea.com",
+    "hoursNote": "Operating hours are currently being confirmed. Contact the restaurant directly before visiting.",
+    "facebookUrl": "https://www.facebook.com/doncarmelos",
+    "logo": "assets/images/don-carmelos-smokin-area/logo.jpg",
+    "logoAlt": "Don Carmelo's Smokin' Area logo",
+    "image": "assets/images/don-carmelos-smokin-area/tomahawk-steak.jpg",
+    "imageAlt": "Tomahawk steak served with mashed potatoes",
+    "gallery": [
+      {"src":"assets/images/don-carmelos-smokin-area/outdoor-courtyard.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/outdoor-courtyard.jpg","alt":"Outdoor courtyard dining area at Don Carmelo's Smokin' Area","caption":"Outdoor courtyard dining area at Don Carmelo's Smokin' Area."},
+      {"src":"assets/images/don-carmelos-smokin-area/dining-tables.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/dining-tables.jpg","alt":"Wooden dining tables inside the smokehouse courtyard","caption":"Wooden dining tables inside the smokehouse courtyard."},
+      {"src":"assets/images/don-carmelos-smokin-area/bacon-wrapped-meat.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/bacon-wrapped-meat.jpg","alt":"Bacon-wrapped grilled meat on a white platter","caption":"Bacon-wrapped grilled meat on a white platter."},
+      {"src":"assets/images/don-carmelos-smokin-area/roast-chicken.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/roast-chicken.jpg","alt":"Roast chicken served with vegetables and sauce","caption":"Roast chicken served with vegetables and sauce."},
+      {"src":"assets/images/don-carmelos-smokin-area/smoked-ribs.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/smoked-ribs.jpg","alt":"Smoked ribs served with pickled vegetables and sauce","caption":"Smoked ribs served with pickled vegetables and sauce."},
+      {"src":"assets/images/don-carmelos-smokin-area/smoked-meat-platter.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/smoked-meat-platter.jpg","alt":"Platter of smoked meats, sausage, mashed potatoes, and slaw","caption":"Platter of smoked meats, sausage, mashed potatoes, and slaw."},
+      {"src":"assets/images/don-carmelos-smokin-area/sausages-on-grill.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/sausages-on-grill.jpg","alt":"Sausages and meat cooking on a barbecue grill","caption":"Sausages and meat cooking on a barbecue grill."},
+      {"src":"assets/images/don-carmelos-smokin-area/outdoor-seating.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/outdoor-seating.jpg","alt":"Outdoor seating with wooden tables and green flooring","caption":"Outdoor seating with wooden tables and green flooring."},
+      {"src":"assets/images/don-carmelos-smokin-area/steak-sandwich.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/steak-sandwich.jpg","alt":"Steak sandwich with onions and dipping sauce","caption":"Steak sandwich with onions and dipping sauce."},
+      {"src":"assets/images/don-carmelos-smokin-area/pasta.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/pasta.jpg","alt":"Pasta with tomato, herbs, and grated cheese","caption":"Pasta with tomato, herbs, and grated cheese."},
+      {"src":"assets/images/don-carmelos-smokin-area/tomahawk-steak.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/tomahawk-steak.jpg","alt":"Tomahawk steak served with mashed potatoes","caption":"Tomahawk steak served with mashed potatoes."},
+      {"src":"assets/images/don-carmelos-smokin-area/group-dining.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/group-dining.jpg","alt":"Group dining at wooden tables in the restaurant","caption":"Group dining at wooden tables in the restaurant."},
+      {"src":"assets/images/don-carmelos-smokin-area/meat-skillet.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/meat-skillet.jpg","alt":"Chopped meat served in a cast-iron skillet with chilies and calamansi","caption":"Chopped meat served in a cast-iron skillet with chilies and calamansi."},
+      {"src":"assets/images/don-carmelos-smokin-area/smoked-meat-sandwich.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/smoked-meat-sandwich.jpg","alt":"Smoked meat sandwich with pickled vegetables and hot sauce","caption":"Smoked meat sandwich with pickled vegetables and hot sauce."},
+      {"src":"assets/images/don-carmelos-smokin-area/night-event.jpg","thumbnail":"assets/images/don-carmelos-smokin-area/night-event.jpg","alt":"Guests gathered in the outdoor dining area at night","caption":"Guests gathered in the outdoor dining area at night."}
+    ]
+  },
+  {
+    "title": "Sam And Dean",
+    "slug": "sam-and-dean",
+    "category": "Restaurant",
+    "bio": "Burger Shack · Chill and Dine",
+    "description": "Sam And Dean is a restaurant on Pacifico Bugarin corner De Vera Street in General Santos City. It serves burgers, steaks, tuna, sizzling dishes, nachos, crispy chicken, and other casual meals in a relaxed setting with outdoor seating.",
+    "label": "View restaurant guide",
+    "url": "sam-and-dean.html",
+    "location": "Pacifico Bugarin corner De Vera Street, General Santos City, Philippines, 9500",
+    "phone": "0997 318 1466",
+    "email": "samanddeanburger18@gmail.com",
+    "hoursNote": "Operating hours are currently being confirmed. Contact the restaurant directly before visiting.",
+    "facebookUrl": "https://www.facebook.com/SamAndDean18",
+    "logo": "assets/images/sam-and-dean/logo.jpg",
+    "logoAlt": "Sam And Dean Burger Shack logo",
+    "image": "assets/images/sam-and-dean/burger-shack-sign.jpg",
+    "imageAlt": "Sam And Dean Burger Shack sign above a dining table",
+    "gallery": [
+      {"src":"assets/images/sam-and-dean/interior-dining.jpg","thumbnail":"assets/images/sam-and-dean/interior-dining.jpg","alt":"Warmly lit dining area at Sam And Dean","caption":"Warmly lit dining area at Sam And Dean."},
+      {"src":"assets/images/sam-and-dean/interior-table.jpg","thumbnail":"assets/images/sam-and-dean/interior-table.jpg","alt":"Dining table surrounded by plants and woven décor","caption":"Dining table surrounded by plants and woven décor."},
+      {"src":"assets/images/sam-and-dean/outdoor-seating-night.jpg","thumbnail":"assets/images/sam-and-dean/outdoor-seating-night.jpg","alt":"Outdoor seating area illuminated at night","caption":"Outdoor seating area illuminated at night."},
+      {"src":"assets/images/sam-and-dean/garden-seating.jpg","thumbnail":"assets/images/sam-and-dean/garden-seating.jpg","alt":"Garden-style seating with wicker chairs and warm lights","caption":"Garden-style seating with wicker chairs and warm lights."},
+      {"src":"assets/images/sam-and-dean/burger.jpg","thumbnail":"assets/images/sam-and-dean/burger.jpg","alt":"Cheeseburger served with potato chips","caption":"Cheeseburger served with potato chips."},
+      {"src":"assets/images/sam-and-dean/nachos.jpg","thumbnail":"assets/images/sam-and-dean/nachos.jpg","alt":"Nachos topped with lettuce, cheese sauce, and dressing","caption":"Nachos topped with lettuce, cheese sauce, and dressing."},
+      {"src":"assets/images/sam-and-dean/tuna-steak.jpg","thumbnail":"assets/images/sam-and-dean/tuna-steak.jpg","alt":"Tuna steak served with rice, corn, and butter","caption":"Tuna steak served with rice, corn, and butter."},
+      {"src":"assets/images/sam-and-dean/group-dining.jpg","thumbnail":"assets/images/sam-and-dean/group-dining.jpg","alt":"Family and friends sharing a meal at the restaurant","caption":"Family and friends sharing a meal at the restaurant."},
+      {"src":"assets/images/sam-and-dean/sisig-rice-and-egg.jpg","thumbnail":"assets/images/sam-and-dean/sisig-rice-and-egg.jpg","alt":"Sizzling chopped meat served with rice and egg","caption":"Sizzling chopped meat served with rice and egg."},
+      {"src":"assets/images/sam-and-dean/burger-shack-sign.jpg","thumbnail":"assets/images/sam-and-dean/burger-shack-sign.jpg","alt":"Sam And Dean Burger Shack sign above a dining table","caption":"Sam And Dean Burger Shack sign above a dining table."},
+      {"src":"assets/images/sam-and-dean/sizzling-beef.jpg","thumbnail":"assets/images/sam-and-dean/sizzling-beef.jpg","alt":"Sizzling beef served with creamy sauce","caption":"Sizzling beef served with creamy sauce."},
+      {"src":"assets/images/sam-and-dean/t-bone-steak.jpg","thumbnail":"assets/images/sam-and-dean/t-bone-steak.jpg","alt":"T-bone steak served with fries","caption":"T-bone steak served with fries."},
+      {"src":"assets/images/sam-and-dean/spring-rolls.jpg","thumbnail":"assets/images/sam-and-dean/spring-rolls.jpg","alt":"Crispy spring rolls served with dipping sauce and calamansi","caption":"Crispy spring rolls served with dipping sauce and calamansi."},
+      {"src":"assets/images/sam-and-dean/meal-spread.jpg","thumbnail":"assets/images/sam-and-dean/meal-spread.jpg","alt":"Table spread with a burger, fries, nachos, and rice meals","caption":"Table spread with a burger, fries, nachos, and rice meals."},
+      {"src":"assets/images/sam-and-dean/crispy-chicken.jpg","thumbnail":"assets/images/sam-and-dean/crispy-chicken.jpg","alt":"Crispy chicken pieces served with dipping sauce","caption":"Crispy chicken pieces served with dipping sauce."}
+    ]
+  },
+  {
+    "title": "The American Backyard Gensan",
+    "slug": "american-backyard-gensan",
+    "category": "Steakhouse",
+    "bio": "Steaks, pizzas, pasta, seafood, burgers, and more",
+    "description": "The American Backyard Gensan is a steakhouse at Champaca corner Camachili Street in Dadiangas East, General Santos City. It serves steaks, pizzas, pasta, seafood, burgers, and other dishes in a contemporary dining setting.",
+    "label": "View restaurant guide",
+    "url": "american-backyard-gensan.html",
+    "location": "Champaca corner Camachili Street, Dadiangas East, General Santos City, Philippines, 9500",
+    "hoursNote": "Operating hours are currently being confirmed. Contact the restaurant directly before visiting.",
+    "facebookUrl": "https://www.facebook.com/ambackgensan",
+    "logo": "assets/images/american-backyard-gensan/logo.jpg",
+    "logoAlt": "The American Backyard Gensan logo",
+    "image": "assets/images/american-backyard-gensan/sliced-steak-and-fries.jpg",
+    "imageAlt": "Sliced steak served with fries and sauces",
+    "gallery": [
+      {"src":"assets/images/american-backyard-gensan/exterior.jpg","thumbnail":"assets/images/american-backyard-gensan/exterior.jpg","alt":"The American Backyard Gensan exterior","caption":"The American Backyard Gensan exterior."},
+      {"src":"assets/images/american-backyard-gensan/dining-room.jpg","thumbnail":"assets/images/american-backyard-gensan/dining-room.jpg","alt":"Guests dining inside The American Backyard Gensan","caption":"Guests dining inside The American Backyard Gensan."},
+      {"src":"assets/images/american-backyard-gensan/steak-platter.jpg","thumbnail":"assets/images/american-backyard-gensan/steak-platter.jpg","alt":"Steak platter with rice, vegetables, fries, and sauces","caption":"Steak platter with rice, vegetables, fries, and sauces."},
+      {"src":"assets/images/american-backyard-gensan/grilled-steak.jpg","thumbnail":"assets/images/american-backyard-gensan/grilled-steak.jpg","alt":"Grilled steak served with vegetables","caption":"Grilled steak served with vegetables."},
+      {"src":"assets/images/american-backyard-gensan/prawn-risotto.jpg","thumbnail":"assets/images/american-backyard-gensan/prawn-risotto.jpg","alt":"Prawn risotto garnished with tomatoes and greens","caption":"Prawn risotto garnished with tomatoes and greens."},
+      {"src":"assets/images/american-backyard-gensan/burger-and-fries.jpg","thumbnail":"assets/images/american-backyard-gensan/burger-and-fries.jpg","alt":"Cheeseburger served with seasoned fries","caption":"Cheeseburger served with seasoned fries."},
+      {"src":"assets/images/american-backyard-gensan/meatball-spaghetti.jpg","thumbnail":"assets/images/american-backyard-gensan/meatball-spaghetti.jpg","alt":"Spaghetti topped with meatballs and basil","caption":"Spaghetti topped with meatballs and basil."},
+      {"src":"assets/images/american-backyard-gensan/steak-and-mashed-potatoes.jpg","thumbnail":"assets/images/american-backyard-gensan/steak-and-mashed-potatoes.jpg","alt":"Steak served over mashed potatoes with vegetables","caption":"Steak served over mashed potatoes with vegetables."},
+      {"src":"assets/images/american-backyard-gensan/shrimp-pasta.jpg","thumbnail":"assets/images/american-backyard-gensan/shrimp-pasta.jpg","alt":"Shrimp pasta served with toasted bread","caption":"Shrimp pasta served with toasted bread."},
+      {"src":"assets/images/american-backyard-gensan/dining-counter.jpg","thumbnail":"assets/images/american-backyard-gensan/dining-counter.jpg","alt":"Dining room and service counter","caption":"Dining room and service counter."},
+      {"src":"assets/images/american-backyard-gensan/meat-and-mashed-potatoes.jpg","thumbnail":"assets/images/american-backyard-gensan/meat-and-mashed-potatoes.jpg","alt":"Braised meat served with mashed potatoes","caption":"Braised meat served with mashed potatoes."},
+      {"src":"assets/images/american-backyard-gensan/baked-lobster.jpg","thumbnail":"assets/images/american-backyard-gensan/baked-lobster.jpg","alt":"Baked lobster topped with melted cheese","caption":"Baked lobster topped with melted cheese."},
+      {"src":"assets/images/american-backyard-gensan/wine-room.jpg","thumbnail":"assets/images/american-backyard-gensan/wine-room.jpg","alt":"Dining room with illuminated wine displays","caption":"Dining room with illuminated wine displays."},
+      {"src":"assets/images/american-backyard-gensan/spaghetti-and-meatballs.jpg","thumbnail":"assets/images/american-backyard-gensan/spaghetti-and-meatballs.jpg","alt":"Spaghetti and meatballs with creamy sauce","caption":"Spaghetti and meatballs with creamy sauce."},
+      {"src":"assets/images/american-backyard-gensan/sliced-steak-and-fries.jpg","thumbnail":"assets/images/american-backyard-gensan/sliced-steak-and-fries.jpg","alt":"Sliced steak served with fries and sauces","caption":"Sliced steak served with fries and sauces."}
     ]
   }
 ]

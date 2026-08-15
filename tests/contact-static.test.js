@@ -34,7 +34,7 @@ test("all ordinary footer Contact Us links use contact.html", async () => {
     assert.match(html, /<a href="contact\.html"(?: aria-current="page")?>Contact Us<\/a>/u, file);
   }
 
-  assert.equal(footerCount, 13);
+  assert.equal(footerCount, 17);
 });
 
 test("VisitGenSan owner recipient addresses are absent while external business addresses remain", async () => {

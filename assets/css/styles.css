@@ -2167,6 +2167,16 @@ h3 {
   margin: 0 0 8px;
 }
 
+.listing-card-logo {
+  display: block;
+  width: auto;
+  max-width: min(180px, 100%);
+  height: 52px;
+  margin: 0 auto 10px;
+  object-fit: contain;
+  object-position: center;
+}
+
 .listing-card h3 {
   font-size: 1.12rem;
 }
@@ -5798,6 +5808,10 @@ body.author-panel-open {
   object-fit: contain;
 }
 
+.restaurant-title-logo-wide {
+  width: 180px;
+}
+
 .restaurant-title-block .restaurant-official-bio {
   margin: 0;
   color: var(--ink);
@@ -6018,6 +6032,10 @@ body.author-panel-open {
     width: 50px;
     height: 50px;
     border-radius: 9px;
+  }
+
+  .restaurant-title-logo-wide {
+    width: 120px;
   }
 
   .restaurant-meta-row {

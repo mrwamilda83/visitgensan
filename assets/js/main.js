@@ -1028,6 +1028,9 @@ function renderCard(item, index = 0, type = "hotels", defaultStatus = "active") 
   const imageMarkup = item.image
     ? `<img src="${escapeAttribute(item.image)}" alt="${escapeAttribute(item.imageAlt || item.title)}" loading="lazy" decoding="async">`
     : escapeHtml(item.category || "Listing");
+  const logoMarkup = item.logo
+    ? `<img class="listing-card-logo" src="${escapeAttribute(item.logo)}" alt="${escapeAttribute(item.logoAlt || `${item.title} logo`)}" loading="lazy" decoding="async">`
+    : "";
   const canOpenGuide = type === "hotels" && Array.isArray(item.gallery) && item.gallery.length;
   const linkHref = canOpenGuide ? "#hotel-guide" : (item.url || "#");
   const hasDestination = canOpenGuide || Boolean(item.url && item.url !== "#");
@@ -1052,6 +1055,7 @@ function renderCard(item, index = 0, type = "hotels", defaultStatus = "active") 
     <${rootTag} ${rootAttributes}>
       <div class="listing-body">
         <span class="meta">${escapeHtml(item.category || "Listing")}</span>
+        ${logoMarkup}
         <h3>${escapeHtml(item.title)}</h3>
         <p>${escapeHtml(item.description)}</p>
         <span class="card-link">${escapeHtml(actionLabel)}</span>
