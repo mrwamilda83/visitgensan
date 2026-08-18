@@ -1,4 +1,4 @@
-﻿const fallbackData = {
+const fallbackData = {
   hotels: [
     {
       title: "City Center Business Stay",
@@ -236,7 +236,7 @@ function getImageLightbox() {
 }
 
 function getGalleryLightboxItems(trigger) {
-  const gallery = trigger.closest(".fishport-photo-grid, .plaza-gallery-grid, .sarangani-gallery-grid, .restaurant-gallery-mosaic");
+  const gallery = trigger.closest(".fishport-photo-grid, .plaza-gallery-grid, .sarangani-gallery-grid, .restaurant-gallery-mosaic, .restaurant-menu-grid");
   const links = gallery
     ? Array.from(gallery.querySelectorAll('a[href]')).filter((link) => link.querySelector("img"))
     : [trigger];
@@ -535,7 +535,7 @@ document.addEventListener("click", async (event) => {
     return;
   }
 
-  const lightboxImageLink = event.target.closest(".fishport-photo-grid a[href], .plaza-gallery-grid a[href], .sarangani-gallery-grid a[href], .restaurant-gallery-mosaic a[href], .sarangani-feature-photo[href], .sarangani-card-photo[href]");
+  const lightboxImageLink = event.target.closest(".fishport-photo-grid a[href], .plaza-gallery-grid a[href], .sarangani-gallery-grid a[href], .restaurant-gallery-mosaic a[href], .restaurant-menu-grid a[href], .sarangani-feature-photo[href], .sarangani-card-photo[href]");
   if (lightboxImageLink) {
     event.preventDefault();
     openImageLightbox(lightboxImageLink);

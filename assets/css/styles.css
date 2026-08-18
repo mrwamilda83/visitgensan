@@ -5929,6 +5929,80 @@ body.author-panel-open {
 .restaurant-detail-layout .restaurant-description-panel p + p {
   margin-top: 3px;
 }
+.restaurant-detail-layout .restaurant-menu-panel {
+  margin-top: 18px;
+  border: 1px solid #d5e1e3;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: none;
+  padding: 18px;
+}
+
+.restaurant-detail-layout .restaurant-menu-panel h2 {
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: var(--teal-dark);
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  padding: 8px 22px;
+  text-align: center;
+}
+
+.restaurant-detail-layout .restaurant-menu-panel > p {
+  margin: 9px 0 16px;
+  color: #64777c;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.restaurant-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.restaurant-menu-grid a {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #dce8e6;
+  color: inherit;
+  text-decoration: none;
+}
+
+.restaurant-menu-grid a:hover img,
+.restaurant-menu-grid a:focus-visible img {
+  transform: scale(1.02);
+}
+
+.restaurant-menu-grid a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.restaurant-menu-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.24s ease;
+}
+
+.restaurant-menu-caption {
+  display: block;
+  padding: 9px 10px 10px;
+  background: #ffffff;
+  color: #18363e;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 
 .restaurant-detail-layout .restaurant-information-panel {
   top: 92px;
@@ -6009,6 +6083,10 @@ body.author-panel-open {
     margin-top: 0;
   }
 
+  .restaurant-menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .restaurant-guide-reactions {
     width: min(1160px, calc(100% - 36px));
   }
@@ -6064,6 +6142,10 @@ body.author-panel-open {
 
   .restaurant-gallery-wide {
     grid-column: auto;
+  }
+
+  .restaurant-menu-grid {
+    grid-template-columns: 1fr;
   }
 
   .restaurant-detail-layout .restaurant-information-panel dd {
