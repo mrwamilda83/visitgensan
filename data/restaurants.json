@@ -102,13 +102,13 @@
     "slug": "cotton-bowl-grill-steak-house",
     "category": "Steakhouse",
     "bio": "Classic steak",
-    "description": "Cotton Bowl Grill & Steak House is a steakhouse in San Miguel, General Santos City. The restaurant serves grilled steaks and other hearty dishes in a casual dining room suited to families, groups, and celebrations.",
+    "description": "Cotton Bowl Grill & Steak House is a steakhouse on San Miguel Street in General Santos City, fronting SM Mall and near Metrobank Santiago Branch. It serves grilled steaks, burgers, and other hearty dishes in a casual dining room suited to families, groups, and celebrations.",
     "label": "View restaurant guide",
     "url": "cotton-bowl-grill-steak-house.html",
-    "location": "San Miguel, General Santos City, Philippines",
+    "location": "San Miguel Street, fronting SM Mall, near Metrobank Santiago Branch, General Santos City, Philippines",
     "phone": "0921 604 3988",
     "email": "cottonbowlgrill@yahoo.com",
-    "hoursNote": "Operating hours are currently being confirmed. Contact the restaurant directly before visiting.",
+    "hoursNote": "Open daily from 10:30 AM to 9:00 PM. Closed on Christmas Day, Holy Thursday, Holy Friday, and New Year's Day.",
     "facebookUrl": "https://www.facebook.com/cottonbowlgrillsteakhouse",
     "logo": "assets/images/cotton-bowl-grill-steak-house/logo.png",
     "logoAlt": "Cotton Bowl Grill & Steak House logo",
@@ -188,16 +188,16 @@
         "caption": "Chicken covered in sauce and served with vegetables."
       },
       {
-        "src": "assets/images/cotton-bowl-grill-steak-house/burger.jpg",
-        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/burger.jpg",
-        "alt": "Burger with a thick beef patty, cheese, and onion rings",
-        "caption": "Burger with a thick beef patty, cheese, and onion rings."
+        "src": "assets/images/cotton-bowl-grill-steak-house/cotton-bowl-burger.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/cotton-bowl-burger.jpg",
+        "alt": "Cotton Bowl burger served with crinkle-cut fries",
+        "caption": "Cotton Bowl burger with fresh vegetables, served with crinkle-cut fries."
       },
       {
-        "src": "assets/images/cotton-bowl-grill-steak-house/spaghetti.jpg",
-        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/spaghetti.jpg",
-        "alt": "Spaghetti with tomato sauce and grated cheese",
-        "caption": "Spaghetti with tomato sauce and grated cheese."
+        "src": "assets/images/cotton-bowl-grill-steak-house/marbled-rib-eye-steak.jpg",
+        "thumbnail": "assets/images/cotton-bowl-grill-steak-house/marbled-rib-eye-steak.jpg",
+        "alt": "Marbled Rib Eye Steak served with vegetables and dipping sauces",
+        "caption": "Marbled Rib Eye Steak served with green beans, fresh vegetables, and dipping sauces."
       }
     ]
   },
