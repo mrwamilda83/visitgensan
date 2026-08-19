@@ -1492,6 +1492,9 @@ function applyFoodCategoryFilter(selectedFilter) {
   if (!grid) return;
 
   const normalizedFilter = normalizeFoodCategory(selectedFilter);
+
+  grid.classList.toggle("food-filter-results", Boolean(normalizedFilter));
+
   let matchCount = 0;
 
   grid.querySelectorAll(".listing-card").forEach((card) => {
