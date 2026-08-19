@@ -1124,7 +1124,7 @@ h3 {
 }
 
 .card-grid-fluid {
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
 }
 
 .listing-card {
@@ -4928,7 +4928,7 @@ h3 {
   color: var(--yellow);
   font-size: 0.82rem;
   font-weight: 900;
-  content: "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢";
+  content: "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢";
 }
 
 .sarangani-fact-row article:nth-child(1)::before { content: "H"; }
@@ -5757,7 +5757,7 @@ body.author-panel-open {
   }
 }
 
-/* Restaurant detail layout based on the approved White House Cafè reference. */
+/* Restaurant detail layout based on the approved White House CafÃ¨ reference. */
 .restaurant-guide-page {
   background: #ffffff;
 }
@@ -6314,5 +6314,382 @@ body.author-panel-open {
 
   .contact-submit {
     width: 100%;
+  }
+}
+
+/* Getting Around GenSan */
+.getting-around-hero {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 58, 65, 0.82) 0%,
+      rgba(8, 58, 65, 0.60) 28%,
+      rgba(8, 58, 65, 0.24) 62%,
+      rgba(8, 58, 65, 0.08) 100%
+    ),
+    url("../images/getting-around-gensan-banner.png") center / cover no-repeat;
+}
+
+
+
+
+.getting-around-guide {
+  overflow: hidden;
+  background: #fbfdfc;
+}
+
+
+
+
+
+
+
+.getting-around-section,
+.getting-around-landmarks {
+  padding-top: clamp(48px, 6vw, 76px);
+  padding-bottom: clamp(48px, 6vw, 76px);
+}
+
+.getting-around-transport-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.getting-around-transport-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 12px 34px rgba(22, 52, 60, 0.07);
+  padding: 24px 20px 22px;
+}
+
+.getting-around-card-mark {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.getting-around-transport-card:nth-child(2) .getting-around-card-mark,
+.getting-around-transport-card:nth-child(5) .getting-around-card-mark {
+  background: var(--coral);
+}
+
+.getting-around-transport-card:nth-child(3) .getting-around-card-mark {
+  background: var(--yellow);
+  color: var(--teal-dark);
+}
+
+.getting-around-transport-card h3 {
+  margin-bottom: 10px;
+  color: var(--teal-dark);
+  font-size: 1.12rem;
+}
+
+.getting-around-transport-card p {
+  margin-bottom: 0;
+  color: #49676d;
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+.getting-around-landmarks {
+  background: #eef8f6;
+}
+
+.getting-around-landmark-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.getting-around-landmark-grid article {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  min-height: 82px;
+  border: 1px solid #cde5e2;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 16px;
+}
+
+.getting-around-landmark-icon {
+  width: 38px;
+  height: 38px;
+  background-color: var(--teal);
+}
+
+.getting-around-landmark-grid strong {
+  color: var(--teal-dark);
+  font-size: 0.93rem;
+  line-height: 1.35;
+}
+
+.getting-around-help-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  padding-top: clamp(48px, 6vw, 72px);
+  padding-bottom: 10px;
+}
+
+.getting-around-help-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 12px 34px rgba(22, 52, 60, 0.07);
+  padding: clamp(24px, 3vw, 32px);
+}
+
+.getting-around-help-card:first-child {
+  border-top: 5px solid var(--teal);
+}
+
+.getting-around-help-card:last-child {
+  border-top: 5px solid var(--coral);
+}
+
+.getting-around-help-icon {
+  width: 52px;
+  height: 52px;
+  background-color: var(--teal);
+}
+
+.getting-around-help-card:last-child .getting-around-help-icon {
+  background-color: var(--coral);
+}
+
+.getting-around-help-card h2 {
+  margin-bottom: 8px;
+  color: var(--teal-dark);
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+}
+
+.getting-around-help-card p:last-child {
+  margin-bottom: 0;
+  color: #49676d;
+  line-height: 1.65;
+}
+
+.getting-around-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.getting-around-tips-grid article {
+  position: relative;
+  border-top: 4px solid var(--yellow);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgba(22, 52, 60, 0.07);
+  padding: 22px 18px;
+}
+
+.getting-around-tips-grid strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--teal-dark);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+}
+
+.getting-around-tips-grid p {
+  margin-bottom: 0;
+  color: #49676d;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.getting-around-closing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: clamp(36px, 6vw, 66px);
+  border-radius: 8px;
+  background:
+    linear-gradient(100deg, var(--teal-dark), var(--teal));
+  color: #ffffff;
+  padding: clamp(28px, 4vw, 42px);
+}
+
+.getting-around-closing .eyebrow {
+  color: var(--yellow);
+}
+
+.getting-around-closing h2 {
+  max-width: 760px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+}
+
+.getting-around-closing p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.getting-around-signoff {
+  display: block;
+  color: var(--yellow);
+  font-size: clamp(1.7rem, 3vw, 2.8rem);
+  font-style: italic;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+  .getting-around-transport-grid,
+  .getting-around-tips-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .getting-around-landmark-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+
+
+
+
+  .getting-around-help-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .getting-around-closing {
+    grid-template-columns: 1fr;
+  }
+
+  .getting-around-signoff {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .getting-around-transport-grid,
+  .getting-around-tips-grid,
+  .getting-around-landmark-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .getting-around-transport-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 16px;
+  }
+
+  .getting-around-transport-card .getting-around-card-mark {
+    grid-row: 1 / span 2;
+    margin-bottom: 0;
+  }
+
+  .getting-around-transport-card h3 {
+    margin-top: 2px;
+  }
+
+  .getting-around-help-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .getting-around-closing {
+    margin-right: 18px;
+    margin-left: 18px;
+  }
+}
+/* Food category filter states */
+[data-food-filter] {
+  cursor: pointer;
+}
+
+[data-food-filter][aria-pressed="true"] {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #ffffff;
+}
+
+[data-food-filter]:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* Featured Travel Guide */
+.travel-guide-feature-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  align-items: center;
+  gap: 18px;
+  width: min(980px, 100%);
+  padding: 18px;
+  border: 1px solid rgba(4, 123, 131, 0.18);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(4, 123, 131, 0.08), rgba(4, 123, 131, 0.14));
+  box-shadow: 0 10px 24px rgba(22, 52, 60, 0.08);
+}
+
+.travel-guide-feature-row .listing-image {
+  min-height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.travel-guide-feature-row .listing-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+}
+
+.travel-guide-feature-row .listing-body {
+  justify-content: center;
+}
+
+@media (max-width: 820px) {
+  .travel-guide-feature-row {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .travel-guide-feature-row .listing-image img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 }

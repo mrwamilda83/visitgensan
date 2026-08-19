@@ -11,11 +11,12 @@
   {
     "collection": "homepage",
     "title": "Getting Around GenSan",
-    "category": "Guide draft",
-    "description": "Cover common transport options, local tips, parking notes, and route planning basics.",
-    "status": "guide-coming-soon",
-    "label": "Write guide",
-    "url": "#"
+    "category": "Travel Guide",
+    "description": "Learn the common ways to travel around the city, useful landmarks, navigation tips, and practical reminders for first-time visitors.",
+    "status": "active",
+    "label": "Read Getting Around Guide",
+    "image": "assets/images/getting-around-gensan-banner.png",
+    "url": "getting-around-gensan.html"
   },
   {
     "collection": "homepage",

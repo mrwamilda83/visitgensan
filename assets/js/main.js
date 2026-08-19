@@ -1477,3 +1477,91 @@ function routeContactIcon(label = "") {
     }
   });
 })();
+
+/* Food category filters */
+function normalizeFoodCategory(value) {
+  return String(value || "")
+    .replace(/\u00c2\u00b7/g, "·")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function applyFoodCategoryFilter(selectedFilter) {
+  const grid = document.querySelector('[data-list-sources="restaurants,guides:food"]');
+  if (!grid) return;
+
+  const normalizedFilter = normalizeFoodCategory(selectedFilter);
+  let matchCount = 0;
+
+  grid.querySelectorAll(".listing-card").forEach((card) => {
+    const category = normalizeFoodCategory(
+      card.querySelector(".meta")?.textContent
+    );
+
+    const matches = !normalizedFilter || category === normalizedFilter;
+
+    if (matches && normalizedFilter) {
+      matchCount += 1;
+    }
+
+    card.style.display = matches ? "" : "none";
+  });
+
+  const title = document.querySelector("#published-restaurants-title");
+  const intro = title?.nextElementSibling;
+
+  if (!normalizedFilter) {
+    if (title) title.textContent = "Explore GenSan’s food scene";
+    if (intro) {
+      intro.textContent = "Discover restaurants, cafés, local favorites, tuna and seafood experiences, and practical food guides around General Santos City.";
+    }
+    return;
+  }
+
+  const label = String(selectedFilter || "Restaurant").trim();
+
+  if (title) {
+    title.textContent =
+      normalizedFilter === "restaurant"
+        ? "Restaurant guide"
+        : normalizedFilter.endsWith("restaurant")
+          ? `${label} guide`
+          : `${label} restaurant guide`;
+  }
+
+  if (intro) {
+    const countText = matchCount === 1 ? "1 restaurant" : `${matchCount} restaurants`;
+
+    intro.textContent = matchCount
+      ? `Showing ${countText} in the ${label.toLowerCase()} category. Click any restaurant card for visitor-ready details.`
+      : `No restaurants are listed under ${label.toLowerCase()} yet.`;
+  }
+}
+
+document.querySelectorAll("[data-food-filter]").forEach((filter) => {
+  const activateFilter = () => {
+    const isActive = filter.getAttribute("aria-pressed") === "true";
+
+    document.querySelectorAll("[data-food-filter]").forEach((item) => {
+      item.setAttribute("aria-pressed", "false");
+    });
+
+    if (isActive) {
+      applyFoodCategoryFilter("");
+      return;
+    }
+
+    filter.setAttribute("aria-pressed", "true");
+    applyFoodCategoryFilter(filter.textContent.trim());
+  };
+
+  filter.addEventListener("click", activateFilter);
+
+  filter.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    event.preventDefault();
+    activateFilter();
+  });
+});
