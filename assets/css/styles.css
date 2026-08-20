@@ -4091,6 +4091,12 @@ h3 {
     url("../images/plaza-heneral-santos-park.png") center / cover no-repeat;
 }
 
+.jhills-guide .jhills-hero {
+  background:
+    linear-gradient(90deg, rgba(3, 22, 26, 0.82), rgba(3, 22, 26, 0.38) 54%, rgba(3, 22, 26, 0.12)),
+    url("../images/j-hills-golf-range-and-restaurant/range-hill-sign.jpg") center 58% / cover no-repeat;
+}
+
 .plaza-guide .fishport-photo-grid img,
 .plaza-guide .fishport-side-photo,
 .plaza-gallery-grid img {
@@ -4124,6 +4130,10 @@ h3 {
   border-radius: 8px;
   background: #d8e4e3;
   box-shadow: 0 12px 28px rgba(22, 52, 60, 0.08);
+}
+
+.plaza-gallery-grid > a.restaurant-gallery-more {
+  position: relative;
 }
 
 .plaza-gallery-grid a:nth-child(1) {

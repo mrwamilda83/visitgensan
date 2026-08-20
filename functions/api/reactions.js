@@ -3,6 +3,7 @@ const VALID_PAGES = new Set([
   "fish-port-complex.html",
   "plaza-heneral-santos.html",
   "sarangani-highlands-garden.html",
+  "j-hills-golf-range-and-restaurant.html",
   "the-white-house-cafe-gensan.html",
   "getting-around-gensan.html",
   "american-backyard-gensan.html",
