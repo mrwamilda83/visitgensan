@@ -6633,18 +6633,18 @@ body.author-panel-open {
     margin-left: 18px;
   }
 }
-/* Food category filter states */
-[data-food-filter] {
+/* Shared listing category filter states */
+[data-listing-filter] {
   cursor: pointer;
 }
 
-[data-food-filter][aria-pressed="true"] {
+[data-listing-filter][aria-pressed="true"] {
   border-color: var(--teal);
   background: var(--teal);
   color: #ffffff;
 }
 
-[data-food-filter]:focus-visible {
+[data-listing-filter]:focus-visible {
   outline: 3px solid var(--yellow);
   outline-offset: 3px;
 }
@@ -6694,12 +6694,13 @@ body.author-panel-open {
   }
 }
 
-/* Filtered restaurant results */
-[data-list-sources="restaurants,guides:food"].food-filter-results {
+/* Filtered listing results */
+[data-filterable-list].listing-filter-results {
+  display: grid;
   grid-template-columns: 1fr;
 }
 
-[data-list-sources="restaurants,guides:food"].food-filter-results .listing-card {
+[data-filterable-list].listing-filter-results .listing-card {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
   align-items: stretch;
@@ -6711,32 +6712,32 @@ body.author-panel-open {
   box-shadow: 0 10px 24px rgba(22, 52, 60, 0.08);
 }
 
-[data-list-sources="restaurants,guides:food"].food-filter-results .listing-image {
+[data-filterable-list].listing-filter-results .listing-image {
   width: 100%;
   min-width: 0;
   overflow: hidden;
 }
 
-[data-list-sources="restaurants,guides:food"].food-filter-results .listing-image img {
+[data-filterable-list].listing-filter-results .listing-image img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-[data-list-sources="restaurants,guides:food"].food-filter-results .listing-body {
+[data-filterable-list].listing-filter-results .listing-body {
   min-width: 0;
   padding: 22px 24px;
 }
 
 @media (min-width: 821px) {
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-image {
+  [data-filterable-list].listing-filter-results .listing-image {
     align-self: stretch;
     height: auto;
     min-height: 100%;
   }
 
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-body {
+  [data-filterable-list].listing-filter-results .listing-body {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     grid-template-areas:
@@ -6750,12 +6751,12 @@ body.author-panel-open {
     align-items: center;
   }
 
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-body > .meta {
+  [data-filterable-list].listing-filter-results .listing-body > .meta {
     grid-area: meta;
     margin: 0;
   }
 
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-card-logo {
+  [data-filterable-list].listing-filter-results .listing-card-logo {
     grid-area: logo;
     justify-self: start;
     align-self: center;
@@ -6767,30 +6768,43 @@ body.author-panel-open {
     object-position: left center;
   }
 
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-body > h3 {
+  [data-filterable-list].listing-filter-results .listing-body > h3 {
     grid-area: title;
     margin: 0;
     align-self: center;
   }
 
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-body > p {
+  [data-filterable-list].listing-filter-results .listing-body > p {
     grid-area: desc;
     margin: 0;
   }
 
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-body > .card-link {
+  [data-filterable-list].listing-filter-results .listing-body > .card-link {
     grid-area: cta;
     justify-self: start;
   }
 }
 
 @media (max-width: 820px) {
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-card {
+  [data-filterable-list].listing-filter-results .listing-card {
     grid-template-columns: 1fr;
   }
 
-  [data-list-sources="restaurants,guides:food"].food-filter-results .listing-image img {
+  [data-filterable-list].listing-filter-results .listing-image img {
     height: auto;
     aspect-ratio: 16 / 9;
   }
+}
+
+[data-hotel-landing][hidden],
+[data-hotel-guide-view][hidden] {
+  display: none;
+}
+
+#hotel-options-list:not(.listing-filter-results) .listing-body > p {
+  display: none;
+}
+
+#hotel-options-list:not(.listing-filter-results) .listing-body > h3 {
+  text-align: center;
 }

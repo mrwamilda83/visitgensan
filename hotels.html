@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="assets/images/logo-mark.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#047b83">
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260707-email-button-fit">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260820-shared-list-filters">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -94,7 +94,7 @@
     </section>
 
     <main>
-      <section class="page-hero hotel-hero main-page-hero">
+      <section class="page-hero hotel-hero main-page-hero" data-hotel-landing>
         <div>
           <p class="eyebrow">Hotels &amp; Resorts</p>
           <h1>Where to stay in GenSan.</h1>
@@ -102,33 +102,42 @@
         </div>
       </section>
 
-      <section class="section-wrap" aria-labelledby="filters-title">
+      <section class="section-wrap" aria-labelledby="filters-title" data-hotel-landing>
         <div class="section-heading compact">
           <p class="eyebrow">Browse by need</p>
           <h2 id="filters-title">Starter hotel &amp; resort categories</h2>
         </div>
-        <div class="tag-row" data-category-controls="hotels" aria-label="Hotel and resort categories">
-          <button class="category-filter is-active" type="button" data-category-filter="Business" data-category-type="hotels">Business</button>
-          <button class="category-filter" type="button" data-category-filter="Family" data-category-type="hotels">Family</button>
-          <button class="category-filter" type="button" data-category-filter="Budget" data-category-type="hotels">Budget</button>
-          <button class="category-filter" type="button" data-category-filter="Resort" data-category-type="hotels">Resort</button>
+        <div class="tag-row" data-list-filter-controls data-filter-target="hotel-options-list" data-filter-title="hotels-title" data-filter-item-name="hotel" data-filter-note="hotels" aria-label="Filter hotels and resorts by category">
+          <button class="category-filter" type="button" aria-pressed="false" data-listing-filter="Business">Business</button>
+          <button class="category-filter" type="button" aria-pressed="false" data-listing-filter="Family">Family</button>
+          <button class="category-filter" type="button" aria-pressed="false" data-listing-filter="Budget">Budget</button>
+          <button class="category-filter" type="button" aria-pressed="false" data-listing-filter="Resort">Resort</button>
         </div>
         <p class="category-help-note" data-category-note="hotels">Business hotels are ideal for work trips, offering convenient locations, reliable Wi-Fi, comfortable rooms, and easy access to meetings, offices, transport, and city essentials.</p>
       </section>
 
-      <section class="section-wrap hotel-showcase" id="hotel-guide" aria-labelledby="featured-hotel-title">
+      <section class="section-wrap" aria-labelledby="hotels-title" data-hotel-landing>
+        <div class="section-heading">
+          <p class="eyebrow">Places to consider</p>
+          <h2 id="hotels-title">Hotel &amp; resort options</h2>
+          <p>Browse additional GenSan hotel and resort picks by category, then open each guide for photos, location notes, official links, and visitor-ready details.</p>
+        </div>
+        <div class="card-grid card-grid-fluid" id="hotel-options-list" data-filterable-list data-list="hotels"></div>
+      </section>
+
+      <section class="section-wrap hotel-showcase" id="hotel-guide" aria-labelledby="featured-hotel-title" data-hotel-guide-view hidden>
         <div class="section-heading">
           <p class="eyebrow">Hotels &amp; Resorts guide</p>
           <h2 id="featured-hotel-title">Business hotel guide</h2>
           <p>Showing business hotels in the business category. Click any gallery or details button for visitor-ready notes.</p>
         </div>
-        <div data-featured-list="hotels" data-category-results="hotels"></div>
+        <div data-featured-list="hotels"></div>
       </section>
 
-      <section class="section-wrap" aria-labelledby="hotels-title">
+      <section class="section-wrap" aria-labelledby="more-hotels-title" data-hotel-guide-view hidden>
         <div class="section-heading">
           <p class="eyebrow">Places to consider</p>
-          <h2 id="hotels-title">More hotel &amp; resort options</h2>
+          <h2 id="more-hotels-title">More hotel &amp; resort options</h2>
           <p>Browse additional GenSan hotel and resort picks by category, then open each guide for photos, location notes, official links, and visitor-ready details.</p>
         </div>
         <div class="hotel-options-carousel" data-carousel>
@@ -157,6 +166,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js?v=20260807-search-deeplink-2"></script>
+    <script src="assets/js/main.js?v=20260820-shared-list-filters"></script>
   </body>
 </html>

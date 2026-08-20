@@ -868,7 +868,23 @@ async function loadListEntries(container) {
   return sourceEntries.flat();
 }
 
+function initializeHotelPageView() {
+  const landingSections = document.querySelectorAll("[data-hotel-landing]");
+  const guideSections = document.querySelectorAll("[data-hotel-guide-view]");
+
+  if (!landingSections.length && !guideSections.length) return;
+
+  const isGuideView = Boolean(getRequestedListingTitle());
+  landingSections.forEach((section) => section.toggleAttribute("hidden", isGuideView));
+  guideSections.forEach((section) => section.toggleAttribute("hidden", !isGuideView));
+  document.body.classList.toggle("hotel-guide-view", isGuideView);
+}
+
+initializeHotelPageView();
+
 document.querySelectorAll("[data-list], [data-list-sources]").forEach(async (container) => {
+  if (container.closest("[hidden]")) return;
+
   const limit = Number(container.dataset.limit || 0);
   const skip = Number(container.dataset.skip || 0);
   const insertFeaturedAfter = Number(container.dataset.insertFeaturedAfter ?? -1);
@@ -888,6 +904,8 @@ document.querySelectorAll("[data-list], [data-list-sources]").forEach(async (con
 });
 
 document.querySelectorAll("[data-featured-list]").forEach(async (container) => {
+  if (container.closest("[hidden]")) return;
+
   const type = container.dataset.featuredList;
   const activeCategory = document.querySelector(`[data-category-controls="${type}"] [data-category-filter].is-active`)?.dataset.categoryFilter;
   const requestedListing = getRequestedListingTitle();
@@ -1031,12 +1049,13 @@ function renderCard(item, index = 0, type = "hotels", defaultStatus = "active") 
   const logoMarkup = item.logo
     ? `<img class="listing-card-logo" src="${escapeAttribute(item.logo)}" alt="${escapeAttribute(item.logoAlt || `${item.title} logo`)}" loading="lazy" decoding="async">`
     : "";
-  const canOpenGuide = type === "hotels" && Array.isArray(item.gallery) && item.gallery.length;
-  const linkHref = canOpenGuide ? "#hotel-guide" : (item.url || "#");
+  const canOpenGuide = type === "hotels";
+  const hotelGuideUrl = item.guideUrl || `hotels.html?listing=${encodeURIComponent(item.title)}#hotel-guide`;
+  const linkHref = canOpenGuide ? hotelGuideUrl : (item.url || "#");
   const hasDestination = canOpenGuide || Boolean(item.url && item.url !== "#");
   const cardStatus = resolveCardStatus(item.status || defaultStatus, hasDestination);
   const actionLabel = cardStatus.actionLabel || item.label || "View details";
-  const guideAttributes = canOpenGuide ? ` data-guide-type="${escapeAttribute(type)}" data-guide-index="${index}"` : "";
+  const guideAttributes = "";
   const developmentAttributes = isDevelopmentLocked
     ? ` aria-disabled="true" data-disabled-label="Temporarily unavailable"`
     : "";
@@ -1478,8 +1497,8 @@ function routeContactIcon(label = "") {
   });
 })();
 
-/* Food category filters */
-function normalizeFoodCategory(value) {
+/* Shared listing category filters */
+function normalizeListingCategory(value) {
   return String(value || "")
     .replace(/\u00c2\u00b7/g, "·")
     .replace(/\s+/g, " ")
@@ -1487,18 +1506,17 @@ function normalizeFoodCategory(value) {
     .toLowerCase();
 }
 
-function applyFoodCategoryFilter(selectedFilter) {
-  const grid = document.querySelector('[data-list-sources="restaurants,guides:food"]');
+function applyListingCategoryFilter(controls, selectedFilter) {
+  const grid = document.getElementById(controls.dataset.filterTarget || "");
   if (!grid) return;
 
-  const normalizedFilter = normalizeFoodCategory(selectedFilter);
-
-  grid.classList.toggle("food-filter-results", Boolean(normalizedFilter));
+  const normalizedFilter = normalizeListingCategory(selectedFilter);
+  grid.classList.toggle("listing-filter-results", Boolean(normalizedFilter));
 
   let matchCount = 0;
 
   grid.querySelectorAll(".listing-card").forEach((card) => {
-    const category = normalizeFoodCategory(
+    const category = normalizeListingCategory(
       card.querySelector(".meta")?.textContent
     );
 
@@ -1511,60 +1529,74 @@ function applyFoodCategoryFilter(selectedFilter) {
     card.style.display = matches ? "" : "none";
   });
 
-  const title = document.querySelector("#published-restaurants-title");
+  const title = document.getElementById(controls.dataset.filterTitle || "");
   const intro = title?.nextElementSibling;
 
   if (!normalizedFilter) {
-    if (title) title.textContent = "Explore GenSan’s food scene";
-    if (intro) {
-      intro.textContent = "Discover restaurants, cafés, local favorites, tuna and seafood experiences, and practical food guides around General Santos City.";
-    }
+    if (title) title.textContent = controls.dataset.defaultTitle || "";
+    if (intro) intro.textContent = controls.dataset.defaultIntro || "";
+    const note = document.querySelector(`[data-category-note="${controls.dataset.filterNote || ""}"]`);
+    if (note) note.textContent = controls.dataset.defaultNote || "";
     return;
   }
 
-  const label = String(selectedFilter || "Restaurant").trim();
+  const itemName = controls.dataset.filterItemName || "listing";
+  const label = String(selectedFilter || itemName).trim();
+  if (controls.dataset.filterNote) updateCategoryNote(controls.dataset.filterNote, label);
 
   if (title) {
     title.textContent =
-      normalizedFilter === "restaurant"
-        ? "Restaurant guide"
-        : normalizedFilter.endsWith("restaurant")
+      normalizedFilter === itemName
+        ? `${label} guide`
+        : normalizedFilter.endsWith(itemName)
           ? `${label} guide`
-          : `${label} restaurant guide`;
+          : `${label} ${itemName} guide`;
   }
 
   if (intro) {
-    const countText = matchCount === 1 ? "1 restaurant" : `${matchCount} restaurants`;
+    const pluralItemName = `${itemName}s`;
+    const countText = matchCount === 1 ? `1 ${itemName}` : `${matchCount} ${pluralItemName}`;
 
     intro.textContent = matchCount
-      ? `Showing ${countText} in the ${label.toLowerCase()} category. Click any restaurant card for visitor-ready details.`
-      : `No restaurants are listed under ${label.toLowerCase()} yet.`;
+      ? `Showing ${countText} in the ${label.toLowerCase()} category. Click any ${itemName} card for visitor-ready details.`
+      : `No ${pluralItemName} are listed under ${label.toLowerCase()} yet.`;
   }
 }
 
-document.querySelectorAll("[data-food-filter]").forEach((filter) => {
-  const activateFilter = () => {
-    const isActive = filter.getAttribute("aria-pressed") === "true";
+document.querySelectorAll("[data-list-filter-controls]").forEach((controls) => {
+  const title = document.getElementById(controls.dataset.filterTitle || "");
+  const intro = title?.nextElementSibling;
+  const note = document.querySelector(`[data-category-note="${controls.dataset.filterNote || ""}"]`);
+  controls.dataset.defaultTitle = title?.textContent || "";
+  controls.dataset.defaultIntro = intro?.textContent || "";
+  controls.dataset.defaultNote = note?.textContent || "";
 
-    document.querySelectorAll("[data-food-filter]").forEach((item) => {
-      item.setAttribute("aria-pressed", "false");
-    });
+  controls.querySelectorAll("[data-listing-filter]").forEach((filter) => {
+    const activateFilter = () => {
+      const isActive = filter.getAttribute("aria-pressed") === "true";
 
-    if (isActive) {
-      applyFoodCategoryFilter("");
-      return;
+      controls.querySelectorAll("[data-listing-filter]").forEach((item) => {
+        item.setAttribute("aria-pressed", "false");
+      });
+
+      if (isActive) {
+        applyListingCategoryFilter(controls, "");
+        return;
+      }
+
+      filter.setAttribute("aria-pressed", "true");
+      applyListingCategoryFilter(controls, filter.textContent.trim());
+    };
+
+    filter.addEventListener("click", activateFilter);
+
+    if (filter.tagName !== "BUTTON") {
+      filter.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+
+        event.preventDefault();
+        activateFilter();
+      });
     }
-
-    filter.setAttribute("aria-pressed", "true");
-    applyFoodCategoryFilter(filter.textContent.trim());
-  };
-
-  filter.addEventListener("click", activateFilter);
-
-  filter.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-
-    event.preventDefault();
-    activateFilter();
   });
 });

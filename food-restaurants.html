@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="assets/images/logo-mark.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#047b83">
-    <link rel="stylesheet" href="assets/css/styles.css?v=20260815-restaurant-card-logos">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260820-shared-list-filters">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -107,10 +107,10 @@
           <p class="eyebrow">Food categories</p>
           <h2 id="food-cats-title">Useful buckets for visitors</h2>
         </div>
-        <div class="tag-row" aria-label="Filter restaurants by category">
-          <span role="button" tabindex="0" aria-pressed="false" data-food-filter="restaurant">Restaurant</span>
-          <span role="button" tabindex="0" aria-pressed="false" data-food-filter="steakhouse">Steakhouse</span>
-          <span role="button" tabindex="0" aria-pressed="false" data-food-filter="barbecue restaurant">Barbecue Restaurant</span>
+        <div class="tag-row" data-list-filter-controls data-filter-target="published-restaurants-list" data-filter-title="published-restaurants-title" data-filter-item-name="restaurant" aria-label="Filter restaurants by category">
+          <span role="button" tabindex="0" aria-pressed="false" data-listing-filter="restaurant">Restaurant</span>
+          <span role="button" tabindex="0" aria-pressed="false" data-listing-filter="steakhouse">Steakhouse</span>
+          <span role="button" tabindex="0" aria-pressed="false" data-listing-filter="barbecue restaurant">Barbecue Restaurant</span>
         </div>
       </section>
 
@@ -120,7 +120,7 @@
           <h2 id="published-restaurants-title">Explore GenSan&rsquo;s food scene</h2>
           <p>Discover restaurants, caf&eacute;s, local favorites, tuna and seafood experiences, and practical food guides around General Santos City.</p>
         </div>
-        <div class="card-grid card-grid-fluid" data-list-sources="restaurants,guides:food"></div>
+        <div class="card-grid card-grid-fluid" id="published-restaurants-list" data-filterable-list data-list-sources="restaurants,guides:food"></div>
       </section>
     </main>
 
@@ -137,6 +137,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js?v=20260815-restaurant-card-logos"></script>
+    <script src="assets/js/main.js?v=20260820-shared-list-filters"></script>
   </body>
 </html>
