@@ -1,6 +1,7 @@
 [
     {
         "title": "Greenleaf Hotel Gensan",
+        "reactionKey": "place:hotel-greenleaf-hotel-gensan",
         "category": "Business",
         "location": "San Miguel St. corner J. Catolico St., General Santos City",
         "description": "Greenleaf feels like the kind of GenSan stay you recommend when someone wants comfort without being far from the city rhythm. It sits in a practical central area, close to malls, banks, restaurants, and everyday stops, so guests can land, settle in, and move around without over-planning every ride.",
@@ -155,6 +156,7 @@
     },
     {
         "title": "Grand Summit Hotel General Santos",
+        "reactionKey": "place:hotel-grand-summit-hotel-general-santos",
         "verified": false,
         "category": "Business",
         "description": "Grand Summit Hotel General Santos is a polished city hotel option with rooms and suites, dining spaces, leisure and wellness areas, and venues for meetings or celebrations.",
@@ -243,6 +245,7 @@
     },
     {
         "title": "East Asia Royale Hotel",
+        "reactionKey": "place:hotel-east-asia-royale-hotel",
         "verified": false,
         "category": "Business",
         "description": "A business-friendly GenSan hotel along the National Highway in Lagao, with 102 guest rooms, business facilities, Royale Lounge dining, function spaces, and airport shuttle service for in-house guests.",
@@ -333,6 +336,7 @@
     },
     {
         "title": "Q Citipark Hotel GenSan",
+        "reactionKey": "place:hotel-q-citipark-hotel-gensan",
         "category": "Family",
         "description": "A family-friendly city hotel on Roxas Avenue corner Jose P. Laurel Street, with room options, a polished lobby, dining and lounge areas, and event spaces.",
         "label": "Check hotel details",
@@ -419,6 +423,7 @@
     },
     {
         "title": "Microtel by Wyndham General Santos",
+        "reactionKey": "place:hotel-microtel-by-wyndham-general-santos",
         "verified": false,
         "category": "Business",
         "description": "Microtel by Wyndham General Santos is a practical business-friendly GenSan hotel along Valley High National Highway, with modern rooms, free breakfast and WiFi, friendly service, event spaces, and easy access to city stops and nearby attractions.",
@@ -511,6 +516,7 @@
     },
     {
         "title": "Avior Hotel",
+        "reactionKey": "place:hotel-avior-hotel",
         "category": "Business",
         "description": "Avior Hotel is a business-boutique hotel in the heart of General Santos City, thoughtfully designed to provide a comfortable and productive stay for both business and leisure travelers. Conveniently located along Santiago Boulevard, the hotel offers modern accommodations, versatile event spaces, quality dining experiences, and warm Filipino hospitality—making it your second home in SOX.",
         "label": "Check hotel details",
@@ -665,6 +671,7 @@
     },
     {
         "title": "SunCity Suites",
+        "reactionKey": "place:hotel-suncity-suites",
         "verified": false,
         "category": "Business",
         "description": "SunCity Suites is a business-meets-leisure hotel in the Sun City Complex, with suites and rooms, Caffe Firenzo, event spaces, and a central GenSan base for travelers who want comfort and convenience.",
@@ -756,6 +763,7 @@
     },
     {
         "title": "Alma Residences GenSan",
+        "reactionKey": "place:hotel-alma-residences-gensan",
         "category": "Budget",
         "description": "Alma Residences GenSan is a practical budget stay for travelers who want affordable rooms, simple essentials, air-conditioned comfort, private bathroom access, and short-stay flexibility in General Santos City.",
         "label": "Check hotel details",
@@ -842,6 +850,7 @@
     },
     {
         "title": "The Sonly Suites & Restaurant",
+        "reactionKey": "place:hotel-the-sonly-suites-restaurant",
         "category": "Budget",
         "description": "The Sonly Suites & Restaurant is a budget-friendly GenSan stay with simple rooms, a restaurant setting, and a practical local atmosphere for visitors who want an affordable place with dining on site.",
         "label": "Check hotel details",
@@ -932,6 +941,7 @@
     },
     {
         "title": "Florotel Gensan",
+        "reactionKey": "place:hotel-florotel-gensan",
         "category": "Family",
         "description": "Florotel Gensan is a family-friendly city hotel near J.P. Laurel Avenue and Pendatun Avenue, with air-conditioned rooms, WiFi, breakfast options, parking, and practical front-desk support for GenSan visitors.",
         "label": "Check hotel details",
@@ -1022,6 +1032,7 @@
     },
     {
         "title": "Hotel San Marco",
+        "reactionKey": "place:hotel-hotel-san-marco",
         "category": "Family",
         "description": "Hotel San Marco is a family-friendly GenSan hotel with warm classic interiors, family room options, breakfast, restaurant and bar service, airport transfer support, and practical guest services for city stays.",
         "label": "Check hotel details",
@@ -1112,6 +1123,7 @@
     },
     {
         "title": "3G Garden Hotel",
+        "reactionKey": "place:hotel-3g-garden-hotel",
         "category": "Budget",
         "description": "3G Garden Hotel is a budget-friendly GenSan stay along the Yusepeng Road and National Highway area, with simple room options, free breakfast, air-conditioned rooms, WiFi, parking, and practical essentials for short city stays.",
         "label": "Check hotel details",
@@ -1202,6 +1214,7 @@
     },
     {
         "title": "Columbus Plaza Hotel",
+        "reactionKey": "place:hotel-columbus-plaza-hotel",
         "category": "Family",
         "description": "Columbus Plaza Hotel is a family-friendly GenSan hotel on Osmena corner Champaca Streets, with air-conditioned family rooms, private bathrooms, free WiFi, breakfast, parking, shuttle support, and guest services for practical city stays.",
         "label": "Check hotel details",
@@ -1292,6 +1305,7 @@
     },
     {
         "title": "ICON Venue & Suites",
+        "reactionKey": "place:hotel-icon-venue-suites",
         "category": "Family",
         "description": "ICON Venue & Suites is a family-friendly GenSan stay and event venue on C. M. Recto corner Albano Street, with room options, breakfast, WiFi, an in-house restaurant, rooftop bar and cafe, and venue spaces for gatherings.",
         "label": "Check hotel details",
@@ -1382,6 +1396,7 @@
     },
     {
         "title": "Sarangani Highlands Garden",
+        "reactionKey": "place:hotel-sarangani-highlands-garden",
         "category": "Resort",
         "description": "Enjoy hilltop views, colorful gardens, rooms, and a relaxed food-and-photo stop.",
         "label": "View garden guide",

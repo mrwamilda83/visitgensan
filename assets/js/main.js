@@ -310,9 +310,9 @@ function normalizeGuideReactionPage(pathname) {
 
 const guideReactionPage = normalizeGuideReactionPage(location.pathname);
 const guideReactionTokenKey = "visitgensan-guide-reaction-visitor";
-const guideReactionSelectedKey = `visitgensan-guide-reaction:${guideReactionPage}`;
 const guideReactionApiPath = "/api/reactions";
 const guideReactionLabels = ["happy", "surprised", "sad", "angry"];
+const placeReactionLabels = ["love"];
 const guideReactionFeedbackStates = {
   success: {
     state: "success",
@@ -330,6 +330,7 @@ const guideReactionFeedbackStates = {
   }
 };
 let lastReactionFeedbackTrigger = null;
+let guideReactionVisitorToken = "";
 
 function getReactionFeedbackModal() {
   let modal = document.querySelector("[data-reaction-feedback-modal]");
@@ -381,14 +382,74 @@ function closeReactionFeedback() {
 }
 
 function getGuideReactionVisitorToken() {
-  let token = localStorage.getItem(guideReactionTokenKey);
+  if (guideReactionVisitorToken) return guideReactionVisitorToken;
+
+  let token = "";
+
+  try {
+    token = localStorage.getItem(guideReactionTokenKey) || "";
+  } catch (error) {
+    token = "";
+  }
 
   if (!token) {
     token = window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}-${Math.random().toString(16).slice(2)}`;
-    localStorage.setItem(guideReactionTokenKey, token);
+
+    try {
+      localStorage.setItem(guideReactionTokenKey, token);
+    } catch (error) {
+      // Keep the in-memory token for this page view when browser storage is unavailable.
+    }
   }
 
-  return token;
+  guideReactionVisitorToken = token;
+  return guideReactionVisitorToken;
+}
+
+function getReactionKey(container) {
+  return container?.dataset.reactionKey || guideReactionPage;
+}
+
+function getReactionLabels(container) {
+  return container?.matches("[data-place-reactions]") ? placeReactionLabels : guideReactionLabels;
+}
+
+function getReactionSelectedKey(container) {
+  return `visitgensan-guide-reaction:${getReactionKey(container)}`;
+}
+
+function getStoredReaction(container) {
+  try {
+    return localStorage.getItem(getReactionSelectedKey(container)) || "";
+  } catch (error) {
+    return "";
+  }
+}
+
+function setStoredReaction(container, reaction) {
+  try {
+    const key = getReactionSelectedKey(container);
+    if (reaction) localStorage.setItem(key, reaction);
+    else localStorage.removeItem(key);
+  } catch (error) {
+    // The server-side hashed visitor identifier still prevents duplicate submissions.
+  }
+}
+
+function initializePlaceReaction(container) {
+  if (container.querySelector("[data-reaction]")) return;
+
+  container.innerHTML = `
+    <button class="place-love-button" type="button" data-reaction="love" aria-pressed="false">
+      <span class="place-love-icon" data-place-love-icon aria-hidden="true">&#9825;</span>
+      <span data-place-love-label>Show some love</span>
+    </button>
+    <p class="place-love-count" aria-live="polite">
+      <strong data-reaction-total>0</strong>
+      <span data-place-love-count-copy>people loved this place</span>
+    </p>
+    <p class="place-love-message" data-place-love-message role="status" hidden></p>
+  `;
 }
 
 function setGuideReactionBusy(container, isBusy) {
@@ -398,19 +459,22 @@ function setGuideReactionBusy(container, isBusy) {
   });
 }
 
-function updateGuideReactionTotals(container) {
-  const counts = Array.from(container.querySelectorAll("[data-reaction-count]")).map((count) => Number(count.textContent || 0));
-  const total = counts.reduce((sum, count) => sum + count, 0);
+function updateReactionTotal(container, totals, labels) {
+  const total = labels.reduce((sum, reaction) => sum + Number(totals[reaction] || 0), 0);
   const totalNode = container.querySelector("[data-reaction-total]");
   if (totalNode) totalNode.textContent = String(total);
+
+  const countCopy = container.querySelector("[data-place-love-count-copy]");
+  if (countCopy) countCopy.textContent = total === 1 ? "person loved this place" : "people loved this place";
 }
 
-function renderGuideReactions(container, data = {}) {
+function renderReactions(container, data = {}, options = {}) {
   const totals = data.totals || {};
+  const labels = getReactionLabels(container);
   const hasServerSelection = Object.prototype.hasOwnProperty.call(data, "selected");
-  const selectedReaction = hasServerSelection ? (data.selected || "") : (localStorage.getItem(guideReactionSelectedKey) || "");
+  const selectedReaction = hasServerSelection ? (data.selected || "") : getStoredReaction(container);
 
-  guideReactionLabels.forEach((reaction) => {
+  labels.forEach((reaction) => {
     const button = container.querySelector(`[data-reaction="${reaction}"]`);
     const count = button?.querySelector("[data-reaction-count]");
     if (count) count.textContent = String(Number(totals[reaction] || 0));
@@ -418,19 +482,31 @@ function renderGuideReactions(container, data = {}) {
     button?.setAttribute("aria-pressed", String(selectedReaction === reaction));
   });
 
-  if (selectedReaction) {
-    localStorage.setItem(guideReactionSelectedKey, selectedReaction);
-  } else if (hasServerSelection) {
-    localStorage.removeItem(guideReactionSelectedKey);
+  const placeLoveIcon = container.querySelector("[data-place-love-icon]");
+  const placeLoveLabel = container.querySelector("[data-place-love-label]");
+  if (placeLoveIcon) placeLoveIcon.textContent = selectedReaction === "love" ? "♥" : "♡";
+  if (placeLoveLabel) placeLoveLabel.textContent = selectedReaction === "love" ? "Loved" : "Show some love";
+
+  if (options.persistSelection !== false) {
+    if (selectedReaction) setStoredReaction(container, selectedReaction);
+    else if (hasServerSelection) setStoredReaction(container, "");
   }
 
-  updateGuideReactionTotals(container);
+  updateReactionTotal(container, totals, labels);
 }
 
-async function loadGuideReactions(container) {
+function showPlaceReactionMessage(container, message) {
+  const messageNode = container.querySelector("[data-place-love-message]");
+  if (!messageNode) return;
+
+  messageNode.textContent = message;
+  messageNode.hidden = !message;
+}
+
+async function loadReactions(container) {
   try {
     const visitor = getGuideReactionVisitorToken();
-    const params = new URLSearchParams({ page: guideReactionPage, visitor });
+    const params = new URLSearchParams({ page: getReactionKey(container), visitor });
     const response = await fetch(`${guideReactionApiPath}?${params.toString()}`, {
       cache: "no-store",
       headers: {
@@ -438,27 +514,35 @@ async function loadGuideReactions(container) {
         pragma: "no-cache"
       }
     });
-    if (!response.ok) throw new Error("Unable to load guide reactions");
-    renderGuideReactions(container, await response.json());
+    if (!response.ok) throw new Error("Unable to load reactions");
+    renderReactions(container, await response.json());
   } catch (error) {
-    const savedReaction = localStorage.getItem(guideReactionSelectedKey);
-    renderGuideReactions(container, { totals: {}, selected: savedReaction || null });
+    renderReactions(container, { totals: {}, selected: getStoredReaction(container) || null });
   }
 }
 
-async function submitGuideReaction(reactionButton) {
-  const container = reactionButton.closest("[data-guide-reactions]");
+async function submitReaction(reactionButton) {
+  const container = reactionButton.closest("[data-guide-reactions], [data-place-reactions]");
   const nextReaction = reactionButton.dataset.reaction;
+  const reactionLabels = getReactionLabels(container);
+  const isPlaceReaction = container?.matches("[data-place-reactions]");
 
-  if (!container || !guideReactionLabels.includes(nextReaction)) return;
+  if (!container || !reactionLabels.includes(nextReaction)) return;
 
-  const previousReaction = localStorage.getItem(guideReactionSelectedKey);
+  const previousReaction = getStoredReaction(container);
   if (previousReaction) {
-    showReactionFeedback(guideReactionFeedbackStates.alreadyReacted, reactionButton);
+    if (isPlaceReaction) showPlaceReactionMessage(container, "Thanks for supporting this local spot!");
+    else showReactionFeedback(guideReactionFeedbackStates.alreadyReacted, reactionButton);
     return;
   }
 
+  showPlaceReactionMessage(container, "");
   setGuideReactionBusy(container, true);
+
+  if (isPlaceReaction) {
+    const currentTotal = Number(container.querySelector("[data-reaction-total]")?.textContent || 0);
+    renderReactions(container, { totals: { love: currentTotal + 1 }, selected: "love" }, { persistSelection: false });
+  }
 
   try {
     const response = await fetch(guideReactionApiPath, {
@@ -470,7 +554,7 @@ async function submitGuideReaction(reactionButton) {
         pragma: "no-cache"
       },
       body: JSON.stringify({
-        page: guideReactionPage,
+        page: getReactionKey(container),
         reaction: nextReaction,
         visitor: getGuideReactionVisitorToken()
       })
@@ -479,27 +563,38 @@ async function submitGuideReaction(reactionButton) {
     const data = await response.json();
 
     if (response.status === 409) {
-      renderGuideReactions(container, data);
-      showReactionFeedback(guideReactionFeedbackStates.alreadyReacted, reactionButton);
+      renderReactions(container, data);
+      if (isPlaceReaction) showPlaceReactionMessage(container, "Thanks for supporting this local spot!");
+      else showReactionFeedback(guideReactionFeedbackStates.alreadyReacted, reactionButton);
       return;
     }
 
-    if (!response.ok) throw new Error(data.error || "Unable to save guide reaction");
+    if (!response.ok) throw new Error(data.error || "Unable to save reaction");
 
-    localStorage.setItem(guideReactionSelectedKey, data.selected || nextReaction);
-    renderGuideReactions(container, data);
-    showReactionFeedback(guideReactionFeedbackStates.success, reactionButton);
+    setStoredReaction(container, data.selected || nextReaction);
+    renderReactions(container, data);
+    if (isPlaceReaction) showPlaceReactionMessage(container, "Thanks for supporting this local spot!");
+    else showReactionFeedback(guideReactionFeedbackStates.success, reactionButton);
   } catch (error) {
-    console.error("Unable to save guide reaction", error);
-    await loadGuideReactions(container);
+    console.error("Unable to save reaction", error);
+    await loadReactions(container);
+    if (isPlaceReaction) showPlaceReactionMessage(container, "We couldn’t save your reaction. Please try again.");
   } finally {
     setGuideReactionBusy(container, false);
   }
 }
 
-document.querySelectorAll("[data-guide-reactions]").forEach((container) => {
-  loadGuideReactions(container);
-});
+function initializeReactionContainers(root = document) {
+  root.querySelectorAll("[data-guide-reactions], [data-place-reactions]").forEach((container) => {
+    if (container.dataset.reactionsInitialized === "true") return;
+
+    if (container.matches("[data-place-reactions]")) initializePlaceReaction(container);
+    container.dataset.reactionsInitialized = "true";
+    loadReactions(container);
+  });
+}
+
+initializeReactionContainers();
 document.addEventListener("click", async (event) => {
   const reactionFeedbackClose = event.target.closest("[data-reaction-feedback-close]");
   if (reactionFeedbackClose) {
@@ -513,10 +608,10 @@ document.addEventListener("click", async (event) => {
     return;
   }
 
-  const reactionButton = event.target.closest("[data-guide-reactions] [data-reaction]");
+  const reactionButton = event.target.closest("[data-guide-reactions] [data-reaction], [data-place-reactions] [data-reaction]");
   if (reactionButton) {
     event.preventDefault();
-    await submitGuideReaction(reactionButton);
+    await submitReaction(reactionButton);
     return;
   }
   const taxiToggle = event.target.closest("[data-taxi-toggle]");
@@ -972,6 +1067,7 @@ async function renderGuideHotel(type, index = 0, shouldScroll = false, existingC
   const requestedIndex = findRequestedListingIndex(items, requestedTitle);
   const item = items[requestedIndex >= 0 ? requestedIndex : index] || items[0];
   const container = existingContainer || document.querySelector(`[data-featured-list="${type}"]`);
+  const reactionRegion = document.querySelector("[data-hotel-guide-reaction]");
 
   if (!item || !container) return;
 
@@ -981,6 +1077,14 @@ async function renderGuideHotel(type, index = 0, shouldScroll = false, existingC
   if (title) title.textContent = item.title;
   if (intro) {
     intro.textContent = item.guideIntro || `A local guide look at ${item.title}, with location notes, booking links, and visitor-ready details.`;
+  }
+
+  if (reactionRegion) {
+    const reactionKey = String(item.reactionKey || "").trim();
+    reactionRegion.innerHTML = reactionKey
+      ? `<div class="place-reaction" data-place-reactions data-reaction-key="${escapeAttribute(reactionKey)}" aria-label="Love this place"></div>`
+      : "";
+    initializeReactionContainers(reactionRegion);
   }
 
   container.innerHTML = renderFeaturedCard(item);
@@ -1016,6 +1120,8 @@ async function renderCategoryHotels(type, category, shouldScroll = false) {
     ? `<div class="category-result-stack">${matches.map((entry) => renderFeaturedCard(entry.item, `featured-hotel-details-${type}-${entry.index}`)).join("")}</div>`
     : `<div class="empty-category-result">No ${escapeHtml(label.toLowerCase())} hotels yet.</div>`;
 
+  const reactionRegion = document.querySelector("[data-hotel-guide-reaction]");
+  if (reactionRegion) reactionRegion.innerHTML = "";
   updateActiveCategoryButton(type, category);
 
   if (shouldScroll) {
@@ -1167,18 +1273,17 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
         </div>
       </div>
       <div class="featured-hotel-body">
-        <div class="featured-hotel-topline">
-          <span class="meta">${escapeHtml(item.guideLabel || item.category || "Hotel guide")}</span>
-          <span class="hotel-score">${escapeHtml(item.score || "Business")}${item.scoreText ? ` <small>${escapeHtml(item.scoreText)}</small>` : ""}</span>
-        </div>
         ${item.logo ? `
           <h3 class="hotel-logo-title">
             <img src="${escapeAttribute(item.logo)}" alt="${escapeAttribute(item.title)}">
             <span>${escapeHtml(item.title)}</span>
           </h3>
         ` : `<h3>${escapeHtml(item.title)}</h3>`}
+        <div class="featured-hotel-topline">
+          <span class="meta">${escapeHtml(item.guideLabel || item.category || "Hotel guide")}</span>
+          <span class="hotel-score">${escapeHtml(item.score || "Business")}${item.scoreText ? ` <small>${escapeHtml(item.scoreText)}</small>` : ""}</span>
+        </div>
         ${item.location ? `<p class="hotel-location">${escapeHtml(item.location)}</p>` : ""}
-        <p>${escapeHtml(item.description)}</p>
         ${facts.length ? `
           <dl class="hotel-facts">
             ${facts.map((fact) => `
@@ -1189,6 +1294,7 @@ function renderFeaturedCard(item, detailId = "featured-hotel-details") {
             `).join("")}
           </dl>
         ` : ""}
+        <p>${escapeHtml(item.description)}</p>
       </div>
       <aside class="hotel-disclaimer" aria-label="Listing disclaimer">
         <strong>Independent local guide</strong>

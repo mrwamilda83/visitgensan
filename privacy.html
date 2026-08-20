@@ -58,27 +58,27 @@
           <p><strong>Last Updated: August 13, 2026</strong></p>
         </div>
         <div class="text-panel">
-          <p>VisitGenSan.com respects the privacy of our visitors. This Privacy Policy describes the limited information processed by the website as it operates today, including its Contact Us form, guide reactions, search, Cloudflare infrastructure, Google services, and embedded Google Maps.</p>
+          <p>VisitGenSan.com respects the privacy of our visitors. This Privacy Policy describes the limited information processed by the website as it operates today, including its Contact Us form, detail-page reactions, search, Cloudflare infrastructure, Google services, and embedded Google Maps.</p>
           <p>VisitGenSan.com does not currently use analytics or advertising tracking systems. The specific data flows that do exist are explained below.</p>
 
           <h3>1. Information Processed When You Use the Website</h3>
-          <p>Most VisitGenSan pages can be viewed without providing your name, email address, or other contact information. Normal technical request information is processed by Cloudflare when it delivers the website, and additional limited information is processed when you use search, visit a reaction-enabled guide, load an embedded map, or voluntarily submit the Contact Us form.</p>
-          <p>Depending on the feature, this information can include a requested page or URL, a search term included in the VisitGenSan URL, a random reaction identifier, a guide-page name, a selected reaction, normal browser request information, or a name, email address, subject, and message you choose to submit.</p>
+          <p>Most VisitGenSan pages can be viewed without providing your name, email address, or other contact information. Normal technical request information is processed by Cloudflare when it delivers the website, and additional limited information is processed when you use search, visit a reaction-enabled detail page, load an embedded map, or voluntarily submit the Contact Us form.</p>
+          <p>Depending on the feature, this information can include a requested page or URL, a search term included in the VisitGenSan URL, a random reaction identifier, a detail-page reaction key, a selected reaction, normal browser request information, or a name, email address, subject, and message you choose to submit.</p>
 
           <h3>2. Information You Choose to Send Through Contact Us</h3>
           <p>When you submit the Contact Us form, you voluntarily provide your name, email address, subject, and message. VisitGenSan uses this information to review and respond to questions, corrections, business or listing inquiries, privacy requests, suggestions, and other messages.</p>
           <p>The form sends this information to the same-origin <code>/api/contact</code> endpoint. The browser does not receive or contact the private recipient email address or the server-to-server delivery endpoint.</p>
           <p>VisitGenSan does not store contact names, visitor email addresses, subjects, or message contents in Cloudflare D1. Validated messages are forwarded as described in Sections 5 and 7 and are retained according to the applicable Google account and operational practices described in Section 10.</p>
 
-          <h3>3. Guide Reactions</h3>
-          <p>Four VisitGenSan guide pages contain reaction buttons. When a reaction-enabled guide loads, the website creates or reads a random browser identifier, stores it in <code>localStorage</code>, and automatically sends the identifier and guide-page name to the same-origin <code>/api/reactions</code> endpoint. This allows the page to display shared totals and determine whether that browser has already reacted.</p>
-          <p>The reactions service stores a hashed version of the browser identifier. If a visitor submits a reaction, Cloudflare D1 stores the guide-page name, selected reaction, hashed identifier, and timestamps.</p>
+          <h3>3. Detail-Page Reactions</h3>
+          <p>Reaction-enabled VisitGenSan detail pages contain guide-feedback controls and, for published establishments and attractions, place-love controls. When one of these pages loads, the website creates or reads a random browser identifier, stores it in <code>localStorage</code>, and automatically sends the identifier and detail-page reaction key to the same-origin <code>/api/reactions</code> endpoint. This allows the page to display shared totals and determine whether that browser has already reacted.</p>
+          <p>The reactions service stores a hashed version of the browser identifier. If a visitor submits a reaction, Cloudflare D1 stores the detail-page reaction key, selected reaction, hashed identifier, and timestamps.</p>
           <p>During reaction submission, the Pages Function also uses the request IP address and browser <code>User-Agent</code> with the hashed browser identifier to create a separate hashed rate-limit key. VisitGenSan does not store the raw IP address or raw <code>User-Agent</code> in the reaction database.</p>
           <p>This processing is used to display shared reaction counts, determine whether a browser has already reacted, prevent duplicate reactions, apply rate limits, and prevent abuse. It is not used for advertising, cross-site tracking, or visitor profiling.</p>
 
           <h3>4. Browser Storage and Cookies</h3>
           <p>VisitGenSan&rsquo;s own code does not currently set or read first-party cookies. VisitGenSan features do not rely on first-party cookies.</p>
-          <p>The guide reaction feature uses <code>localStorage</code> to keep a random reaction visitor identifier and the selected reaction for supported guide pages. These values currently remain until they are cleared by the visitor, browser policy, or site code.</p>
+          <p>The detail-page reaction feature uses <code>localStorage</code> to keep a random reaction visitor identifier and the selected reaction for each supported guide or place key. These values currently remain until they are cleared by the visitor, browser policy, or site code.</p>
           <p>Cloudflare Turnstile, Cloudflare infrastructure, or Google Maps may process cookies or similar technologies according to their own systems and policies. Those technologies are separate from VisitGenSan&rsquo;s own code.</p>
 
           <h3>5. Cloudflare Hosting and Infrastructure</h3>

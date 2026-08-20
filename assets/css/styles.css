@@ -4360,6 +4360,108 @@ h3 {
 .fishport-taxi-map .route-external-link {
   width: fit-content;
 }
+
+.place-reaction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 14px 0 12px;
+}
+
+.place-love-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  border: 1px solid #a9c8c5;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--teal-dark);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 850;
+  padding: 7px 15px 7px 12px;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.place-love-button:hover,
+.place-love-button:focus-visible,
+.place-love-button.is-selected {
+  border-color: var(--teal-dark);
+  background: #edf8f6;
+  outline: none;
+}
+
+.place-love-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 121, 126, 0.2);
+}
+
+.place-love-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.place-love-icon {
+  color: #d9455f;
+  font-family: Arial, sans-serif;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.place-reaction .place-love-count,
+.place-reaction .place-love-message {
+  margin: 0;
+  color: #4d6268;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.place-reaction .place-love-count strong {
+  color: var(--ink);
+}
+
+.place-reaction .place-love-message {
+  flex-basis: 100%;
+  color: var(--teal-dark);
+  font-weight: 750;
+}
+
+.hotel-guide-reaction .place-reaction {
+  margin: 18px 0 0;
+}
+
+.fishport-hero .place-reaction {
+  margin: 22px 0 14px;
+}
+
+.fishport-hero .place-love-button {
+  border-color: rgba(255, 255, 255, 0.58);
+  background: rgba(3, 22, 26, 0.54);
+  color: #ffffff;
+  backdrop-filter: blur(5px);
+}
+
+.fishport-hero .place-love-button:hover,
+.fishport-hero .place-love-button:focus-visible,
+.fishport-hero .place-love-button.is-selected {
+  border-color: #ffffff;
+  background: rgba(0, 121, 126, 0.86);
+}
+
+.fishport-hero .place-love-count,
+.fishport-hero .place-love-message {
+  max-width: none;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.86rem;
+  text-shadow: 0 2px 12px rgba(3, 22, 26, 0.72);
+}
+
+.fishport-hero .place-love-count strong {
+  color: #ffffff;
+}
+
 .guide-reactions {
   margin-top: 34px;
   border-top: 1px solid var(--line);

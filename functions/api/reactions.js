@@ -1,5 +1,6 @@
 ﻿const VALID_REACTIONS = new Set(["happy", "surprised", "sad", "angry"]);
-const VALID_PAGES = new Set([
+const PLACE_REACTIONS = new Set(["love"]);
+const VALID_GUIDE_PAGES = new Set([
   "fish-port-complex.html",
   "plaza-heneral-santos.html",
   "sarangani-highlands-garden.html",
@@ -10,6 +11,32 @@ const VALID_PAGES = new Set([
   "cotton-bowl-grill-steak-house.html",
   "don-carmelos-smokin-area.html",
   "sam-and-dean.html"
+]);
+const VALID_PLACE_KEYS = new Set([
+  "place:fish-port-complex",
+  "place:plaza-heneral-santos",
+  "place:sarangani-highlands-garden",
+  "place:j-hills-golf-range-and-restaurant",
+  "place:the-white-house-cafe-gensan",
+  "place:american-backyard-gensan",
+  "place:cotton-bowl-grill-steak-house",
+  "place:don-carmelos-smokin-area",
+  "place:sam-and-dean",
+  "place:hotel-greenleaf-hotel-gensan",
+  "place:hotel-grand-summit-hotel-general-santos",
+  "place:hotel-east-asia-royale-hotel",
+  "place:hotel-q-citipark-hotel-gensan",
+  "place:hotel-microtel-by-wyndham-general-santos",
+  "place:hotel-avior-hotel",
+  "place:hotel-suncity-suites",
+  "place:hotel-alma-residences-gensan",
+  "place:hotel-the-sonly-suites-restaurant",
+  "place:hotel-florotel-gensan",
+  "place:hotel-hotel-san-marco",
+  "place:hotel-3g-garden-hotel",
+  "place:hotel-columbus-plaza-hotel",
+  "place:hotel-icon-venue-suites",
+  "place:hotel-sarangani-highlands-garden"
 ]);
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const RATE_LIMIT_MAX_ATTEMPTS = 10;
@@ -33,9 +60,15 @@ function getClientIp(request) {
 
 function normalizePage(value) {
   const rawPage = String(value || "").trim().toLowerCase().split("?")[0].split("#")[0];
+  if (VALID_PLACE_KEYS.has(rawPage)) return rawPage;
+
   const pageName = rawPage.split("/").filter(Boolean).pop() || "";
   const page = pageName && !pageName.endsWith(".html") ? `${pageName}.html` : pageName;
-  return VALID_PAGES.has(page) ? page : "";
+  return VALID_GUIDE_PAGES.has(page) ? page : "";
+}
+
+function getValidReactions(page) {
+  return VALID_PLACE_KEYS.has(page) ? PLACE_REACTIONS : VALID_REACTIONS;
 }
 
 async function sha256(value) {
@@ -81,19 +114,15 @@ async function enforceRateLimit(db, visitorId) {
 }
 
 async function getTotals(db, page) {
-  const result = {
-    happy: 0,
-    surprised: 0,
-    sad: 0,
-    angry: 0
-  };
+  const validReactions = getValidReactions(page);
+  const result = Object.fromEntries(Array.from(validReactions, (reaction) => [reaction, 0]));
 
   const { results = [] } = await db.prepare(
     "SELECT reaction, COUNT(*) AS count FROM guide_reactions WHERE page = ? GROUP BY reaction"
   ).bind(page).all();
 
   results.forEach((row) => {
-    if (VALID_REACTIONS.has(row.reaction)) {
+    if (validReactions.has(row.reaction)) {
       result[row.reaction] = Number(row.count || 0);
     }
   });
@@ -113,7 +142,7 @@ async function handleGet(request, db) {
   const page = normalizePage(url.searchParams.get("page"));
 
   if (!page) {
-    return jsonResponse({ error: "Unknown guide page." }, 400);
+    return jsonResponse({ error: "Unknown reaction resource." }, 400);
   }
 
   const token = url.searchParams.get("visitor") || "";
@@ -138,10 +167,10 @@ async function handlePost(request, db) {
   const visitorToken = String(payload?.visitor || "").trim();
 
   if (!page) {
-    return jsonResponse({ error: "Unknown guide page." }, 400);
+    return jsonResponse({ error: "Unknown reaction resource." }, 400);
   }
 
-  if (!VALID_REACTIONS.has(reaction)) {
+  if (!getValidReactions(page).has(reaction)) {
     return jsonResponse({ error: "Unknown reaction." }, 400);
   }
 
@@ -168,7 +197,7 @@ async function handlePost(request, db) {
 
   if (Number(insertResult.meta?.changes || 0) === 0) {
     return jsonResponse({
-      error: "You’ve already reacted to this guide. Only one reaction can be submitted.",
+      error: "You’ve already submitted a reaction for this item. Only one reaction can be submitted.",
       page,
       totals,
       selected
@@ -208,6 +237,6 @@ export async function onRequest(context) {
 
     return jsonResponse({ error: "Method not allowed." }, 405, { allow: "GET, POST, OPTIONS" });
   } catch (error) {
-    return jsonResponse({ error: "Unable to save guide reaction." }, 500);
+    return jsonResponse({ error: "Unable to save reaction." }, 500);
   }
 }

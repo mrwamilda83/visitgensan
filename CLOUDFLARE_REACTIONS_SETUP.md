@@ -1,11 +1,11 @@
 ﻿# Cloudflare D1 Guide Reactions Setup
 
-This adds shared live reaction counts for Things To Do guide pages while keeping the site on Cloudflare Pages and Cloudflare's Free plan.
+This adds shared live reaction counts for supported VisitGenSan detail pages while keeping the site on Cloudflare Pages and Cloudflare's Free plan.
 
 ## What was added
 
 - `functions/api/reactions.js` handles `GET` and `POST` requests at `/api/reactions`.
-- `migrations/0001_guide_reactions.sql` creates the D1 tables.
+- The SQL files in `migrations/` create and update the D1 reaction tables.
 - `wrangler.example.toml` shows the required D1 binding.
 - `assets/js/main.js` now reads and saves shared reaction totals through the API.
 
