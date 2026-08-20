@@ -1,5 +1,14 @@
 [
   {
+    "id": "home",
+    "title": "VisitGenSan",
+    "category": "General Santos City Travel Guide",
+    "description": "Discover where to stay, what to do, where to eat, and how to plan a visit to General Santos City.",
+    "keywords": ["VisitGenSan", "Visit GenSan", "General Santos City", "GenSan travel", "city guide"],
+    "image": "assets/images/hero-gensan-banner.png",
+    "url": "/"
+  },
+  {
     "id": "hotels-resorts",
     "title": "Hotels & Resorts in GenSan",
     "category": "Accommodation Guide",
@@ -52,6 +61,15 @@
     "keywords": ["listing policy", "corrections", "submissions", "information updates"],
     "image": "assets/images/logo-mark.svg",
     "url": "listing-policy.html"
+  },
+  {
+    "id": "privacy-policy",
+    "title": "VisitGenSan Privacy Policy",
+    "category": "Site Information",
+    "description": "Read how VisitGenSan handles guide reactions, contact messages, browser storage, hosting data, and third-party services.",
+    "keywords": ["privacy", "privacy policy", "personal information", "data protection", "localStorage", "guide reactions"],
+    "image": "assets/images/logo-mark.svg",
+    "url": "privacy.html"
   },
   {
     "id": "contact-us",

@@ -25,6 +25,16 @@
     },
     {
         "title":  "J-Hills Golf Range and Restaurant",
+        "aliases":  [
+                        "J Hills Golf Range and Restaurant",
+                        "J Hills",
+                        "jhills",
+                        "j hills"
+                    ],
+        "keywords":  [
+                         "golf range",
+                         "driving range"
+                     ],
         "category":  "Golf & Dining",
         "description":  "Practice your swing, dine alfresco, and enjoy refreshing drinks and open-air views in Nopol Hills.",
         "label":  "View J-Hills guide",

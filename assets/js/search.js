@@ -4,12 +4,13 @@
   const SEARCH_CONFIG = Object.freeze({
     queryParameter: "q",
     listingParameter: "listing",
+    publishedStatuses: Object.freeze(["active", "published"]),
     emptyMessage: "Enter a place, hotel, restaurant, activity, or guide to search VisitGenSan.",
     loadingMessage: "Searching VisitGenSan...",
     errorMessage: "VisitGenSan search is temporarily unavailable. Please browse a section below or try again.",
     searchableFields: Object.freeze({
       category: ["category", "guideLabel", "score"],
-      keywords: ["keywords", "tags", "label"],
+      keywords: ["aliases", "keywords", "tags", "label"],
       details: [
         "description",
         "bio",
@@ -213,6 +214,11 @@
     return "";
   }
 
+  function isPublishedRecord(record) {
+    const status = normalizeText(record?.status);
+    return !status || SEARCH_CONFIG.publishedStatuses.includes(status);
+  }
+
   function validateInternalUrl(value, allowedExtensions = [".html", "/"]) {
     const candidateValue = String(value || "").trim();
     if (!candidateValue || candidateValue === "#" || candidateValue.startsWith("//")) return "";
@@ -339,7 +345,10 @@
     if (!response.ok) throw new Error(`Unable to load ${source.id}`);
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error(`Invalid search data for ${source.id}`);
-    return data.map((record, index) => createSearchRecord(record, source, index)).filter(Boolean);
+    return data
+      .filter(isPublishedRecord)
+      .map((record, index) => createSearchRecord(record, source, index))
+      .filter(Boolean);
   }
 
   async function loadSearchIndex() {
@@ -585,6 +594,7 @@
   const SearchApi = Object.freeze({
     config: SEARCH_CONFIG,
     normalizeText,
+    isPublishedRecord,
     expandSearchIntent,
     loadSearchIndex,
     scoreRecord,
