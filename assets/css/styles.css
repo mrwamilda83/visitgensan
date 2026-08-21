@@ -4097,6 +4097,12 @@ h3 {
     url("../images/j-hills-golf-range-and-restaurant/range-hill-sign.jpg") center 58% / cover no-repeat;
 }
 
+@media (min-width: 921px) {
+  .fishport-guide .fishport-info-grid {
+    grid-template-columns: minmax(260px, 0.62fr) minmax(320px, 0.68fr) minmax(420px, 1fr);
+  }
+}
+
 .plaza-guide .fishport-photo-grid img,
 .plaza-guide .fishport-side-photo,
 .plaza-gallery-grid img {
@@ -6041,7 +6047,8 @@ body.author-panel-open {
 .restaurant-detail-layout .restaurant-description-panel p + p {
   margin-top: 3px;
 }
-.restaurant-detail-layout .restaurant-menu-panel {
+.restaurant-detail-layout .restaurant-menu-panel,
+.jhills-guide .restaurant-menu-panel {
   margin-top: 18px;
   border: 1px solid #d5e1e3;
   border-radius: 10px;
@@ -6050,7 +6057,8 @@ body.author-panel-open {
   padding: 18px;
 }
 
-.restaurant-detail-layout .restaurant-menu-panel h2 {
+.restaurant-detail-layout .restaurant-menu-panel h2,
+.jhills-guide .restaurant-menu-panel h2 {
   width: fit-content;
   margin: 0 auto;
   border-radius: 12px;
@@ -6063,7 +6071,8 @@ body.author-panel-open {
   text-align: center;
 }
 
-.restaurant-detail-layout .restaurant-menu-panel > p {
+.restaurant-detail-layout .restaurant-menu-panel > p,
+.jhills-guide .restaurant-menu-panel > p {
   margin: 9px 0 16px;
   color: #64777c;
   font-size: 0.88rem;
@@ -6075,6 +6084,22 @@ body.author-panel-open {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
+}
+
+@media (min-width: 1041px) {
+  .jhills-guide .restaurant-menu-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.jhills-guide .restaurant-menu-grid a {
+  aspect-ratio: 7 / 10;
+}
+
+.jhills-guide .restaurant-menu-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .restaurant-menu-grid a {
